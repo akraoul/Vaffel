@@ -142,7 +142,7 @@ export const translations = {
       address: 'Адрес',
       addressText: 'Минск, ТЦ GALLERIA',
       contact: 'Контакты',
-      phone: '+375 29 000 00 00',
+      phone: '+375 29 798 45 02',
       rights: 'Все права защищены. © 2024 Кафе VAFFEL'
     }
   },
@@ -289,7 +289,7 @@ export const translations = {
       address: 'Adresse',
       addressText: 'Minsk, TC GALLERIA',
       contact: 'Contact',
-      phone: '+375 29 000 00 00',
+      phone: '+375 29 798 45 02',
       rights: 'Tous droits réservés. © 2024 Café VAFFEL'
     }
   },
@@ -436,7 +436,7 @@ export const translations = {
       address: '地址',
       addressText: '明斯克，GALLERIA购物中心',
       contact: '联系方式',
-      phone: '+375 29 000 00 00',
+      phone: '+375 29 798 45 02',
       rights: '版权所有。© 2024 VAFFEL咖啡馆'
     }
   },
@@ -579,12 +579,12 @@ export const translations = {
     },
     footer: {
       openingHours: 'Opening Hours',
-      hours: 'Open every day',
+      hours: 'Every day',
       address: 'Address',
-      addressText: 'Minsk, TC GALLERIA',
+      addressText: 'Minsk, GALLERIA Mall',
       contact: 'Contact',
-      phone: '+375 29 000 00 00',
-      rights: 'All rights reserved. © 2024 VAFFEL Café'
+      phone: '+375 29 798 45 02',
+      rights: 'All rights reserved. 2024 VAFFEL Cafe'
     }
   }
 };

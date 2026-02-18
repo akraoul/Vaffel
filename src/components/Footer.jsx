@@ -44,7 +44,7 @@ const Footer = ({ translations }) => {
             </div>
             <p className="text-xs md:text-sm leading-relaxed text-gray-100">
               <a 
-                href="tel:+37529000000" 
+                href="tel:+375297984502" 
                 className="hover:text-orange transition-colors duration-300 text-gray-100"
               >
                 {translations.phone}
