@@ -28,9 +28,9 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
   };
 
   const tabs = [
-    { id: 'waffles', label: translations.navigation.waffles },
-    { id: 'soups', label: translations.navigation.soups },
-    { id: 'drinks', label: translations.navigation.drinks }
+    { id: 'waffles', label: translations.navigation.waffles, icon: '🧇' },
+    { id: 'soups', label: translations.navigation.soups, icon: '🍲' },
+    { id: 'drinks', label: translations.navigation.drinks, icon: '🥤' }
   ];
 
   const languages = ['RU', 'ZH', 'EN'];
@@ -50,16 +50,17 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
 
         {/* Navigation */}
         <div className="flex justify-center space-x-1 pb-2">
-          {tabs.map(tab => (
+          {tabs.map((tab, index) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-md font-medium transition-all duration-300 tab-button ${
+              className={`px-4 py-2 rounded-md font-medium transition-all duration-300 tab-button hover-scale stagger-${index + 1} ${
                 activeTab === tab.id 
                   ? 'tab-active' 
                   : 'tab-inactive'
               }`}
             >
+              <span className="mr-2">{tab.icon}</span>
               {tab.label}
             </button>
           ))}
@@ -94,10 +95,10 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleDarkMode}
-            className="px-3 py-1 rounded text-sm font-medium transition-all duration-300 light-contour switcher-button bg-gray-700 text-gray-300 hover:bg-gray-600"
+            className="px-3 py-1 rounded text-sm font-medium transition-all duration-300 light-contour switcher-button bg-gray-700 text-gray-300 hover:bg-gray-600 hover-scale animate-wiggle"
             aria-label="Toggle dark mode"
           >
-            <span className="text-lg">
+            <span className="text-lg animate-heartbeat">
               {darkMode ? '☀️' : '🌙'}
             </span>
           </button>

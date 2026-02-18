@@ -54,10 +54,10 @@ const Footer = ({ translations }) => {
           {/* Back to Top Button */}
           <button
             onClick={scrollToTop}
-            className="fixed bottom-4 right-4 bg-orange text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 z-50 md:bottom-6 md:right-6"
+            className="fixed bottom-4 right-4 bg-orange text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 z-50 md:bottom-6 md:right-6 hover-lift animate-bounce"
             aria-label="Back to top"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 animate-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l-7 7" />
             </svg>
           </button>
