@@ -1,11 +1,23 @@
 import React from 'react';
+import { translations } from '../translations.js';
 
-const WafflesMenu = ({ currency, translations }) => {
+const WafflesMenu = ({ translations }) => {
   const convertPrice = (price) => {
-    if (currency === 'BYN') return `${price} BYN`;
-    if (currency === 'RUB') return `${(price * 30).toFixed(0)} Р`;
-    if (currency === 'USD') return `${(price * 0.40).toFixed(2)} $`;
-    return `${price} BYN`;
+    return `${price.toFixed(2)} BYN`;
+  };
+
+  const getImageName = (itemKey) => {
+    const frenchNames = {
+      'ДЖОКЕР': 'joker',
+      'ШТРУДЕЛЬ': 'strudel', 
+      'СНИКЕРС': 'snickers',
+      'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
+      'ЦЕЗАРЬ': 'cesar',
+      'ГРИК': 'grec',
+      'ДЖОННИ ПЕППЕРОНИ': 'johnny-pepperoni',
+      'ВВQ': 'bbq'
+    };
+    return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
   };
 
   const wafflesData = {
@@ -87,21 +99,7 @@ const WafflesMenu = ({ currency, translations }) => {
     ]
   };
 
-  const getImageName = (itemKey) => {
-  const frenchNames = {
-    'ДЖОКЕР': 'joker',
-    'ШТРУДЕЛЬ': 'strudel', 
-    'СНИКЕРС': 'snickers',
-    'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
-    'ЦЕЗАРЬ': 'cesar',
-    'ГРИК': 'grec',
-    'ДЖОННИ ПЕППЕРОНИ': 'johnny-pepperoni',
-    'ВВQ': 'bbq'
-  };
-  return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
-};
-
-const WaffleCard = ({ item }) => (
+  const WaffleCard = ({ item }) => (
     <div className="menu-card light-contour flex items-center gap-4">
       <div className="flex-1">
         <h3 className="font-playfair text-2xl font-bold text-orange mb-3">
@@ -148,7 +146,7 @@ const WaffleCard = ({ item }) => (
   return (
     <div className="space-y-8">
       {Object.entries(wafflesData).map(([category, items]) => (
-        <section key={category} className="space-y-4">
+        <div key={category}>
           <h3 className="font-playfair text-2xl font-bold text-green-800 border-b-2 border-green-800 pb-2 mb-4">
             {translations.categories[category]}
           </h3>
@@ -157,7 +155,7 @@ const WaffleCard = ({ item }) => (
               <WaffleCard key={`${category}-${index}`} item={item} />
             ))}
           </div>
-        </section>
+        </div>
       ))}
     </div>
   );

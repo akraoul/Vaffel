@@ -1,12 +1,28 @@
 import React from 'react';
+import { translations } from '../translations.js';
 
-const DrinksMenu = ({ currency, translations }) => {
+const DrinksMenu = ({ translations }) => {
   const convertPrice = (price) => {
-    if (currency === 'BYN') return `${price} BYN`;
-    if (currency === 'RUB') return `${(price * 30).toFixed(0)} Р`;
-    if (currency === 'USD') return `${(price * 0.40).toFixed(2)} $`;
-    return `${price} BYN`;
+    return `${price.toFixed(2)} BYN`;
   };
+
+  const getImageName = (itemKey) => {
+  const frenchNames = {
+    'АМЕРИКАНО': 'americano',
+    'КАПУЧИНО': 'cappuccino',
+    'ЛАТТЕ КЛАССИЧЕСКИЙ': 'latte',
+    'ТЫКВЕННЫЙ ЛАТТЕ': 'latte-citrouille',
+    'ОЛД МАНИ': 'old-man',
+    'СМОРОДИНА ДРАЙВ': 'cassis-drive',
+    'ЧАЙ В АССОРТИМЕНТЕ': 'the-assorti',
+    'ЧАЙ С ЛИМОНОМ И КОРИЦЕЙ': 'the-citron-cannelle',
+    'АБРИКОСОВЫЙ ПОПКОРН': 'pop-corn-abricot',
+    'ГРЕЙП': 'pamplemousse',
+    'ВАНИЛЬНОЕ ЯБЛОКО': 'pomme-vanille',
+    'МЯТНАЯ ЕЖЕВИКА': 'mure-menthe'
+  };
+  return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
+};
 
   const drinksData = {
     [Object.keys(translations.categories)[0]]: [
@@ -86,24 +102,6 @@ const DrinksMenu = ({ currency, translations }) => {
     ]
   };
 
-  const getImageName = (itemKey) => {
-  const frenchNames = {
-    'АМЕРИКАНО': 'americano',
-    'КАПУЧИНО': 'cappuccino',
-    'ЛАТТЕ КЛАССИЧЕСКИЙ': 'latte',
-    'ТЫКВЕННЫЙ ЛАТТЕ': 'latte-citrouille',
-    'ОЛД МАНИ': 'old-man',
-    'СМОРОДИНА ДРАЙВ': 'cassis-drive',
-    'ЧАЙ В АССОРТИМЕНТЕ': 'the-assorti',
-    'ЧАЙ С ЛИМОНОМ И КОРИЦЕЙ': 'the-citron-cannelle',
-    'АБРИКОСОВЫЙ ПОПКОРН': 'pop-corn-abricot',
-    'ГРЕЙП': 'pamplemousse',
-    'ВАНИЛЬНОЕ ЯБЛОКО': 'pomme-vanille',
-    'МЯТНАЯ ЕЖЕВИКА': 'mure-menthe'
-  };
-  return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
-};
-
 const DrinkCard = ({ item }) => (
     <div className="menu-card light-contour flex items-center gap-4">
       <div className="flex-1">
@@ -151,16 +149,16 @@ const DrinkCard = ({ item }) => (
   return (
     <div className="space-y-8">
       {Object.entries(drinksData).map(([category, items]) => (
-        <section key={category} className="space-y-4">
+        <div key={category}>
           <h3 className="font-playfair text-2xl font-bold text-green-800 border-b-2 border-green-800 pb-2 mb-4">
             {translations.categories[category]}
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {items.map((item, index) => (
               <DrinkCard key={`${category}-${index}`} item={item} />
             ))}
           </div>
-        </section>
+        </div>
       ))}
     </div>
   );

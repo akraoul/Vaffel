@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Header = ({ activeTab, setActiveTab, currency, setCurrency, language, setLanguage, translations }) => {
+const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }) => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -33,7 +33,6 @@ const Header = ({ activeTab, setActiveTab, currency, setCurrency, language, setL
     { id: 'drinks', label: translations.navigation.drinks }
   ];
 
-  const currencies = ['BYN', 'RUB', 'USD'];
   const languages = ['RU', 'ZH', 'EN'];
 
   return (
@@ -102,25 +101,6 @@ const Header = ({ activeTab, setActiveTab, currency, setCurrency, language, setL
               {darkMode ? '☀️' : '🌙'}
             </span>
           </button>
-
-          {/* Currency Switcher */}
-          <div className="flex items-center space-x-1">
-            <div className="flex space-x-1">
-              {currencies.map(curr => (
-                <button
-                  key={curr}
-                  onClick={() => setCurrency(curr)}
-                  className={`px-3 py-1 rounded text-sm font-medium transition-all duration-300 light-contour switcher-button ${
-                    currency === curr 
-                      ? 'bg-orange text-white glow-effect' 
-                      : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                  }`}
-                >
-                  {curr}
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </header>
