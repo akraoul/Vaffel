@@ -34,6 +34,11 @@
     color: #ff4800;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
+  
+  body.dark {
+    background-color: #0f172a;
+    color: #ff6b35;
+  }
 }
 
 @layer components {
@@ -49,6 +54,12 @@
     position: relative;
     overflow: hidden;
     animation: slide-in 0.5s ease-out;
+  }
+  
+  body.dark .menu-card {
+    background-color: rgba(30, 41, 59, 0.9);
+    border-color: rgb(51, 65, 85);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
   }
   
   .menu-card::before {
@@ -76,6 +87,11 @@
     transform: translateY(-8px) scale(1.02);
   }
   
+  body.dark .menu-card:hover {
+    background-color: rgba(51, 65, 85, 0.9);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+  
   .menu-card:nth-child(1) { animation-delay: 0.1s; }
   .menu-card:nth-child(2) { animation-delay: 0.2s; }
   .menu-card:nth-child(3) { animation-delay: 0.3s; }
@@ -91,6 +107,11 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
+  body.dark .tab-active {
+    background-color: #1e293b;
+    color: #ff6b35;
+  }
+  
   .tab-active::after {
     content: '';
     position: absolute;
@@ -102,6 +123,10 @@
     animation: glow 2s ease-in-out infinite alternate;
   }
   
+  body.dark .tab-active::after {
+    background: linear-gradient(90deg, transparent, #ff6b35, transparent);
+  }
+  
   .tab-inactive {
     background-color: rgba(55, 65, 81, 0.8);
     backdrop-filter: blur(8px);
@@ -110,6 +135,12 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+  }
+
+  body.dark .tab-inactive {
+    background-color: rgba(51, 65, 85, 0.8);
+    color: #ff6b35;
+    border-color: rgb(71, 85, 105);
   }
 
   .tab-inactive::before {
@@ -136,8 +167,17 @@
     box-shadow: 0 5px 15px rgba(255, 72, 0, 0.3);
   }
 
+  body.dark .tab-inactive:hover {
+    background-color: rgba(71, 85, 105, 0.9);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+  }
+
   .neon-border {
     box-shadow: 0 0 5px #230900, 0 0 10px #230900, 0 0 15px #230900, inset 0 0 5px rgba(35, 9, 0, 0.1);
+  }
+
+  body.dark .neon-border {
+    box-shadow: 0 0 5px #ff6b35, 0 0 10px #ff6b35, 0 0 15px #ff6b35, inset 0 0 5px rgba(255, 107, 53, 0.1);
   }
 
   .dots-pattern {
@@ -145,6 +185,11 @@
     background-size: 20px 20px;
     opacity: 0.1;
     animation: float-dots 20s linear infinite;
+  }
+
+  body.dark .dots-pattern {
+    background-image: radial-gradient(circle, #ff6b35 1px, transparent 1px);
+    opacity: 0.05;
   }
 
   .triangle-pattern {
@@ -159,6 +204,17 @@
     background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
     opacity: 0.05;
     animation: float-triangles 25s linear infinite;
+  }
+
+  body.dark .triangle-pattern {
+    background-image: 
+      linear-gradient(30deg, #ff6b35 12%, transparent 12.5%, transparent 87%, #ff6b35 87.5%, #ff6b35),
+      linear-gradient(150deg, #ff6b35 12%, transparent 12.5%, transparent 87%, #ff6b35 87.5%, #ff6b35),
+      linear-gradient(30deg, #ff6b35 12%, transparent 12.5%, transparent 87%, #ff6b35 87.5%, #ff6b35),
+      linear-gradient(150deg, #ff6b35 12%, transparent 12.5%, transparent 87%, #ff6b35 87.5%, #ff6b35),
+      linear-gradient(60deg, #22c55e 25%, transparent 25.5%, transparent 75%, #22c55e 75%, #22c55e),
+      linear-gradient(60deg, #22c55e 25%, transparent 25.5%, transparent 75%, #22c55e 75%, #22c55e);
+    opacity: 0.03;
   }
 
   .floating-element {
@@ -199,6 +255,10 @@
     box-shadow: 0 5px 15px rgba(255, 72, 0, 0.3);
   }
 
+  body.dark .btn-animated:hover {
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+  }
+
   .menu-image {
     transition: all 0.3s ease;
     animation: scale-in 0.6s ease-out;
@@ -207,6 +267,10 @@
   .menu-image:hover {
     transform: scale(1.05) rotate(2deg);
     box-shadow: 0 8px 20px rgba(255, 72, 0, 0.3);
+  }
+
+  body.dark .menu-image:hover {
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
   }
 
   .switcher-button {
