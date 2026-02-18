@@ -19,5 +19,10 @@
   "installCommand": "npm install",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "functions": {
+    "dist/index.html": {
+      "runtime": "nodejs18.x"
+    }
+  }
 }
