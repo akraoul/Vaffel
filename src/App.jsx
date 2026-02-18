@@ -9,7 +9,7 @@ import { translations } from './translations.js';
 function App() {
   const [activeTab, setActiveTab] = useState('waffles');
   const [currency, setCurrency] = useState('BYN');
-  const [language, setLanguage] = useState('ZH');
+  const [language, setLanguage] = useState('RU');
 
   const currentTranslation = translations[language];
 
