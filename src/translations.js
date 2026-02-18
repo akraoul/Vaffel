@@ -138,7 +138,7 @@ export const translations = {
     },
     footer: {
       openingHours: 'Часы работы',
-      hours: '',
+      hours: 'Ежедневно',
       address: 'Адрес',
       addressText: 'Минск, ТЦ GALLERIA',
       contact: 'Контакты',
@@ -285,7 +285,7 @@ export const translations = {
     },
     footer: {
       openingHours: 'Heures d\'ouverture',
-      hours: '',
+      hours: 'Tous les jours',
       address: 'Adresse',
       addressText: 'Minsk, TC GALLERIA',
       contact: 'Contact',
@@ -432,7 +432,7 @@ export const translations = {
     },
     footer: {
       openingHours: '营业时间',
-      hours: '',
+      hours: '每日营业',
       address: '地址',
       addressText: '明斯克，GALLERIA购物中心',
       contact: '联系方式',
