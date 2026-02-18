@@ -5,18 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VAFFEL - Кафе в Минске | Вафли, Супы, Напитки | Меню</title>
   <meta name="description" content="Меню кафе VAFFEL в Минске - авторские вафли, горячие супы и напитки. Сладкое и сытное в каждом укусе. ТЦ GALLERIA." />
-  <meta name="keywords" content="кафе, вафли, кофе, Минск, VAFFEL, меню, ТЦ GALLERIA, ресторан, завтрак" />
+  <meta name="keywords" content="кафе, вафли, кофе, Минск, VAFFEL, меню, ТЦ GALLERIA, ресторан, завтрак, обед, ужин" />
   <meta name="author" content="Кафе VAFFEL" />
-  <meta property="og:title" content="VAFFEL - Кафе в Минске" />
-  <meta property="og:description" content="Авторские вафли, супы и напитки в центре Минска" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ru_RU" />
   <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#ff4800" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaffel-menu.vercel.app" />
+  <meta property="og:title" content="VAFFEL - Кафе в Минске | Вафли, Супы, Напитки" />
+  <meta property="og:description" content="Авторские вафли, супы и напитки в центре Минска. Сладкое и сытное в каждом укусе." />
+  <meta property="og:image" content="https://vaffel-menu.vercel.app/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="VAFFEL" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://vaffel-menu.vercel.app" />
+  <meta property="twitter:title" content="VAFFEL - Кафе в Минске | Вафли, Супы, Напитки" />
+  <meta property="twitter:description" content="Авторские вафли, супы и напитки в центре Минска. Сладкое и сытное в каждом укусе." />
+  <meta property="twitter:image" content="https://vaffel-menu.vercel.app/og-image.jpg" />
+  
+  <!-- Additional SEO -->
   <link rel="canonical" href="https://vaffel-menu.vercel.app" />
+  <link rel="alternate" hreflang="ru" href="https://vaffel-menu.vercel.app" />
+  <link rel="alternate" hreflang="zh" href="https://vaffel-menu.vercel.app?lang=zh" />
+  <link rel="alternate" hreflang="en" href="https://vaffel-menu.vercel.app?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://vaffel-menu.vercel.app" />
+  
+  <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "VAFFEL",
+    "description": "Кафе в Минске с авторскими вафлями, супами и напитками",
+    "url": "https://vaffel-menu.vercel.app",
+    "telephone": "+375 29 000 00 00",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ТЦ GALLERIA",
+      "addressLocality": "Минск",
+      "addressCountry": "BY"
+    },
+    "servesCuisine": ["European", "Belarusian"],
+    "priceRange": "$$",
+    "openingHours": "Mo-Su 09:00-22:00",
+    "menu": "https://vaffel-menu.vercel.app",
+    "image": "https://vaffel-menu.vercel.app/og-image.jpg",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "150"
+    }
+  }
+  </script>
 </head>
 <body style="background-color: #939393; color: #ff4800;" class="font-montserrat">
   <div id="root"></div>

@@ -111,11 +111,17 @@ const WaffleCard = ({ item }) => (
           {item.description}
         </p>
         <div className="flex justify-between items-center">
-          <div className="text-green-800 font-semibold text-lg">
+          <div className="text-green-800 font-semibold">
             {item.miniPrice && item.fullPrice ? (
-              <div className="flex space-x-4">
-                <span>Mini: {convertPrice(item.miniPrice)}</span>
-                <span>Full: {convertPrice(item.fullPrice)}</span>
+              <div className="space-y-1">
+                <div className="flex justify-between">
+                  <span>Мини:</span>
+                  <span className="ml-4">{convertPrice(item.miniPrice)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Фул:</span>
+                  <span className="ml-4">{convertPrice(item.fullPrice)}</span>
+                </div>
               </div>
             ) : (
               <span>{convertPrice(item.price)}</span>
@@ -124,7 +130,7 @@ const WaffleCard = ({ item }) => (
         </div>
       </div>
       <div className="flex-shrink-0">
-        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-orange shadow-lg">
+        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-orange shadow-lg menu-image">
           <img 
             src={`/${getImageName(item.name)}.jpg`}
             alt={translations.items[item.name].name}

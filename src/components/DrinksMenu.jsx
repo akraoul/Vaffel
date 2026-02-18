@@ -133,7 +133,7 @@ const DrinkCard = ({ item }) => (
         </div>
       </div>
       <div className="flex-shrink-0">
-        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-orange shadow-lg">
+        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-orange shadow-lg menu-image">
           <img 
             src={`/${getImageName(item.name)}.jpg`}
             alt={translations.items[item.name].name}

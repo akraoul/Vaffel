@@ -1,6 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Header = ({ activeTab, setActiveTab, currency, setCurrency, language, setLanguage, translations }) => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check localStorage for dark mode preference
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    setDarkMode(savedDarkMode);
+    
+    // Apply dark mode class to body
+    if (savedDarkMode) {
+      document.body.classList.add('dark');
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem('darkMode', newDarkMode);
+    
+    // Toggle dark mode class
+    if (newDarkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  };
+
   const tabs = [
     { id: 'waffles', label: translations.navigation.waffles },
     { id: 'soups', label: translations.navigation.soups },
@@ -11,7 +37,7 @@ const Header = ({ activeTab, setActiveTab, currency, setCurrency, language, setL
   const languages = ['RU', 'ZH', 'EN'];
 
   return (
-    <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-lg sticky top-0 z-50 neon-border relative">
+    <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-lg sticky top-0 z-50 neon-border relative dark-mode-transition">
       <div className="container mx-auto px-4">
         {/* Logo and Slogan */}
         <div className="text-center py-3">
@@ -23,23 +49,25 @@ const Header = ({ activeTab, setActiveTab, currency, setCurrency, language, setL
           </p>
         </div>
 
-        {/* Navigation Tabs */}
-        <nav className="flex justify-center space-x-1 pb-2">
+        {/* Navigation */}
+        <div className="flex justify-center space-x-1 pb-2">
           {tabs.map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-md font-semibold transition-all duration-300 light-contour ${
-                activeTab === tab.id ? 'tab-active' : 'tab-inactive'
+              className={`px-4 py-2 rounded-md font-medium transition-all duration-300 tab-button ${
+                activeTab === tab.id 
+                  ? 'tab-active' 
+                  : 'tab-inactive'
               }`}
             >
               {tab.label}
             </button>
           ))}
-        </nav>
+        </div>
 
-        {/* Language and Currency Switchers */}
-        <div className="flex justify-center space-x-6 pb-2">
+        {/* Switchers */}
+        <div className="flex justify-between items-center pb-2">
           {/* Language Switcher */}
           <div className="flex items-center space-x-1">
             <div className="flex space-x-1">
@@ -47,7 +75,7 @@ const Header = ({ activeTab, setActiveTab, currency, setCurrency, language, setL
                 <button
                   key={lang}
                   onClick={() => setLanguage(lang)}
-                  className={`px-3 py-1 rounded text-sm font-medium transition-all duration-300 light-contour ${
+                  className={`px-3 py-1 rounded text-sm font-medium transition-all duration-300 light-contour switcher-button ${
                     language === lang 
                       ? 'bg-orange text-white glow-effect' 
                       : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
@@ -64,6 +92,17 @@ const Header = ({ activeTab, setActiveTab, currency, setCurrency, language, setL
             </div>
           </div>
 
+          {/* Dark Mode Toggle */}
+          <button
+            onClick={toggleDarkMode}
+            className="px-3 py-1 rounded text-sm font-medium transition-all duration-300 light-contour switcher-button bg-gray-700 text-gray-300 hover:bg-gray-600"
+            aria-label="Toggle dark mode"
+          >
+            <span className="text-lg">
+              {darkMode ? '☀️' : '🌙'}
+            </span>
+          </button>
+
           {/* Currency Switcher */}
           <div className="flex items-center space-x-1">
             <div className="flex space-x-1">
@@ -71,13 +110,13 @@ const Header = ({ activeTab, setActiveTab, currency, setCurrency, language, setL
                 <button
                   key={curr}
                   onClick={() => setCurrency(curr)}
-                  className={`px-3 py-1 rounded text-sm font-medium transition-all duration-300 light-contour ${
+                  className={`px-3 py-1 rounded text-sm font-medium transition-all duration-300 light-contour switcher-button ${
                     currency === curr 
                       ? 'bg-orange text-white glow-effect' 
                       : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                   }`}
                 >
-                  {translations.currency[curr]}
+                  {curr}
                 </button>
               ))}
             </div>

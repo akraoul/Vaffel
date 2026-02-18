@@ -32,20 +32,20 @@ const SoupsMenu = ({ currency, translations }) => {
 const SoupCard = ({ item }) => (
     <div className="menu-card light-contour flex items-center gap-4">
       <div className="flex-1">
-        <h3 className="font-playfair text-2xl font-bold text-orange mb-3">
+        <h3 className="font-playfair text-2xl font-bold text-green-800 mb-3">
           {translations.items[item.name].name}
         </h3>
         <p className="text-sm text-gray-600 mb-4 leading-relaxed">
           {item.description}
         </p>
         <div className="flex justify-between items-center">
-          <div className="text-green-800 font-semibold text-lg">
-            {convertPrice(item.price)}
+          <div className="text-green-800 font-semibold">
+            <span>{convertPrice(item.price)}</span>
           </div>
         </div>
       </div>
       <div className="flex-shrink-0">
-        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-orange shadow-lg">
+        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-orange shadow-lg menu-image">
           <img 
             src={`/${getImageName(item.name)}.jpg`}
             alt={translations.items[item.name].name}
