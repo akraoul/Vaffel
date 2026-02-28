@@ -16,8 +16,7 @@ export const translations = {
       categories: {
         'КЛАССИЧЕСКОЕ ТЕСТО': 'КЛАССИЧЕСКОЕ ТЕСТО',
         'ШПИНАТНОЕ ТЕСТО': 'ШПИНАТНОЕ ТЕСТО',
-        'СЫРНОЕ ТЕСТО': 'СЫРНОЕ ТЕСТО',
-        'ТОМАТНОЕ ТЕСТО': 'ТОМАТНОЕ ТЕСТО'
+        'СЫРНОЕ ТЕСТО': 'СЫРНОЕ ТЕСТО'
       },
       items: {
         'КЛУБНИЧНЫЙ КУЛИ': {
@@ -32,45 +31,29 @@ export const translations = {
           name: 'СНИКЕРС',
           description: 'шоколадно-ореховая паста, зефирный крем, арахис крошка, карамельный соус, рисовые шарики, сахарная пудра'
         },
-        'ШТРУДЕЛЬ': {
-          name: 'ШТРУДЕЛЬ',
-          description: 'яблоко, корица, маскарпоне, соус карамель, сахарная пудра'
+        'ЦЫПЛЕНОК 2 СЫРА': {
+          name: 'ЦЫПЛЕНОК 2 СЫРА',
+          description: 'Шпинатная вафля, авторский тар-тар, цыпленок, чеддер, пармезан, айсберг, томат'
         },
-        'ЛЕГЕНДА НОРВЕГИИ': {
-          name: 'ЛЕГЕНДА НОРВЕГИИ',
-          description: 'соленый лосось, сливочный сыр, огурец, руккола'
+        'НОРВЕЖСКАЯ РЫБКА': {
+          name: 'НОРВЕЖСКАЯ РЫБКА',
+          description: 'Шпинатная вафля, воздушный чиз, свежий огурчик, лосось сс, руккола'
         },
-        'ЦЕЗАРЬ': {
-          name: 'ЦЕЗАРЬ',
-          description: 'куриная грудка, пармезан, салат айсберг, соус «Цезарь»'
+        'ИТАЛЬЯНСКАЯ КЛАССИКА': {
+          name: 'ИТАЛЬЯНСКАЯ КЛАССИКА',
+          description: 'Шпинатная вафля, фисташковая паста, мортаделла, айсберг, воздушный чиз, чимичурри'
         },
-        'ГРИК': {
-          name: 'ГРИК',
-          description: 'фета, оливки, помидоры, салат айсберг, соус «Греческий»'
+        'ГОВЯДИНА ПО-БУРГУНДСКИ': {
+          name: 'ГОВЯДИНА ПО-БУРГУНДСКИ',
+          description: 'Сырная вафля, говяжья котлета, чеддер, луковый джем, чесночный, томат, айсберг'
         },
-        'ДЖОННИ ПЕППЕРОНИ': {
-          name: 'ДЖОННИ ПЕППЕРОНИ',
-          description: 'пепперони, моцарелла, томат, айсберг, соус «Пицца»'
+        'ГАВАЙИ': {
+          name: 'ГАВАЙИ',
+          description: 'Сырная вафля, цыпленок, ананас, моцарелла, воздушный чиз, айсберг, сладкий Чили'
         },
-        'ЧИКЕН ЧИЗ': {
-          name: 'ЧИКЕН ЧИЗ',
-          description: 'котлета куриная, сливочный сыр, томат, сыр «Чеддер», айсберг, соус «Кисло-сладкий»'
-        },
-        'ГАВАЙСКАЯ': {
-          name: 'ГАВАЙСКАЯ',
-          description: 'запеченное куриное филе, ананас, сыр «Моцарелла», сливочный сыр, айсберг, соус «Сладкий чили»'
-        },
-        'ЧИКЕН ПРАЙМ': {
-          name: 'ЧИКЕН ПРАЙМ',
-          description: '1,5 куриные котлеты, сыр «Чеддер», томат, айсберг, соус «Чесноковый»'
-        },
-        'МОЛЧАЛИВЫЙ БИФ': {
-          name: 'МОЛЧАЛИВЫЙ БИФ',
-          description: 'котлета из говядины, сыр «Чеддер», маринованные огурец и красный лук, салат айсберг, соус «Дижонский»'
-        },
-        'ВВQ': {
-          name: 'ВВQ',
-          description: 'котлета из говядины, жареный бекон, сыр «Чеддер», айсберг, маринованные огурец и красный лук, соус «Барбекю», соус «Сладкая аджика»'
+        'ЦЫПЛЕНОК МАНГО-КАРРИ': {
+          name: 'ЦЫПЛЕНОК МАНГО-КАРРИ',
+          description: 'Сырная вафля, цыпленок, манго карри, чесночный, томат, айсберг'
         }
       }
     },
@@ -167,57 +150,44 @@ export const translations = {
       categories: {
         'КЛАССИЧЕСКОЕ ТЕСТО': 'PÂTE CLASSIQUE',
         'ШПИНАТНОЕ ТЕСТО': 'PÂTE AUX ÉPINARDS',
-        'СЫРНОЕ ТЕСТО': 'PÂTE AU FROMAGE',
-        'ТОМАТНОЕ ТЕСТО': 'PÂTE À LA TOMATE'
+        'СЫРНОЕ ТЕСТО': 'PÂTE AU FROMAGE'
       },
       items: {
-        'ДЖОКЕР': {
-          name: 'JOKER',
-          description: 'oursons en guimauve, fraises, riz soufflé, mousse à base de mascarpone, crème de guimauve, sucre glace'
+        'КЛУБНИЧНЫЙ КУЛИ': {
+          name: 'COULIS FRAISE',
+          description: 'Gaufre sucrée, crème aérée, coulis fraise, sucre glace'
         },
-        'ШТРУДЕЛЬ': {
-          name: 'STRUDEL',
-          description: 'pomme, cannelle, mascarpone, sauce caramel, sucre glace'
+        'ШОКОЛАД БАНАН': {
+          name: 'CHOCOLAT BANANE',
+          description: 'Gaufre sucrée, crème aérée, pâte chocolat, banane, sucre glace'
         },
         'СНИКЕРС': {
           name: 'SNICKERS',
-          description: 'pâte à tartiner chocolat-noisette, crème de guimauve, arachides concassées, sauce caramel, riz soufflé, sucre glace'
+          description: 'pâte chocolat-noisette, crème guimauve, cacahuète, sauce caramel, riz soufflé, sucre glace'
         },
-        'ЛЕГЕНДА НОРВЕГИИ': {
-          name: 'LÉGENDE DE NORVÈGE',
-          description: 'saumon fumé, fromage à la crème, concombre, roquette'
+        'ЦЫПЛЕНОК 2 СЫРА': {
+          name: 'POULET 2 FROMAGES',
+          description: 'Gaufre épinards, tartare maison, poulet, cheddar, parmesan, iceberg, tomate'
         },
-        'ЦЕЗАРЬ': {
-          name: 'CÉSAR',
-          description: 'poulet rôti, tomate, laitue iceberg, sauce César'
+        'НОРВЕЖСКАЯ РЫБКА': {
+          name: 'POISSON NORVÉGIEN',
+          description: 'Gaufre épinards, fromage aéré, concombre frais, saumon fumé, roquette'
         },
-        'ГРИК': {
-          name: 'GREC',
-          description: 'tomate, concombre, paprika, olives, sauce douce adjika, sauce feta'
+        'ИТАЛЬЯНСКАЯ КЛАССИКА': {
+          name: 'CLASSIQUE ITALIEN',
+          description: 'Gaufre épinards, pâte pistache, mortadelle, iceberg, fromage aéré, chimichurri'
         },
-        'ДЖОННИ ПЕППЕРОНИ': {
-          name: 'JOHNNY PEPPERONI',
-          description: 'pepperoni, bacon grillé, sauce tomate, paprika, laitue iceberg, sauce feta'
+        'ГОВЯДИНА ПО-БУРГУНДСКИ': {
+          name: 'BŒUF BOURGUIGNON',
+          description: 'Gaufre fromage, steak bœuf, cheddar, confit oignon, ail, tomate, iceberg'
         },
-        'ЧИКЕН ЧИЗ': {
-          name: 'CHICKEN CHEESE',
-          description: 'côtelette de poulet, fromage à la crème, tomate, cheddar, laitue iceberg, sauce aigre-douce'
+        'ГАВАЙИ': {
+          name: 'HAWAÏ',
+          description: 'Gaufre fromage, poulet, ananas, mozzarella, fromage aéré, iceberg, chili doux'
         },
-        'ГАВАЙСКАЯ': {
-          name: 'HAWAÏENNE',
-          description: 'poulet rôti, ananas, mozzarella, fromage à la crème, laitue iceberg, sauce sweet chili'
-        },
-        'ЧИКЕН ПРАЙМ': {
-          name: 'CHICKEN PRIME',
-          description: '1,5 côtelettes de poulet, cheddar, tomate, laitue iceberg, sauce à l\'ail'
-        },
-        'МОЛЧАЛИВЫЙ БИФ': {
-          name: 'SILENT BEEF',
-          description: 'côtelette de bœuf, cheddar, concombre mariné et oignon rouge, salade iceberg, sauce Dijon'
-        },
-        'ВВQ': {
-          name: 'BBQ',
-          description: 'côtelette de bœuf, bacon grillé, cheddar, laitue iceberg, concombre mariné et oignon rouge, sauce barbecue, sauce douce adjika'
+        'ЦЫПЛЕНОК МАНГО-КАРРИ': {
+          name: 'POULET MANGO-CURRY',
+          description: 'Gaufre fromage, poulet, curry mango, ail, tomate, iceberg'
         }
       }
     },
@@ -314,57 +284,44 @@ export const translations = {
       categories: {
         'КЛАССИЧЕСКОЕ ТЕСТО': '经典面团',
         'ШПИНАТНОЕ ТЕСТО': '菠菜面团',
-        'СЫРНОЕ ТЕСТО': '芝士面团',
-        'ТОМАТНОЕ ТЕСТО': '番茄面团'
+        'СЫРНОЕ ТЕСТО': '芝士面团'
       },
       items: {
-        'ДЖОКЕР': {
-          name: '小丑',
-          description: '软糖熊，草莓，爆米花，马斯卡彭芝士慕斯，棉花糖奶油，糖粉'
+        'КЛУБНИЧНЫЙ КУЛИ': {
+          name: '草莓库利',
+          description: '甜华夫饼，轻盈奶油，草莓库利，糖粉'
         },
-        'ШТРУДЕЛЬ': {
-          name: '果馅卷',
-          description: '苹果，肉桂，马斯卡彭芝士，焦糖酱，糖粉'
+        'ШОКОЛАД БАНАН': {
+          name: '巧克力香蕉',
+          description: '甜华夫饼，轻盈奶油，巧克力酱，香蕉，糖粉'
         },
         'СНИКЕРС': {
           name: '士力架',
           description: '巧克力花生酱，棉花糖奶油，碎花生，焦糖酱，爆米花，糖粉'
         },
-        'ЛЕГЕНДА НОРВЕГИИ': {
-          name: '挪威传说',
-          description: '烟熏三文鱼，奶油芝士，黄瓜，芝麻菜'
+        'ЦЫПЛЕНОК 2 СЫРА': {
+          name: '鸡肉双芝士',
+          description: '菠菜华夫饼，自制塔塔酱，鸡肉，切达芝士，帕玛森芝士，生菜，番茄'
         },
-        'ЦЕЗАРЬ': {
-          name: '凯撒沙拉',
-          description: '烤鸡胸，番茄，生菜，凯撒酱'
+        'НОРВЕЖСКАЯ РЫБКА': {
+          name: '挪威鱼',
+          description: '菠菜华夫饼，轻盈芝士，新鲜黄瓜，烟熏三文鱼，芝麻菜'
         },
-        'ГРИК': {
-          name: '希腊',
-          description: '番茄，黄瓜，甜椒，橄榄，甜辣椒酱，羊奶酪酱'
+        'ИТАЛЬЯНСКАЯ КЛАССИКА': {
+          name: '意大利经典',
+          description: '菠菜华夫饼，开心果酱，意大利香肠，生菜，轻盈芝士，青酱'
         },
-        'ДЖОННИ ПЕППЕРОНИ': {
-          name: '约翰尼意式香肠',
-          description: '意式香肠，煎培根，番茄酱，甜椒，生菜，羊奶酪酱'
+        'ГОВЯДИНА ПО-БУРГУНДСКИ': {
+          name: '勃艮第牛肉',
+          description: '芝士华夫饼，牛肉饼，切达芝士，洋葱酱，大蒜，番茄，生菜'
         },
-        'ЧИКЕН ЧИЗ': {
-          name: '鸡肉芝士',
-          description: '鸡肉饼，奶油芝士，番茄，切达芝士，生菜，酸甜酱'
-        },
-        'ГАВАЙСКАЯ': {
+        'ГАВАЙИ': {
           name: '夏威夷',
-          description: '烤鸡胸，菠萝，马苏里拉芝士，奶油芝士，生菜，甜辣椒酱'
+          description: '芝士华夫饼，鸡肉，菠萝，马苏里拉芝士，轻盈芝士，生菜，甜辣椒'
         },
-        'ЧИКЕН ПРАЙМ': {
-          name: '鸡肉至尊',
-          description: '1.5块鸡肉饼，切达芝士，番茄，生菜，蒜蓉酱'
-        },
-        'МОЛЧАЛИВЫЙ БИФ': {
-          name: '沉默牛肉',
-          description: '牛肉饼，切达芝士，腌黄瓜红洋葱，生菜，第戎芥末酱'
-        },
-        'ВВQ': {
-          name: 'BBQ',
-          description: '牛肉饼，煎培根，切达芝士，生菜，腌黄瓜红洋葱，烧烤酱，甜辣椒酱'
+        'ЦЫПЛЕНОК МАНГО-КАРРИ': {
+          name: '鸡肉芒果咖喱',
+          description: '芝士华夫饼，鸡肉，芒果咖喱，大蒜，番茄，生菜'
         }
       }
     },
@@ -461,57 +418,44 @@ export const translations = {
       categories: {
         'КЛАССИЧЕСКОЕ ТЕСТО': 'CLASSIC DOUGH',
         'ШПИНАТНОЕ ТЕСТО': 'SPINACH DOUGH',
-        'СЫРНОЕ ТЕСТО': 'CHEESE DOUGH',
-        'ТОМАТНОЕ ТЕСТО': 'TOMATO DOUGH'
+        'СЫРНОЕ ТЕСТО': 'CHEESE DOUGH'
       },
       items: {
-        'ДЖОКЕР': {
-          name: 'JOKER',
-          description: 'gummy bears, strawberries, puffed rice, mascarpone-based mousse, marshmallow cream, powdered sugar'
+        'КЛУБНИЧНЫЙ КУЛИ': {
+          name: 'STRAWBERRY COULIS',
+          description: 'Sweet waffle, airy cream, strawberry coulis, powdered sugar'
         },
-        'ШТРУДЕЛЬ': {
-          name: 'STRUDEL',
-          description: 'apple, cinnamon, mascarpone, caramel sauce, powdered sugar'
+        'ШОКОЛАД БАНАН': {
+          name: 'CHOCOLATE BANANA',
+          description: 'Sweet waffle, airy cream, chocolate paste, banana, powdered sugar'
         },
         'СНИКЕРС': {
           name: 'SNICKERS',
           description: 'chocolate-hazelnut spread, marshmallow cream, crushed peanuts, caramel sauce, puffed rice, powdered sugar'
         },
-        'ЛЕГЕНДА НОРВЕГИИ': {
-          name: 'NORWEGIAN LEGEND',
-          description: 'salted salmon, cream cheese, cucumber, arugula'
+        'ЦЫПЛЕНОК 2 СЫРА': {
+          name: 'CHICKEN 2 CHEESES',
+          description: 'Spinach waffle, homemade tartar, chicken, cheddar, parmesan, iceberg, tomato'
         },
-        'ЦЕЗАРЬ': {
-          name: 'CAESAR',
-          description: 'grilled chicken breast, tomato, iceberg lettuce, Caesar sauce'
+        'НОРВЕЖСКАЯ РЫБКА': {
+          name: 'NORWEGIAN FISH',
+          description: 'Spinach waffle, airy cheese, fresh cucumber, smoked salmon, arugula'
         },
-        'ГРИК': {
-          name: 'GREEK',
-          description: 'tomato, cucumber, paprika, olives, sweet adjika sauce, feta sauce'
+        'ИТАЛЬЯНСКАЯ КЛАССИКА': {
+          name: 'ITALIAN CLASSIC',
+          description: 'Spinach waffle, pistachio paste, mortadella, iceberg, airy cheese, chimichurri'
         },
-        'ДЖОННИ ПЕППЕРОНИ': {
-          name: 'JOHNNY PEPPERONI',
-          description: 'pepperoni, fried bacon, tomato sauce, paprika, iceberg lettuce, feta sauce'
+        'ГОВЯДИНА ПО-БУРГУНДСКИ': {
+          name: 'BEEF BOURGUIGNON',
+          description: 'Cheese waffle, beef cutlet, cheddar, onion jam, garlic, tomato, iceberg'
         },
-        'ЧИКЕН ЧИЗ': {
-          name: 'CHICKEN CHEESE',
-          description: 'chicken cutlet, cream cheese, tomato, cheddar cheese, iceberg lettuce, sweet and sour sauce'
+        'ГАВАЙИ': {
+          name: 'HAWAII',
+          description: 'Cheese waffle, chicken, pineapple, mozzarella, airy cheese, iceberg, sweet chili'
         },
-        'ГАВАЙСКАЯ': {
-          name: 'HAWAIIAN',
-          description: 'grilled chicken breast, pineapple, mozzarella cheese, cream cheese, iceberg lettuce, sweet chili sauce'
-        },
-        'ЧИКЕН ПРАЙМ': {
-          name: 'CHICKEN PRIME',
-          description: '1.5 chicken cutlets, cheddar cheese, tomato, iceberg lettuce, garlic sauce'
-        },
-        'МОЛЧАЛИВЫЙ БИФ': {
-          name: 'SILENT BEEF',
-          description: 'beef cutlet, cheddar cheese, pickled cucumber and red onion, iceberg lettuce, Dijon sauce'
-        },
-        'ВВQ': {
-          name: 'BBQ',
-          description: 'beef cutlet, fried bacon, cheddar cheese, iceberg lettuce, pickled cucumber and red onion, barbecue sauce, sweet adjika sauce'
+        'ЦЫПЛЕНОК МАНГО-КАРРИ': {
+          name: 'CHICKEN MANGO-CURRY',
+          description: 'Cheese waffle, chicken, mango curry, garlic, tomato, iceberg'
         }
       }
     },
