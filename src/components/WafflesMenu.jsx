@@ -13,7 +13,10 @@ const WafflesMenu = ({ translations }) => {
       'СНИКЕРС': 'snickers',
       'ЦЫПЛЕНОК 2 СЫРА': 'tsyplyonok-2-syra',
       'НОРВЕЖСКАЯ РЫБКА': 'norvezhskaya-rybka',
-      'ИТАЛЬЯНСКАЯ КЛАССИКА': 'italyanskaya-klassika',
+      'ИТАЛЬЯНСКАЯ КЛАССИКА': 'ilyanskaya-klassika',
+      'ГОВЯДИНА ПО-БУРГУНДСКИ': 'govyadina-po-burgundski',
+      'ГАВАЙИ': 'gavayi',
+      'ЦЫПЛЕНОК МАНГО-КАРРИ': 'tsyplyonok-mango-karri',
       'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
       'ЦЕЗАРЬ': 'cesar',
       'ГРИК': 'grec',
@@ -66,21 +69,21 @@ const WafflesMenu = ({ translations }) => {
     ],
     [Object.keys(translations.categories)[2]]: [
       {
-        name: 'ДЖОННИ ПЕППЕРОНИ',
+        name: 'ГОВЯДИНА ПО-БУРГУНДСКИ',
         miniPrice: 12.40,
         fullPrice: 17.90,
-        description: translations.items['ДЖОННИ ПЕППЕРОНИ'].description
+        description: 'Сырная вафля, говяжья котлета, чеддер, луковый джем, чесночный, томат, айсберг'
       },
       {
-        name: 'ЧИКЕН ЧИЗ',
-        price: 17.90,
-        description: translations.items['ЧИКЕН ЧИЗ'].description
-      },
-      {
-        name: 'ГАВАЙСКАЯ',
+        name: 'ГАВАЙИ',
         miniPrice: 12.40,
         fullPrice: 16.90,
-        description: translations.items['ГАВАЙСКАЯ'].description
+        description: 'Сырная вафля, цыпленок, ананас, моцарелла, воздушный чиз, айсберг, сладкий Чили'
+      },
+      {
+        name: 'ЦЫПЛЕНОК МАНГО-КАРРИ',
+        price: 17.90,
+        description: 'Сырная вафля, цыпленок, манго карри, чесночный, томат, айсберг'
       }
     ],
     [Object.keys(translations.categories)[3]]: [
