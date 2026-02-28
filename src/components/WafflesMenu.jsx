@@ -11,6 +11,9 @@ const WafflesMenu = ({ translations }) => {
       'КЛУБНИЧНЫЙ КУЛИ': 'klubnichnyy-kuli',
       'ШОКОЛАД БАНАН': 'shokolad-banan',
       'СНИКЕРС': 'snickers',
+      'ЦЫПЛЕНОК 2 СЫРА': 'tsyplyonok-2-syra',
+      'НОРВЕЖСКАЯ РЫБКА': 'norvezhskaya-rybka',
+      'ИТАЛЬЯНСКАЯ КЛАССИКА': 'italyanskaya-klassika',
       'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
       'ЦЕЗАРЬ': 'cesar',
       'ГРИК': 'grec',
@@ -43,22 +46,22 @@ const WafflesMenu = ({ translations }) => {
     ],
     [Object.keys(translations.categories)[1]]: [
       {
-        name: 'ЛЕГЕНДА НОРВЕГИИ',
+        name: 'ЦЫПЛЕНОК 2 СЫРА',
         miniPrice: 12.90,
         fullPrice: 19.90,
-        description: translations.items['ЛЕГЕНДА НОРВЕГИИ'].description
+        description: 'Шпинатная вафля, авторский тар-тар, цыпленок, чеддер, пармезан, айсберг, томат'
       },
       {
-        name: 'ЦЕЗАРЬ',
+        name: 'НОРВЕЖСКАЯ РЫБКА',
         miniPrice: 11.50,
         fullPrice: 15.90,
-        description: translations.items['ЦЕЗАРЬ'].description
+        description: 'Шпинатная вафля, воздушный чиз, свежий огурчик, лосось сс, рукола'
       },
       {
-        name: 'ГРИК',
+        name: 'ИТАЛЬЯНСКАЯ КЛАССИКА',
         miniPrice: 10.50,
         fullPrice: 15.90,
-        description: translations.items['ГРИК'].description
+        description: 'Шпинатная вафля, фисташковая паста, мортаделла, айсберг, воздушный чиз, чимичурри'
       }
     ],
     [Object.keys(translations.categories)[2]]: [
