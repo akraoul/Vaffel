@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS Variables */
-:root {
-  --orange: #ff4800;
-  --green-800: #166534;
-  --gray-900: #111827;
-  --gray-800: #1f2937;
-  --gray-700: #374151;
-  --gray-600: #4b5563;
-  --gray-100: #f3f4f6;
-}
-
 /* Custom colors */
 :root {
   --primary-color: #FF9400;

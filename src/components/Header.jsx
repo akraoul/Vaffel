@@ -36,14 +36,14 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
   const languages = ['RU', 'ZH', 'EN'];
 
   return (
-    <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-lg sticky top-0 z-50 neon-border relative dark-mode-transition">
+    <header className="sticky top-0 z-50 neon-border relative dark-mode-transition" style={{background: 'linear-gradient(to right, var(--dark-color), var(--dark-color), var(--dark-color))', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'}}>
       <div className="container mx-auto px-4">
         {/* Logo and Slogan */}
         <div className="text-center py-3">
-          <h1 className="font-playfair text-5xl font-bold text-orange mb-2 floating-element" style={{color: 'var(--primary-color)'}}>
+          <h1 className="font-playfair text-5xl font-bold mb-2 floating-element" style={{color: 'var(--primary-color)'}}>
             VAFFEL
           </h1>
-          <p className="text-xs text-gray-100 font-medium italic" style={{color: 'var(--text-light)'}}>
+          <p className="text-xs font-medium italic" style={{color: 'var(--text-light)'}}>
             {translations.header.slogan}
           </p>
         </div>
@@ -75,11 +75,15 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
                 <button
                   key={lang}
                   onClick={() => setLanguage(lang)}
-                  className={`px-3 py-1 rounded text-sm font-medium transition-all duration-300 light-contour switcher-button ${
+                  className={`px-3 py-1 rounded text-sm font-medium transition-all duration-300 switcher-button ${
                     language === lang 
-                      ? 'bg-orange text-white glow-effect' 
-                      : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                      ? 'glow-effect' 
+                      : ''
                   }`}
+                  style={{
+                    backgroundColor: language === lang ? 'var(--primary-color)' : 'var(--secondary-color)',
+                    color: language === lang ? 'white' : 'var(--text-dark)'
+                  }}
                 >
                   <span className="flex items-center gap-1">
                     {lang === 'RU' && <span className="text-base">🇷🇺</span>}
@@ -95,7 +99,11 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleDarkMode}
-            className="px-3 py-1 rounded text-sm font-medium transition-all duration-300 light-contour switcher-button bg-gray-700 text-gray-300 hover:bg-gray-600 hover-scale animate-wiggle"
+            className="px-3 py-1 rounded text-sm font-medium transition-all duration-300 switcher-button hover-scale animate-wiggle"
+            style={{
+              backgroundColor: 'var(--secondary-color)',
+              color: 'var(--text-dark)'
+            }}
             aria-label="Toggle dark mode"
           >
             <span className="text-lg animate-heartbeat">
