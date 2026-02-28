@@ -103,7 +103,7 @@ const WafflesMenu = ({ translations }) => {
     <div className="menu-card light-contour flex items-center gap-4">
       <div className="flex-1">
         <h3 className="font-playfair text-2xl font-bold text-orange mb-3">
-          {translations.items[item.name].name}
+          {item.name}
         </h3>
         <p className="text-sm text-gray-600 mb-4 leading-relaxed">
           {item.description}
@@ -131,7 +131,7 @@ const WafflesMenu = ({ translations }) => {
         <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-orange shadow-lg menu-image">
           <img 
             src={`/${getImageName(item.name)}.jpg`}
-            alt={translations.items[item.name].name}
+            alt={item.name}
             className="w-full h-full object-cover"
             onError={(e) => {
               e.target.style.display = 'none';
