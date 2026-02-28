@@ -85,23 +85,6 @@ const WafflesMenu = ({ translations }) => {
         price: 17.90,
         description: 'Сырная вафля, цыпленок, манго карри, чесночный, томат, айсберг'
       }
-    ],
-    [Object.keys(translations.categories)[3]]: [
-      {
-        name: 'ЧИКЕН ПРАЙМ',
-        price: 18.90,
-        description: translations.items['ЧИКЕН ПРАЙМ'].description
-      },
-      {
-        name: 'МОЛЧАЛИВЫЙ БИФ',
-        price: 20.50,
-        description: translations.items['МОЛЧАЛИВЫЙ БИФ'].description
-      },
-      {
-        name: 'ВВQ',
-        price: 19.90,
-        description: translations.items['ВВQ'].description
-      }
     ]
   };
 
