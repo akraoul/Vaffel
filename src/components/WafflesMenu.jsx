@@ -136,7 +136,7 @@ const WafflesMenu = ({ translations }) => {
     <div className="space-y-8">
       {Object.entries(wafflesData).map(([category, items]) => (
         <div key={category}>
-          <h3 className="font-playfair text-2xl font-bold text-green-800 border-b-2 border-green-800 pb-2 mb-4">
+          <h3 className="font-playfair text-2xl font-bold border-b-2 pb-2 mb-4" style={{color: 'var(--text-dark)', borderColor: 'var(--primary-color)'}}>
             {translations.categories[category]}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
