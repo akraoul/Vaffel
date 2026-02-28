@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS Variables */
+/* Custom colors */
 :root {
-  --orange: #ff4800;
-  --green-800: #166534;
-  --gray-900: #111827;
-  --gray-800: #1f2937;
-  --gray-700: #374151;
-  --gray-600: #4b5563;
-  --gray-100: #f3f4f6;
+  --orange: #FF9400;
+  --green-800: #303030;
+  --gray-900: #303030;
+  --gray-800: #D4D4DC;
+  --gray-700: #D4D4DC;
+  --gray-600: #D4D4DC;
+  --gray-100: #D4D4DC;
 }
 
 /* Dark mode variables */
 .dark {
-  --orange: #ff6b35;
-  --green-800: #22c55e;
-  --gray-900: #0f172a;
-  --gray-800: #1e293b;
-  --gray-700: #334155;
-  --gray-600: #475569;
-  --gray-100: #1e293b;
+  --orange: #FF9400;
+  --green-800: #D4D4DC;
+  --gray-900: #D4D4DC;
+  --gray-800: #303030;
+  --gray-700: #303030;
+  --gray-600: #303030;
+  --gray-100: #303030;
 }
 
 /* Font imports */
@@ -30,14 +30,14 @@
 @layer base {
   body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #939393;
-    color: #ff4800;
+    background-color: #D4D4DC;
+    color: #303030;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   body.dark {
-    background-color: #0f172a;
-    color: #ff6b35;
+    background-color: #303030;
+    color: #FF9400;
   }
 }
 
@@ -69,7 +69,7 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #230900, #125400, #230900);
+    background: linear-gradient(45deg, #FF9400, #303030, #FF9400);
     border-radius: 0.5rem;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -100,7 +100,7 @@
   .menu-card:nth-child(6) { animation-delay: 0.6s; }
   
   .tab-active {
-    background-color: #230900;
+    background-color: #FF9400;
     color: white;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -108,8 +108,8 @@
   }
   
   body.dark .tab-active {
-    background-color: #1e293b;
-    color: #ff6b35;
+    background-color: #303030;
+    color: #FF9400;
   }
   
   .tab-active::after {
@@ -119,28 +119,28 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #230900, transparent);
+    background: linear-gradient(90deg, transparent, #FF9400, transparent);
     animation: glow 2s ease-in-out infinite alternate;
   }
   
   body.dark .tab-active::after {
-    background: linear-gradient(90deg, transparent, #ff6b35, transparent);
+    background: linear-gradient(90deg, transparent, #FF9400, transparent);
   }
   
   .tab-inactive {
-    background-color: rgba(55, 65, 81, 0.8);
+    background-color: rgba(212, 212, 220, 0.8);
     backdrop-filter: blur(8px);
-    color: #ff4800;
-    border: 1px solid rgb(75, 85, 99);
+    color: #303030;
+    border: 1px solid rgb(212, 212, 220);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
   }
 
   body.dark .tab-inactive {
-    background-color: rgba(51, 65, 85, 0.8);
-    color: #ff6b35;
-    border-color: rgb(71, 85, 105);
+    background-color: rgba(48, 48, 48, 0.8);
+    color: #FF9400;
+    border-color: rgb(48, 48, 48);
   }
 
   .tab-inactive::before {
@@ -162,44 +162,44 @@
   }
 
   .tab-inactive:hover {
-    background-color: rgba(75, 85, 99, 0.9);
+    background-color: rgba(212, 212, 220, 0.9);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 72, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 148, 0, 0.3);
   }
 
   body.dark .tab-inactive:hover {
-    background-color: rgba(71, 85, 105, 0.9);
-    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+    background-color: rgba(48, 48, 48, 0.9);
+    box-shadow: 0 5px 15px rgba(255, 148, 0, 0.3);
   }
 
   .neon-border {
-    box-shadow: 0 0 5px #230900, 0 0 10px #230900, 0 0 15px #230900, inset 0 0 5px rgba(35, 9, 0, 0.1);
+    box-shadow: 0 0 5px #FF9400, 0 0 10px #FF9400, 0 0 15px #FF9400, inset 0 0 5px rgba(255, 148, 0, 0.1);
   }
 
   body.dark .neon-border {
-    box-shadow: 0 0 5px #ff6b35, 0 0 10px #ff6b35, 0 0 15px #ff6b35, inset 0 0 5px rgba(255, 107, 53, 0.1);
+    box-shadow: 0 0 5px #FF9400, 0 0 10px #FF9400, 0 0 15px #FF9400, inset 0 0 5px rgba(255, 148, 0, 0.1);
   }
 
   .dots-pattern {
-    background-image: radial-gradient(circle, #230900 1px, transparent 1px);
+    background-image: radial-gradient(circle, #FF9400 1px, transparent 1px);
     background-size: 20px 20px;
     opacity: 0.1;
     animation: float-dots 20s linear infinite;
   }
 
   body.dark .dots-pattern {
-    background-image: radial-gradient(circle, #ff6b35 1px, transparent 1px);
+    background-image: radial-gradient(circle, #FF9400 1px, transparent 1px);
     opacity: 0.05;
   }
 
   .triangle-pattern {
     background-image: 
-      linear-gradient(30deg, #230900 12%, transparent 12.5%, transparent 87%, #230900 87.5%, #230900),
-      linear-gradient(150deg, #230900 12%, transparent 12.5%, transparent 87%, #230900 87.5%, #230900),
-      linear-gradient(30deg, #230900 12%, transparent 12.5%, transparent 87%, #230900 87.5%, #230900),
-      linear-gradient(150deg, #230900 12%, transparent 12.5%, transparent 87%, #230900 87.5%, #230900),
-      linear-gradient(60deg, #125400 25%, transparent 25.5%, transparent 75%, #125400 75%, #125400),
-      linear-gradient(60deg, #125400 25%, transparent 25.5%, transparent 75%, #125400 75%, #125400);
+      linear-gradient(30deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
+      linear-gradient(150deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
+      linear-gradient(30deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
+      linear-gradient(150deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
+      linear-gradient(60deg, #303030 25%, transparent 25.5%, transparent 75%, #303030 75%, #303030),
+      linear-gradient(60deg, #303030 25%, transparent 25.5%, transparent 75%, #303030 75%, #303030);
     background-size: 80px 140px;
     background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
     opacity: 0.05;
@@ -208,12 +208,12 @@
 
   body.dark .triangle-pattern {
     background-image: 
-      linear-gradient(30deg, #ff6b35 12%, transparent 12.5%, transparent 87%, #ff6b35 87.5%, #ff6b35),
-      linear-gradient(150deg, #ff6b35 12%, transparent 12.5%, transparent 87%, #ff6b35 87.5%, #ff6b35),
-      linear-gradient(30deg, #ff6b35 12%, transparent 12.5%, transparent 87%, #ff6b35 87.5%, #ff6b35),
-      linear-gradient(150deg, #ff6b35 12%, transparent 12.5%, transparent 87%, #ff6b35 87.5%, #ff6b35),
-      linear-gradient(60deg, #22c55e 25%, transparent 25.5%, transparent 75%, #22c55e 75%, #22c55e),
-      linear-gradient(60deg, #22c55e 25%, transparent 25.5%, transparent 75%, #22c55e 75%, #22c55e);
+      linear-gradient(30deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
+      linear-gradient(150deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
+      linear-gradient(30deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
+      linear-gradient(150deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
+      linear-gradient(60deg, #D4D4DC 25%, transparent 25.5%, transparent 75%, #D4D4DC 75%, #D4D4DC),
+      linear-gradient(60deg, #D4D4DC 25%, transparent 25.5%, transparent 75%, #D4D4DC 75%, #D4D4DC);
     opacity: 0.03;
   }
 
@@ -252,11 +252,11 @@
 
   .btn-animated:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 72, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 148, 0, 0.3);
   }
 
   body.dark .btn-animated:hover {
-    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 148, 0, 0.3);
   }
 
   .menu-image {
@@ -266,11 +266,11 @@
 
   .menu-image:hover {
     transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 8px 20px rgba(255, 72, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(255, 148, 0, 0.3);
   }
 
   body.dark .menu-image:hover {
-    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 8px 20px rgba(255, 148, 0, 0.3);
   }
 
   .switcher-button {
@@ -307,11 +307,11 @@
   }
 
   body.dark .footer-link {
-    color: #ff6b35;
+    color: #FF9400;
   }
 
   body.dark .footer-link:hover {
-    color: #ffaa80;
+    color: #FFB84D;
   }
 
   .dark-mode-transition {
@@ -353,13 +353,13 @@
 
   .animate-typewriter {
     overflow: hidden;
-    border-right: 2px solid #ff6b35;
+    border-right: 2px solid #FF9400;
     white-space: nowrap;
     animation: typewriter 3s steps(40, end), blink 0.75s step-end infinite;
   }
 
   body.dark .animate-typewriter {
-    border-right-color: #230900;
+    border-right-color: #FF9400;
   }
 
   .animate-spin-slow {
@@ -385,11 +385,11 @@
   }
 
   .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+    box-shadow: 0 0 20px rgba(255, 148, 0, 0.5);
   }
 
   body.dark .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 0 20px rgba(255, 148, 0, 0.3);
   }
 
   .hover-scale {
@@ -435,8 +435,8 @@
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 5px #230900, 0 0 10px #230900, 0 0 15px #230900; }
-  to { box-shadow: 0 0 10px #230900, 0 0 20px #230900, 0 0 30px #230900; }
+  from { box-shadow: 0 0 5px #FF9400, 0 0 10px #FF9400, 0 0 15px #FF9400; }
+  to { box-shadow: 0 0 10px #FF9400, 0 0 20px #FF9400, 0 0 30px #FF9400; }
 }
 
 @keyframes slide-in {
