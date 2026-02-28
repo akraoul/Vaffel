@@ -8,8 +8,9 @@ const WafflesMenu = ({ translations }) => {
 
   const getImageName = (itemKey) => {
     const frenchNames = {
-      'ШОКОЛАДНЫЙ ДЕСЕРТ': 'chocolate-dessert',
-      'ЯГОДНЫЙ ЧИЗКЕЙК': 'berry-cheesecake',
+      'КЛУБНИЧНЫЙ КУЛИ': 'klubnichnyy-kuli',
+      'ШОКОЛАД БАНАН': 'shokolad-banan',
+      'СНИКЕРС': 'snickers',
       'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
       'ЦЕЗАРЬ': 'cesar',
       'ГРИК': 'grec',
@@ -22,16 +23,22 @@ const WafflesMenu = ({ translations }) => {
   const wafflesData = {
     [Object.keys(translations.categories)[0]]: [
       {
-        name: 'ШОКОЛАДНЫЙ ДЕСЕРТ',
+        name: 'КЛУБНИЧНЫЙ КУЛИ',
         miniPrice: 10.30,
         fullPrice: 13.90,
-        description: 'Шоколадный мусс, свежие ягоды, шоколадная стружка, взбитые сливки'
+        description: 'Сладкая вафля, воздушный крем, клубничный кули, сахарная пудра'
       },
       {
-        name: 'ЯГОДНЫЙ ЧИЗКЕЙК',
+        name: 'ШОКОЛАД БАНАН',
         miniPrice: 10.30,
         fullPrice: 13.90,
-        description: 'Творожный чизкейк, ягодный соус, бисквитная основа, свежая мята'
+        description: 'Сладкая вафля, воздушный крем, шоколадная паста, банан, сахарная пудра'
+      },
+      {
+        name: 'СНИКЕРС',
+        miniPrice: 10.30,
+        fullPrice: 13.90,
+        description: translations.items['СНИКЕРС'].description
       }
     ],
     [Object.keys(translations.categories)[1]]: [
