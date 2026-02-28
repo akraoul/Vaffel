@@ -39,8 +39,8 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
     <header className="sticky top-0 z-50 neon-border relative dark-mode-transition" style={{background: 'linear-gradient(to right, var(--dark-color), var(--dark-color), var(--dark-color))', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'}}>
       <div className="container mx-auto px-4">
         {/* Logo and Slogan */}
-        <div className="text-center py-3">
-          <h1 className="text-5xl font-bold mb-2 floating-element" style={{color: 'var(--primary-color)'}}>
+        <div className="text-center py-2">
+          <h1 className="text-4xl font-bold mb-1 floating-element" style={{color: 'var(--primary-color)'}}>
             VAFFEL
           </h1>
           <p className="text-xs font-medium italic" style={{color: 'var(--text-light)'}}>
@@ -49,12 +49,12 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
         </div>
 
         {/* Navigation */}
-        <div className="flex justify-center space-x-1 pb-2">
+        <div className="flex justify-center space-x-1 pb-1">
           {tabs.map((tab, index) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-md font-medium transition-all duration-300 tab-button hover-scale stagger-${index + 1} ${
+              className={`px-3 py-1 rounded-md font-medium transition-all duration-300 tab-button hover-scale stagger-${index + 1} ${
                 activeTab === tab.id 
                   ? 'tab-active' 
                   : 'tab-inactive'
@@ -67,7 +67,7 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
         </div>
 
         {/* Switchers */}
-        <div className="flex justify-between items-center pb-2">
+        <div className="flex justify-between items-center pb-1">
           {/* Language Switcher */}
           <div className="flex items-center space-x-1">
             <div className="flex space-x-1">
@@ -75,7 +75,7 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
                 <button
                   key={lang}
                   onClick={() => setLanguage(lang)}
-                  className={`px-3 py-1 rounded text-sm font-medium transition-all duration-300 switcher-button ${
+                  className={`px-2 py-1 rounded text-xs font-medium transition-all duration-300 switcher-button ${
                     language === lang 
                       ? 'glow-effect' 
                       : ''
@@ -86,9 +86,9 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
                   }}
                 >
                   <span className="flex items-center gap-1">
-                    {lang === 'RU' && <span className="text-base">🇷🇺</span>}
-                    {lang === 'ZH' && <span className="text-base">🇨🇳</span>}
-                    {lang === 'EN' && <span className="text-base">🇺🇸</span>}
+                    {lang === 'RU' && <span className="text-sm">🇷🇺</span>}
+                    {lang === 'ZH' && <span className="text-sm">🇨🇳</span>}
+                    {lang === 'EN' && <span className="text-sm">🇺🇸</span>}
                     {lang}
                   </span>
                 </button>
@@ -99,14 +99,14 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleDarkMode}
-            className="px-3 py-1 rounded text-sm font-medium transition-all duration-300 switcher-button hover-scale animate-wiggle"
+            className="px-2 py-1 rounded text-xs font-medium transition-all duration-300 switcher-button hover-scale animate-wiggle"
             style={{
               backgroundColor: 'var(--secondary-color)',
               color: 'var(--text-dark)'
             }}
             aria-label="Toggle dark mode"
           >
-            <span className="text-lg animate-heartbeat">
+            <span className="text-sm animate-heartbeat">
               {darkMode ? '☀️' : '🌙'}
             </span>
           </button>
