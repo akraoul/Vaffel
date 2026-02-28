@@ -40,10 +40,10 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
       <div className="container mx-auto px-4">
         {/* Logo and Slogan */}
         <div className="text-center py-3">
-          <h1 className="font-playfair text-5xl font-bold text-orange mb-2 floating-element">
+          <h1 className="font-playfair text-5xl font-bold text-orange mb-2 floating-element" style={{color: 'var(--primary-color)'}}>
             VAFFEL
           </h1>
-          <p className="text-xs text-gray-100 font-medium italic">
+          <p className="text-xs text-gray-100 font-medium italic" style={{color: 'var(--text-light)'}}>
             {translations.header.slogan}
           </p>
         </div>

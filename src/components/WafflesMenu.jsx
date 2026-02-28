@@ -91,14 +91,14 @@ const WafflesMenu = ({ translations }) => {
   const WaffleCard = ({ item }) => (
     <div className="menu-card light-contour flex items-center gap-4">
       <div className="flex-1">
-        <h3 className="font-playfair text-2xl font-bold text-orange mb-3">
+        <h3 className="font-playfair text-2xl font-bold text-orange mb-3" style={{color: 'var(--primary-color)'}}>
           {item.name}
         </h3>
-        <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+        <p className="text-sm text-gray-600 mb-4 leading-relaxed" style={{color: 'var(--text-dark)'}}>
           {item.description}
         </p>
         <div className="flex justify-between items-center">
-          <div className="text-green-800 font-semibold">
+          <div className="text-green-800 font-semibold" style={{color: 'var(--text-dark)'}}>
             {item.miniPrice && item.fullPrice ? (
               <div className="space-y-1">
                 <div className="flex justify-between">
@@ -117,7 +117,7 @@ const WafflesMenu = ({ translations }) => {
         </div>
       </div>
       <div className="flex-shrink-0">
-        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-orange shadow-lg menu-image">
+        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-orange shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
           <img 
             src={`/${getImageName(item.name)}.jpg`}
             alt={item.name}

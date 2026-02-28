@@ -2,26 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom CSS Variables */
+:root {
+  --orange: #ff4800;
+  --green-800: #166534;
+  --gray-900: #111827;
+  --gray-800: #1f2937;
+  --gray-700: #374151;
+  --gray-600: #4b5563;
+  --gray-100: #f3f4f6;
+}
+
 /* Custom colors */
 :root {
-  --orange: #FF9400;
-  --green-800: #303030;
-  --gray-900: #303030;
-  --gray-800: #D4D4DC;
-  --gray-700: #D4D4DC;
-  --gray-600: #D4D4DC;
-  --gray-100: #D4D4DC;
+  --primary-color: #FF9400;
+  --secondary-color: #D4D4DC;
+  --dark-color: #303030;
+  --text-light: #D4D4DC;
+  --text-dark: #303030;
+  --bg-light: #D4D4DC;
+  --bg-dark: #303030;
 }
 
 /* Dark mode variables */
 .dark {
-  --orange: #FF9400;
-  --green-800: #D4D4DC;
-  --gray-900: #D4D4DC;
-  --gray-800: #303030;
-  --gray-700: #303030;
-  --gray-600: #303030;
-  --gray-100: #303030;
+  --primary-color: #FF9400;
+  --secondary-color: #D4D4DC;
+  --dark-color: #303030;
+  --text-light: #D4D4DC;
+  --text-dark: #D4D4DC;
+  --bg-light: #303030;
+  --bg-dark: #303030;
 }
 
 /* Font imports */
@@ -30,26 +41,26 @@
 @layer base {
   body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #D4D4DC;
-    color: #303030;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   body.dark {
-    background-color: #303030;
-    color: #FF9400;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
   }
 }
 
 @layer components {
   .menu-card {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--secondary-color);
     backdrop-filter: blur(8px);
     border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 1.5rem;
-    border: 1px solid rgb(229 231 235);
+    border: 1px solid var(--primary-color);
     transform: translateY(0);
     position: relative;
     overflow: hidden;
@@ -57,8 +68,8 @@
   }
   
   body.dark .menu-card {
-    background-color: rgba(30, 41, 59, 0.9);
-    border-color: rgb(51, 65, 85);
+    background-color: var(--dark-color);
+    border-color: var(--primary-color);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
   }
   
@@ -69,7 +80,7 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #FF9400, #303030, #FF9400);
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--primary-color));
     border-radius: 0.5rem;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -82,13 +93,13 @@
   }
   
   .menu-card:hover {
-    background-color: #F0F0F0;
+    background-color: var(--secondary-color);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     transform: translateY(-8px) scale(1.02);
   }
   
   body.dark .menu-card:hover {
-    background-color: rgba(51, 65, 85, 0.9);
+    background-color: var(--dark-color);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   }
   
@@ -100,7 +111,7 @@
   .menu-card:nth-child(6) { animation-delay: 0.6s; }
   
   .tab-active {
-    background-color: #FF9400;
+    background-color: var(--primary-color);
     color: white;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -108,8 +119,8 @@
   }
   
   body.dark .tab-active {
-    background-color: #303030;
-    color: #FF9400;
+    background-color: var(--primary-color);
+    color: white;
   }
   
   .tab-active::after {
@@ -119,28 +130,28 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #FF9400, transparent);
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
     animation: glow 2s ease-in-out infinite alternate;
   }
   
   body.dark .tab-active::after {
-    background: linear-gradient(90deg, transparent, #FF9400, transparent);
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
   }
   
   .tab-inactive {
-    background-color: rgba(212, 212, 220, 0.8);
+    background-color: var(--secondary-color);
     backdrop-filter: blur(8px);
-    color: #303030;
-    border: 1px solid rgb(212, 212, 220);
+    color: var(--text-dark);
+    border: 1px solid var(--primary-color);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
   }
 
   body.dark .tab-inactive {
-    background-color: rgba(48, 48, 48, 0.8);
-    color: #FF9400;
-    border-color: rgb(48, 48, 48);
+    background-color: var(--dark-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
   }
 
   .tab-inactive::before {
@@ -162,44 +173,44 @@
   }
 
   .tab-inactive:hover {
-    background-color: rgba(212, 212, 220, 0.9);
+    background-color: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 148, 0, 0.3);
   }
 
   body.dark .tab-inactive:hover {
-    background-color: rgba(48, 48, 48, 0.9);
+    background-color: var(--dark-color);
     box-shadow: 0 5px 15px rgba(255, 148, 0, 0.3);
   }
 
   .neon-border {
-    box-shadow: 0 0 5px #FF9400, 0 0 10px #FF9400, 0 0 15px #FF9400, inset 0 0 5px rgba(255, 148, 0, 0.1);
+    box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--primary-color), inset 0 0 5px rgba(255, 148, 0, 0.1);
   }
 
   body.dark .neon-border {
-    box-shadow: 0 0 5px #FF9400, 0 0 10px #FF9400, 0 0 15px #FF9400, inset 0 0 5px rgba(255, 148, 0, 0.1);
+    box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--primary-color), inset 0 0 5px rgba(255, 148, 0, 0.1);
   }
 
   .dots-pattern {
-    background-image: radial-gradient(circle, #FF9400 1px, transparent 1px);
+    background-image: radial-gradient(circle, var(--primary-color) 1px, transparent 1px);
     background-size: 20px 20px;
     opacity: 0.1;
     animation: float-dots 20s linear infinite;
   }
 
   body.dark .dots-pattern {
-    background-image: radial-gradient(circle, #FF9400 1px, transparent 1px);
+    background-image: radial-gradient(circle, var(--primary-color) 1px, transparent 1px);
     opacity: 0.05;
   }
 
   .triangle-pattern {
     background-image: 
-      linear-gradient(30deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
-      linear-gradient(150deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
-      linear-gradient(30deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
-      linear-gradient(150deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
-      linear-gradient(60deg, #303030 25%, transparent 25.5%, transparent 75%, #303030 75%, #303030),
-      linear-gradient(60deg, #303030 25%, transparent 25.5%, transparent 75%, #303030 75%, #303030);
+      linear-gradient(30deg, var(--primary-color) 12%, transparent 12.5%, transparent 87%, var(--primary-color) 87.5%, var(--primary-color)),
+      linear-gradient(150deg, var(--primary-color) 12%, transparent 12.5%, transparent 87%, var(--primary-color) 87.5%, var(--primary-color)),
+      linear-gradient(30deg, var(--primary-color) 12%, transparent 12.5%, transparent 87%, var(--primary-color) 87.5%, var(--primary-color)),
+      linear-gradient(150deg, var(--primary-color) 12%, transparent 12.5%, transparent 87%, var(--primary-color) 87.5%, var(--primary-color)),
+      linear-gradient(60deg, var(--secondary-color) 25%, transparent 25.5%, transparent 75%, var(--secondary-color) 75%, var(--secondary-color)),
+      linear-gradient(60deg, var(--secondary-color) 25%, transparent 25.5%, transparent 75%, var(--secondary-color) 75%, var(--secondary-color));
     background-size: 80px 140px;
     background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
     opacity: 0.05;
@@ -208,12 +219,12 @@
 
   body.dark .triangle-pattern {
     background-image: 
-      linear-gradient(30deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
-      linear-gradient(150deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
-      linear-gradient(30deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
-      linear-gradient(150deg, #FF9400 12%, transparent 12.5%, transparent 87%, #FF9400 87.5%, #FF9400),
-      linear-gradient(60deg, #D4D4DC 25%, transparent 25.5%, transparent 75%, #D4D4DC 75%, #D4D4DC),
-      linear-gradient(60deg, #D4D4DC 25%, transparent 25.5%, transparent 75%, #D4D4DC 75%, #D4D4DC);
+      linear-gradient(30deg, var(--primary-color) 12%, transparent 12.5%, transparent 87%, var(--primary-color) 87.5%, var(--primary-color)),
+      linear-gradient(150deg, var(--primary-color) 12%, transparent 12.5%, transparent 87%, var(--primary-color) 87.5%, var(--primary-color)),
+      linear-gradient(30deg, var(--primary-color) 12%, transparent 12.5%, transparent 87%, var(--primary-color) 87.5%, var(--primary-color)),
+      linear-gradient(150deg, var(--primary-color) 12%, transparent 12.5%, transparent 87%, var(--primary-color) 87.5%, var(--primary-color)),
+      linear-gradient(60deg, var(--secondary-color) 25%, transparent 25.5%, transparent 75%, var(--secondary-color) 75%, var(--secondary-color)),
+      linear-gradient(60deg, var(--secondary-color) 25%, transparent 25.5%, transparent 75%, var(--secondary-color) 75%, var(--secondary-color));
     opacity: 0.03;
   }
 
@@ -298,7 +309,7 @@
     left: 0;
     width: 0;
     height: 1px;
-    background: var(--orange);
+    background: var(--primary-color);
     transition: width 0.3s ease;
   }
 
@@ -307,11 +318,11 @@
   }
 
   body.dark .footer-link {
-    color: #FF9400;
+    color: var(--text-light);
   }
 
   body.dark .footer-link:hover {
-    color: #FFB84D;
+    color: var(--primary-color);
   }
 
   .dark-mode-transition {
@@ -353,13 +364,13 @@
 
   .animate-typewriter {
     overflow: hidden;
-    border-right: 2px solid #FF9400;
+    border-right: 2px solid var(--primary-color);
     white-space: nowrap;
     animation: typewriter 3s steps(40, end), blink 0.75s step-end infinite;
   }
 
   body.dark .animate-typewriter {
-    border-right-color: #FF9400;
+    border-right-color: var(--primary-color);
   }
 
   .animate-spin-slow {
@@ -385,11 +396,11 @@
   }
 
   .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(255, 148, 0, 0.5);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
   }
 
   body.dark .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(255, 148, 0, 0.3);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
   }
 
   .hover-scale {
@@ -435,8 +446,8 @@
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 5px #FF9400, 0 0 10px #FF9400, 0 0 15px #FF9400; }
-  to { box-shadow: 0 0 10px #FF9400, 0 0 20px #FF9400, 0 0 30px #FF9400; }
+  from { box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--primary-color); }
+  to { box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
 }
 
 @keyframes slide-in {
