@@ -91,7 +91,7 @@ const WafflesMenu = ({ translations }) => {
   const WaffleCard = ({ item }) => (
     <div className="menu-card light-contour flex items-center gap-4">
       <div className="flex-1">
-        <h3 className="font-playfair text-2xl font-bold text-orange mb-3" style={{color: 'var(--primary-color)'}}>
+        <h3 className="text-2xl font-bold mb-3" style={{fontFamily: 'TT Firs Neue', color: 'var(--primary-color)'}}>
           {item.name}
         </h3>
         <p className="text-sm text-gray-600 mb-4 leading-relaxed" style={{color: 'var(--text-dark)'}}>
@@ -136,7 +136,7 @@ const WafflesMenu = ({ translations }) => {
     <div className="space-y-8">
       {Object.entries(wafflesData).map(([category, items]) => (
         <div key={category}>
-          <h3 className="font-playfair text-2xl font-bold border-b-2 pb-2 mb-4" style={{color: 'var(--text-dark)', borderColor: 'var(--primary-color)'}}>
+          <h3 className="text-2xl font-bold border-b-2 pb-2 mb-4" style={{fontFamily: 'TT Firs Neue', color: 'var(--text-dark)', borderColor: 'var(--primary-color)'}}>
             {translations.categories[category]}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -30,7 +30,7 @@ const SoupsMenu = ({ translations }) => {
   const SoupCard = ({ item }) => (
     <div className="menu-card light-contour flex items-center gap-4">
       <div className="flex-1">
-        <h3 className="font-playfair text-2xl font-bold mb-3" style={{color: 'var(--primary-color)'}}>
+        <h3 className="text-2xl font-bold mb-3" style={{fontFamily: 'TT Firs Neue', color: 'var(--primary-color)'}}>
           {translations.items[item.name].name}
         </h3>
         <p className="text-sm mb-4 leading-relaxed" style={{color: 'var(--text-dark)'}}>
