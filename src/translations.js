@@ -3,7 +3,8 @@ export const translations = {
     header: {
       slogan: 'Сладкое и сытное в каждом укусе',
       language: 'Язык:',
-      currency: 'Валюта:'
+      currency: 'Валюта:',
+      orderButton: 'Заказать на Яндекс'
     },
     navigation: {
       waffles: 'ВАФЛИ',
@@ -137,7 +138,8 @@ export const translations = {
     header: {
       slogan: 'Doux et copieux à chaque bouchée',
       language: 'Langue:',
-      currency: 'Devise:'
+      currency: 'Devise:',
+      orderButton: 'Commander sur Yandex'
     },
     navigation: {
       waffles: 'GAUFRES',
@@ -271,7 +273,8 @@ export const translations = {
     header: {
       slogan: '每一口都香甜可口',
       language: '语言:',
-      currency: '货币:'
+      currency: '货币:',
+      orderButton: '在Yandex点餐'
     },
     navigation: {
       waffles: '华夫饼',
@@ -398,14 +401,15 @@ export const translations = {
       addressText: '明斯克，GALLERIA购物中心',
       contact: '联系方式',
       phone: '+375 29 798 45 02',
-      rights: '版权所有。© 2024 VAFFEL咖啡馆'
+      rights: '版权所有。 2024 VAFFEL咖啡馆'
     }
   },
   EN: {
     header: {
-      slogan: 'Sweet and satisfying in every bite',
+      slogan: 'Sweet and savory in every bite',
       language: 'Language:',
-      currency: 'Currency:'
+      currency: 'Currency:',
+      orderButton: 'Order on Yandex'
     },
     navigation: {
       waffles: 'WAFFLES',

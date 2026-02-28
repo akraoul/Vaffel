@@ -46,6 +46,22 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
           <p className="text-xs font-medium italic" style={{color: 'var(--text-light)'}}>
             {translations.header.slogan}
           </p>
+          <div className="mt-2">
+            <a 
+              href="https://eda.yandex.ru/restaurant/vaffel_opajk?utm_campaign=superapp_taxi_web&utm_medium=referral&utm_source=rst_shared_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 hover-scale"
+              style={{
+                backgroundColor: 'var(--primary-color)',
+                color: 'white'
+              }}
+              aria-label="Commander sur Yandex"
+            >
+              <span className="mr-1">🛵</span>
+              {translations.header.orderButton}
+            </a>
+          </div>
         </div>
 
         {/* Navigation */}
