@@ -7,26 +7,24 @@ const WafflesMenu = ({ translations }) => {
   };
 
   const getImageName = (itemKey) => {
-  const frenchNames = {
-    'КЛУБНИЧНЫЙ КУЛИ': 'joker',
-    'ШОКОЛАД БАНАН': 'joker',
-    'СНИКЕРС': 'snickers',
-    'ЦЫПЛЕНОК 2 СЫРА': 'chiken-cheez',
-    'НОРВЕЖСКАЯ РЫБКА': 'legende-de-norvege',
-    'ИТАЛЬЯНСКАЯ КЛАССИКА': 'johnny-pepperoni',
-    'ГОВЯДИНА ПО-БУРГУНДСКИ': 'joker',
-    'ГАВАЙИ': 'gavai',
-    'ЦЫПЛЕНОК МАНГО-КАРРИ': 'joker',
-    'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
-    'ЦЕЗАРЬ': 'joker',
-    'ГРИК': 'joker',
-    'ДЖОННИ ПЕППЕРОНИ': 'johnny-pepperoni',
-    'ВВQ': 'joker'
+    const frenchNames = {
+      'КЛУБНИЧНЫЙ КУЛИ': 'klubnichnyy-kuli',
+      'ШОКОЛАД БАНАН': 'shokolad-banan',
+      'СНИКЕРС': 'snickers',
+      'ЦЫПЛЕНОК 2 СЫРА': 'tsyplyonok-2-syra',
+      'НОРВЕЖСКАЯ РЫБКА': 'norvezhskaya-rybka',
+      'ИТАЛЬЯНСКАЯ КЛАССИКА': 'ilyanskaya-klassika',
+      'ГОВЯДИНА ПО-БУРГУНДСКИ': 'govyadina-po-burgundski',
+      'ГАВАЙИ': 'gavayi',
+      'ЦЫПЛЕНОК МАНГО-КАРРИ': 'tsyplyonok-mango-karri',
+      'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
+      'ЦЕЗАРЬ': 'cesar',
+      'ГРИК': 'grec',
+      'ДЖОННИ ПЕППЕРОНИ': 'johnny-pepperoni',
+      'ВВQ': 'bbq'
+    };
+    return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
   };
-  const imageName = frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
-  console.log('getImageName:', itemKey, '->', imageName);
-  return imageName;
-};
 
   const wafflesData = {
     [Object.keys(translations.categories)[0]]: [
@@ -116,19 +114,6 @@ const WafflesMenu = ({ translations }) => {
               <span>{convertPrice(item.price)}</span>
             )}
           </div>
-        </div>
-      </div>
-      <div className="flex-shrink-0">
-        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
-          <img 
-            src={`/${getImageName(item.name)}.jpg`}
-            alt={translations.items[item.name]?.name || item.name}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-xs text-center">No Image</div>';
-            }}
-          />
         </div>
       </div>
     </div>
