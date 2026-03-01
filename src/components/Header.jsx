@@ -58,7 +58,7 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
               }}
               aria-label="Commander sur Yandex"
             >
-              <span className="mr-1">🛵</span>
+              <span className="mr-1"></span>
               {translations.header.orderButton}
             </a>
           </div>
