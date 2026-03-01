@@ -7,24 +7,24 @@ const WafflesMenu = ({ translations }) => {
   };
 
   const getImageName = (itemKey) => {
-    const frenchNames = {
-      'КЛУБНИЧНЫЙ КУЛИ': 'klubnichnyy-kuli',
-      'ШОКОЛАД БАНАН': 'shokolad-banan',
-      'СНИКЕРС': 'snickers',
-      'ЦЫПЛЕНОК 2 СЫРА': 'tsyplyonok-2-syra',
-      'НОРВЕЖСКАЯ РЫБКА': 'norvezhskaya-rybka',
-      'ИТАЛЬЯНСКАЯ КЛАССИКА': 'ilyanskaya-klassika',
-      'ГОВЯДИНА ПО-БУРГУНДСКИ': 'govyadina-po-burgundski',
-      'ГАВАЙИ': 'gavayi',
-      'ЦЫПЛЕНОК МАНГО-КАРРИ': 'tsyplyonok-mango-karri',
-      'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
-      'ЦЕЗАРЬ': 'cesar',
-      'ГРИК': 'grec',
-      'ДЖОННИ ПЕППЕРОНИ': 'johnny-pepperoni',
-      'ВВQ': 'bbq'
-    };
-    return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  const frenchNames = {
+    'КЛУБНИЧНЫЙ КУЛИ': 'klubnichnyy-kuli',
+    'ШОКОЛАД БАНАН': 'shokolad-banan',
+    'СНИКЕРС': 'snickers',
+    'ЦЫПЛЕНОК 2 СЫРА': 'tsyplyonok-2-syra',
+    'НОРВЕЖСКАЯ РЫБКА': 'norvezhskaya-rybka',
+    'ИТАЛЬЯНСКАЯ КЛАССИКА': 'italyanskaya-klassika',
+    'ГОВЯДИНА ПО-БУРГУНДСКИ': 'govyadina-po-burgundski',
+    'ГАВАЙИ': 'gavai',
+    'ЦЫПЛЕНОК МАНГО-КАРРИ': 'tsyplyonok-mango-karri',
+    'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
+    'ЦЕЗАРЬ': 'cesar',
+    'ГРИК': 'grec',
+    'ДЖОННИ ПЕППЕРОНИ': 'johnny-pepperoni',
+    'ВВQ': 'bbq'
   };
+  return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
+};
 
   const wafflesData = {
     [Object.keys(translations.categories)[0]]: [
