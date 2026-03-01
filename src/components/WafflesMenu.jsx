@@ -8,22 +8,24 @@ const WafflesMenu = ({ translations }) => {
 
   const getImageName = (itemKey) => {
   const frenchNames = {
-    'КЛУБНИЧНЫЙ КУЛИ': 'klubnichnyy-kuli',
-    'ШОКОЛАД БАНАН': 'shokolad-banan',
+    'КЛУБНИЧНЫЙ КУЛИ': 'joker',
+    'ШОКОЛАД БАНАН': 'joker',
     'СНИКЕРС': 'snickers',
-    'ЦЫПЛЕНОК 2 СЫРА': 'tsyplyonok-2-syra',
-    'НОРВЕЖСКАЯ РЫБКА': 'norvezhskaya-rybka',
-    'ИТАЛЬЯНСКАЯ КЛАССИКА': 'italyanskaya-klassika',
-    'ГОВЯДИНА ПО-БУРГУНДСКИ': 'govyadina-po-burgundski',
+    'ЦЫПЛЕНОК 2 СЫРА': 'chiken-cheez',
+    'НОРВЕЖСКАЯ РЫБКА': 'legende-de-norvege',
+    'ИТАЛЬЯНСКАЯ КЛАССИКА': 'johnny-pepperoni',
+    'ГОВЯДИНА ПО-БУРГУНДСКИ': 'joker',
     'ГАВАЙИ': 'gavai',
-    'ЦЫПЛЕНОК МАНГО-КАРРИ': 'tsyplyonok-mango-karri',
+    'ЦЫПЛЕНОК МАНГО-КАРРИ': 'joker',
     'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
-    'ЦЕЗАРЬ': 'cesar',
-    'ГРИК': 'grec',
+    'ЦЕЗАРЬ': 'joker',
+    'ГРИК': 'joker',
     'ДЖОННИ ПЕППЕРОНИ': 'johnny-pepperoni',
-    'ВВQ': 'bbq'
+    'ВВQ': 'joker'
   };
-  return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  const imageName = frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  console.log('getImageName:', itemKey, '->', imageName);
+  return imageName;
 };
 
   const wafflesData = {
