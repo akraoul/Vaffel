@@ -24,6 +24,11 @@ const SoupsMenu = ({ translations }) => {
       name: 'СУП ДНЯ',
       price: 9.90,
       description: translations.items['СУП ДНЯ'].description
+    },
+    {
+      name: 'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ',
+      price: 15.00,
+      description: translations.items['МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ'].description
     }
   ];
 

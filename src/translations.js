@@ -64,6 +64,10 @@ export const translations = {
         'СУП ДНЯ': {
           name: 'СУП ДНЯ',
           description: 'уточняйте у администратора'
+        },
+        'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ': {
+          name: 'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ',
+          description: 'митболы из индейки, воздушный картофельный мусс, грибной соус, маринованный огурчик'
         }
       }
     },
@@ -199,6 +203,10 @@ export const translations = {
         'СУП ДНЯ': {
           name: 'SOUPE DU JOUR',
           description: 'demandez au serveur'
+        },
+        'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ': {
+          name: 'MEATBALLS À LA PUREE AÉRÉE',
+          description: 'boulettes de dinde, purée de pommes de terre aérée, sauce aux champignons, concombre mariné'
         }
       }
     },
@@ -334,6 +342,10 @@ export const translations = {
         'СУП ДНЯ': {
           name: '今日例汤',
           description: '请询问服务员'
+        },
+        'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ': {
+          name: '火鸡肉丸子配蓬松土豆泥',
+          description: '火鸡肉丸子，蓬松土豆泥，蘑菇酱，腌黄瓜'
         }
       }
     },
@@ -469,6 +481,10 @@ export const translations = {
         'СУП ДНЯ': {
           name: 'SOUP OF THE DAY',
           description: 'ask the administrator'
+        },
+        'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ': {
+          name: 'MEATBALLS WITH AIRY POTATO MOUSSE',
+          description: 'turkey meatballs, airy potato mousse, mushroom sauce, pickled cucumber'
         }
       }
     },
