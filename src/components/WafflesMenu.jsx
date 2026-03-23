@@ -8,20 +8,14 @@ const WafflesMenu = ({ translations }) => {
 
   const getImageName = (itemKey) => {
     const frenchNames = {
-      'КЛУБНИЧНЫЙ КУЛИ': 'vaffel/клуб',
-      'ШОКОЛАД БАНАН': 'vaffel/банан',
-      'ЦЫПЛЕНОК 2 СЫРА': 'vaffel/2_сыр',
-      'НОРВЕЖСКАЯ РЫБКА': 'vaffel/лег',
-      'ИТАЛЬЯНСКАЯ КЛАССИКА': 'vaffel/ит',
-      'ГОВЯДИНА ПО-БУРГУНДСКИ': 'vaffel/гавяд',
-      'ГАВАЙИ': 'vaffel/гава',
-      'ЦЫПЛЕНОК МАНГО-КАРРИ': 'vaffel/манго',
-      'ДЖОННИ ПЕППЕРОНИ': 'johnny-pepperoni',
-      'ВВQ': 'bbq',
-      'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
-      'СНИКЕРС': 'snickers',
-      'ЦЕЗАРЬ': 'cesar',
-      'ГРИК': 'grec'
+      'КЛУБНИЧНЫЙ КУЛИ': 'vaffel/клуб.jpg',
+      'ШОКОЛАД БАНАН': 'vaffel/банан.jpg',
+      'ЦЫПЛЕНОК 2 СЫРА': 'vaffel/2_сыр.jpg',
+      'НОРВЕЖСКАЯ РЫБКА': 'vaffel/лег.jpg',
+      'ИТАЛЬЯНСКАЯ КЛАССИКА': 'vaffel/ит.jpg',
+      'ГОВЯДИНА ПО-БУРГУНДСКИ': 'vaffel/гавяд.jpg',
+      'ГАВАЙИ': 'vaffel/гава.jpg',
+      'ЦЫПЛЕНОК МАНГО-КАРРИ': 'vaffel/манго.jpg'
     };
     return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
   };
@@ -116,7 +110,7 @@ const WafflesMenu = ({ translations }) => {
       <div className="flex-shrink-0">
         <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
           <img 
-            src={`/${getImageName(item.name)}.jpg`}
+            src={`/${getImageName(item.name)}`}
             alt={translations.items[item.name]?.name || item.name}
             className="w-full h-full object-cover"
             onError={(e) => {
