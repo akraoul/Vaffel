@@ -105,6 +105,8 @@ const WafflesMenu = ({ translations }) => {
                   <span className="ml-4">{convertPrice(item.fullPrice)}</span>
                 </div>
               </div>
+            ) : item.miniPrice && !item.fullPrice ? (
+              <span>{convertPrice(item.miniPrice)}</span>
             ) : (
               <span>{convertPrice(item.price)}</span>
             )}
