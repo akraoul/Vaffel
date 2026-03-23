@@ -11,17 +11,17 @@ const WafflesMenu = ({ translations }) => {
       'КЛУБНИЧНЫЙ КУЛИ': 'klubnichnyy-kuli',
       'ШОКОЛАД БАНАН': 'shokolad-banan',
       'СНИКЕРС': 'snickers',
-      'ЦЫПЛЕНОК 2 СЫРА': 'tsyplyonok-2-syra',
-      'НОРВЕЖСКАЯ РЫБКА': 'norvezhskaya-rybka',
-      'ИТАЛЬЯНСКАЯ КЛАССИКА': 'ilyanskaya-klassika',
-      'ГОВЯДИНА ПО-БУРГУНДСКИ': 'govyadina-po-burgundski',
-      'ГАВАЙИ': 'gavayi',
-      'ЦЫПЛЕНОК МАНГО-КАРРИ': 'tsyplyonok-mango-karri',
-      'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
+      'ЦЫПЛЕНОК 2 СЫРА': 'vaffel/2_сыр',
+      'НОРВЕЖСКАЯ РЫБКА': 'vaffel/лег',
+      'ИТАЛЬЯНСКАЯ КЛАССИКА': 'vaffel/ит',
+      'ГОВЯДИНА ПО-БУРГУНДСКИ': 'vaffel/гавяд',
+      'ГАВАЙИ': 'vaffel/гава',
+      'ЦЫПЛЕНОК МАНГО-КАРРИ': 'vaffel/манго',
       'ЦЕЗАРЬ': 'cesar',
       'ГРИК': 'grec',
       'ДЖОННИ ПЕППЕРОНИ': 'johnny-pepperoni',
-      'ВВQ': 'bbq'
+      'ВВQ': 'bbq',
+      'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege'
     };
     return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
   };
@@ -114,6 +114,19 @@ const WafflesMenu = ({ translations }) => {
               <span>{convertPrice(item.price)}</span>
             )}
           </div>
+        </div>
+      </div>
+      <div className="flex-shrink-0">
+        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
+          <img 
+            src={`/${getImageName(item.name)}.jpg`}
+            alt={translations.items[item.name]?.name || item.name}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-xs text-center">No Image</div>';
+            }}
+          />
         </div>
       </div>
     </div>
