@@ -83,16 +83,18 @@ const SoupsMenu = ({ translations }) => {
       </div>
 
       {/* Section des plats chauds */}
-      <div>
-        <h3 className="text-2xl font-bold border-b-2 pb-2 mb-4" style={{color: 'var(--text-dark)', borderColor: 'var(--primary-color)'}}>
-          Горячее блюдо
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {soupsData.filter(item => item.name === 'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ').map((item, index) => (
-            <SoupCard key={`hot-${index}`} item={item} />
-          ))}
+      {soupsData.filter(item => item.name === 'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ').length > 0 && (
+        <div>
+          <h3 className="text-2xl font-bold border-b-2 pb-2 mb-4" style={{color: 'var(--text-dark)', borderColor: 'var(--primary-color)'}}>
+            Горячее блюдо
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {soupsData.filter(item => item.name === 'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ').map((item, index) => (
+              <SoupCard key={`hot-${index}`} item={item} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
