@@ -8,8 +8,8 @@ const WafflesMenu = ({ translations }) => {
 
   const getImageName = (itemKey) => {
     const frenchNames = {
-      'КЛУБНИЧНЫЙ КУЛИ': 'klubnichnyy-kuli',
-      'ШОКОЛАД БАНАН': 'shokolad-banan',
+      'КЛУБНИЧНЫЙ КУЛИ': 'vaffel/клуб',
+      'ШОКОЛАД БАНАН': 'vaffel/банан',
       'СНИКЕРС': 'snickers',
       'ЦЫПЛЕНОК 2 СЫРА': 'vaffel/2_сыр',
       'НОРВЕЖСКАЯ РЫБКА': 'vaffel/лег',
