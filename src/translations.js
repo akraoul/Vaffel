@@ -57,13 +57,13 @@ export const translations = {
     soups: {
       title: 'СУПЫ',
       items: {
-        'КУРИНЫЙ БУЛЬОН': {
-          name: 'КУРИНЫЙ БУЛЬОН',
-          description: 'Традиционный куриный бульон с овощами и зеленью'
-        },
         'ТЫКВЕННЫЙ СУП': {
           name: 'ТЫКВЕННЫЙ СУП',
           description: 'Крем-суп из тыквы со сливками и тыквенными семечками'
+        },
+        'СУП ДНЯ': {
+          name: 'СУП ДНЯ',
+          description: 'уточняйте у администратора'
         }
       }
     },
@@ -192,13 +192,13 @@ export const translations = {
     soups: {
       title: 'SOUPES',
       items: {
-        'КУРИНЫЙ БУЛЬОН': {
-          name: 'BOUILLON DE POULET',
-          description: 'Bouillon de poulet traditionnel avec légumes et herbes'
-        },
         'ТЫКВЕННЫЙ СУП': {
           name: 'SOUPE À LA CITROUILLE',
           description: 'Crème de potiron avec crème et graines de citrouille'
+        },
+        'СУП ДНЯ': {
+          name: 'SOUPE DU JOUR',
+          description: 'demandez au serveur'
         }
       }
     },
@@ -327,13 +327,13 @@ export const translations = {
     soups: {
       title: '汤',
       items: {
-        'КУРИНЫЙ БУЛЬОН': {
-          name: '鸡汤',
-          description: '传统鸡汤配蔬菜和香草'
-        },
         'ТЫКВЕННЫЙ СУП': {
           name: '南瓜汤',
           description: '南瓜奶油汤配奶油和南瓜籽'
+        },
+        'СУП ДНЯ': {
+          name: '今日例汤',
+          description: '请询问服务员'
         }
       }
     },
@@ -462,13 +462,13 @@ export const translations = {
     soups: {
       title: 'SOUPS',
       items: {
-        'КУРИНЫЙ БУЛЬОН': {
-          name: 'CHICKEN BROTH',
-          description: 'Traditional chicken broth with vegetables and herbs'
-        },
         'ТЫКВЕННЫЙ СУП': {
           name: 'PUMPKIN SOUP',
           description: 'Pumpkin cream soup with cream and pumpkin seeds'
+        },
+        'СУП ДНЯ': {
+          name: 'SOUP OF THE DAY',
+          description: 'ask the administrator'
         }
       }
     },

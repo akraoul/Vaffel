@@ -16,14 +16,14 @@ const SoupsMenu = ({ translations }) => {
 
   const soupsData = [
     {
-      name: 'КУРИНЫЙ БУЛЬОН',
-      price: 8.50,
-      description: translations.items['КУРИНЫЙ БУЛЬОН'].description
+      name: 'ТЫКВЕННЫЙ СУП',
+      price: 9.90,
+      description: translations.items['ТЫКВЕННЫЙ СУП'].description
     },
     {
-      name: 'ТЫКВЕННЫЙ СУП',
-      price: 9.00,
-      description: translations.items['ТЫКВЕННЫЙ СУП'].description
+      name: 'СУП ДНЯ',
+      price: 9.90,
+      description: translations.items['СУП ДНЯ'].description
     }
   ];
 
