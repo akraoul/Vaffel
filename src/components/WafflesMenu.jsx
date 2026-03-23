@@ -21,7 +21,7 @@ const WafflesMenu = ({ translations }) => {
   };
 
   const wafflesData = {
-    [Object.keys(translations.categories)[0]]: [
+    'КЛАССИЧЕСКОЕ ТЕСТО': [
       {
         name: 'КЛУБНИЧНЫЙ КУЛИ',
         miniPrice: 10.50,
@@ -35,7 +35,7 @@ const WafflesMenu = ({ translations }) => {
         description: 'Сладкая вафля, воздушный крем, шоколадная паста, банан, сахарная пудра'
       }
     ],
-    [Object.keys(translations.categories)[1]]: [
+    'ШПИНАТНОЕ ТЕСТО': [
       {
         name: 'ЦЫПЛЕНОК 2 СЫРА',
         miniPrice: 11.90,
@@ -55,7 +55,7 @@ const WafflesMenu = ({ translations }) => {
         description: 'Шпинатная вафля, фисташковая паста, мортаделла, айсберг, воздушный чиз, чимичурри'
       }
     ],
-    [Object.keys(translations.categories)[2]]: [
+    'СЫРНОЕ ТЕСТО': [
       {
         name: 'ГОВЯДИНА ПО-БУРГУНДСКИ',
         miniPrice: 20.50,
@@ -126,11 +126,11 @@ const WafflesMenu = ({ translations }) => {
   return (
     <div className="space-y-8">
       {Object.entries(wafflesData).map(([category, items]) => (
-        <div key={category}>
-          <h3 className="text-2xl font-bold border-b-2 pb-2 mb-4" style={{color: 'var(--text-dark)', borderColor: 'var(--primary-color)'}}>
-            {translations.categories[category]}
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div key={category} className="space-y-6">
+          <h2 className="text-3xl font-bold text-center mb-6" style={{color: 'var(--primary-color)'}}>
+            {translations.categories[category] || category}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {items.map((item, index) => (
               <WaffleCard key={`${category}-${index}`} item={item} />
             ))}

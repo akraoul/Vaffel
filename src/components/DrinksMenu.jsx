@@ -25,7 +25,7 @@ const DrinksMenu = ({ translations }) => {
 };
 
   const drinksData = {
-    [Object.keys(translations.categories)[0]]: [
+    'ГОРЯЧИЕ НАПИТКИ': [
       {
         name: 'АМЕРИКАНО',
         volume: '0.12 л',
@@ -59,7 +59,7 @@ const DrinksMenu = ({ translations }) => {
         price: 5.00
       }
     ],
-    [Object.keys(translations.categories)[1]]: [
+    'ХОЛОДНЫЕ НАПИТКИ': [
       {
         name: 'МЯТА | ЕЖЕВИКА',
         volume: '0.3 л',
@@ -146,11 +146,11 @@ const DrinkCard = ({ item }) => (
   return (
     <div className="space-y-8">
       {Object.entries(drinksData).map(([category, items]) => (
-        <div key={category}>
-          <h3 className="text-2xl font-bold border-b-2 pb-2 mb-4" style={{color: 'var(--text-dark)', borderColor: 'var(--primary-color)'}}>
-            {translations.categories[category]}
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div key={category} className="space-y-6">
+          <h2 className="text-3xl font-bold text-center mb-6" style={{color: 'var(--primary-color)'}}>
+            {translations.categories[category] || category}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {items.map((item, index) => (
               <DrinkCard key={`${category}-${index}`} item={item} />
             ))}
