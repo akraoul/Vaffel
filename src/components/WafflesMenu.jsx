@@ -77,11 +77,16 @@ const WafflesMenu = ({ translations }) => {
     ]
   };
 
-  const WaffleCard = ({ item }) => (
+  const WaffleCard = ({ item }) => {
+  if (!item) {
+    return <div className="menu-card light-contour p-4">Item non disponible</div>;
+  }
+  
+  return (
     <div className="menu-card light-contour flex items-center gap-3">
       <div className="flex-1">
         <h3 className="text-lg font-bold mb-2" style={{color: 'var(--primary-color)'}}>
-          {translations.items[item.name]?.name || item.name}
+          {translations.items[item.name]?.name || item.name || 'Nom non disponible'}
         </h3>
         <p className="text-xs text-gray-600 mb-3 leading-relaxed" style={{color: 'var(--text-dark)'}}>
           {translations.items[item.name]?.description || item.description || 'Описание отсутствует'}
@@ -109,7 +114,7 @@ const WafflesMenu = ({ translations }) => {
         <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
           <img 
             src={`/${getImageName(item.name)}`}
-            alt={translations.items[item.name]?.name || item.name}
+            alt={translations.items[item.name]?.name || item.name || 'Image non disponible'}
             className="w-full h-full object-cover"
             onError={(e) => {
               e.target.style.display = 'none';
@@ -120,6 +125,7 @@ const WafflesMenu = ({ translations }) => {
       </div>
     </div>
   );
+};
 
   return (
     <div className="space-y-4">
