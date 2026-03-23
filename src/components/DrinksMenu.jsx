@@ -99,49 +99,66 @@ const DrinksMenu = ({ translations }) => {
     ]
   };
 
-const DrinkCard = ({ item }) => (
-    <div className="menu-card light-contour flex items-center gap-3">
-      <div className="flex-1">
-        <h3 className="text-lg font-bold mb-2" style={{color: 'var(--primary-color)'}}>
-          {translations.items[item.name]?.name || item.name}
-        </h3>
-        {item.description && (
-          <p className="text-xs mb-2 leading-relaxed" style={{color: 'var(--text-dark)'}}>
-            {item.description}
-          </p>
-        )}
-        <div className="flex justify-between items-center">
-          <div className="font-semibold text-sm" style={{color: 'var(--text-dark)'}}>
-            {item.volumes ? (
-              <div className="space-y-1">
-                {item.volumes.map((vol, index) => (
-                  <div key={index} className="flex justify-between">
-                    <span>{vol.size}:</span>
-                    <span className="ml-4">{convertPrice(vol.price)}</span>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <span>{convertPrice(item.price)}</span>
-            )}
+const DrinkCard = ({ item }) => {
+  // Guard clause pour éviter les erreurs
+  if (!item || typeof item !== 'object') {
+    return <div className="menu-card light-contour p-4 text-center">Boisson non disponible</div>;
+  }
+  
+  // Vérification des propriétés requises
+  if (!item.name) {
+    return <div className="menu-card light-contour p-4 text-center">Nom de boisson manquant</div>;
+  }
+  
+  try {
+    return (
+      <div className="menu-card light-contour flex items-center gap-3">
+        <div className="flex-1">
+          <h3 className="text-lg font-bold mb-2" style={{color: 'var(--primary-color)'}}>
+            {translations.items[item.name]?.name || item.name || 'Nom non disponible'}
+          </h3>
+          {item.description && (
+            <p className="text-xs mb-2 leading-relaxed" style={{color: 'var(--text-dark)'}}>
+              {item.description}
+            </p>
+          )}
+          <div className="flex justify-between items-center">
+            <div className="font-semibold text-sm" style={{color: 'var(--text-dark)'}}>
+              {item.volumes ? (
+                <div className="space-y-1">
+                  {item.volumes.map((vol, index) => (
+                    <div key={index} className="flex justify-between">
+                      <span>{vol.size || 'Taille inconnue'}:</span>
+                      <span className="ml-4">{convertPrice(vol.price || 0)}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <span>{convertPrice(item.price || 0)}</span>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="flex-shrink-0">
+          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
+            <img 
+              src={`/${getImageName(item.name)}`}
+              alt={translations.items[item.name]?.name || item.name || 'Image non disponible'}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-xs text-center">No Image</div>';
+              }}
+            />
           </div>
         </div>
       </div>
-      <div className="flex-shrink-0">
-        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
-          <img 
-            src={`/${getImageName(item.name)}`}
-            alt={translations.items[item.name]?.name || item.name}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-xs text-center">No Image</div>';
-            }}
-          />
-        </div>
-      </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error('Error in DrinkCard:', error, 'Item data:', item);
+    return <div className="menu-card light-contour p-4 text-center">Erreur d'affichage</div>;
+  }
+};
 
   return (
     <div className="space-y-4">
@@ -151,8 +168,8 @@ const DrinkCard = ({ item }) => (
             {translations.categories[category] || category}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            {items.map((item, index) => (
-              <DrinkCard key={`${category}-${index}`} item={item} />
+            {items && items.map((item, index) => (
+              item && <DrinkCard key={`${category}-${index}`} item={item} />
             ))}
           </div>
         </div>

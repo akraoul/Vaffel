@@ -4,26 +4,44 @@ const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check localStorage for dark mode preference
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    setDarkMode(savedDarkMode);
-    
-    // Apply dark mode class to body
-    if (savedDarkMode) {
-      document.body.classList.add('dark');
+    try {
+      // Check localStorage for dark mode preference
+      const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+      setDarkMode(savedDarkMode);
+      
+      // Apply dark mode class to body
+      if (savedDarkMode) {
+        document.body.classList.add('dark');
+      }
+    } catch (error) {
+      console.error('Error loading dark mode preference:', error);
+      // Fallback to light mode if localStorage fails
+      setDarkMode(false);
     }
   }, []);
 
   const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    localStorage.setItem('darkMode', newDarkMode);
-    
-    // Toggle dark mode class
-    if (newDarkMode) {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
+    try {
+      const newDarkMode = !darkMode;
+      setDarkMode(newDarkMode);
+      localStorage.setItem('darkMode', newDarkMode);
+      
+      // Toggle dark mode class
+      if (newDarkMode) {
+        document.body.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+      }
+    } catch (error) {
+      console.error('Error toggling dark mode:', error);
+      // Fallback: just toggle the state without localStorage
+      const newDarkMode = !darkMode;
+      setDarkMode(newDarkMode);
+      if (newDarkMode) {
+        document.body.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+      }
     }
   };
 
