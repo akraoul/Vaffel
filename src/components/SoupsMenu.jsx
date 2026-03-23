@@ -9,7 +9,8 @@ const SoupsMenu = ({ translations }) => {
   const getImageName = (itemKey) => {
     const frenchNames = {
       'КУРИНЫЙ БУЛЬОН': 'bouillon-de-poulet',
-      'ТЫКВЕННЫЙ СУП': 'soupe-a-la-citrouille'
+      'ТЫКВЕННЫЙ СУП': 'soupe-a-la-citrouille',
+      'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ': 'мп'
     };
     return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
   };
