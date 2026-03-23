@@ -11,7 +11,7 @@ const DrinksMenu = ({ translations }) => {
     'АМЕРИКАНО': 'americano',
     'КАПУЧИНО': 'cappuccino',
     'ЛАТТЕ КЛАССИЧЕСКИЙ': 'latte',
-    'ФЛЭТ УАЙТ': 'flat-white',
+    'ФЛЭТ УАЙТ': 'boisson/ф_у',
     'СИРОПЫ': 'sirop',
     'ЧАЙ': 'the-assorti',
     'МЯТА | ЕЖЕВИКА': 'boisson/м_е',
