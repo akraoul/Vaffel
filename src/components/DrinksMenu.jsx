@@ -14,12 +14,12 @@ const DrinksMenu = ({ translations }) => {
     'ФЛЭТ УАЙТ': 'flat-white',
     'СИРОПЫ': 'sirop',
     'ЧАЙ': 'the-assorti',
-    'МЯТА | ЕЖЕВИКА': 'mure-menthe',
-    'ЛАВАНДА | ГРЕЙПФРУТ': 'pamplemousse',
-    'ЛИЧИ | АНАНАС': 'lychee-ananas',
-    'МИНДАЛЬ | ВИШНЯ': 'amande-cerise',
-    'ЭСПРЕССО ТОНИК': 'espresso-tonic',
-    'МАТЧА-ТОНИК': 'matcha-tonic'
+    'МЯТА | ЕЖЕВИКА': 'boisson/м_е',
+    'ЛАВАНДА | ГРЕЙПФРУТ': 'boisson/л_г',
+    'ЛИЧИ | АНАНАС': 'boisson/л_а',
+    'МИНДАЛЬ | ВИШНЯ': 'boisson/м_в',
+    'ЭСПРЕССО ТОНИК': 'boisson/э_т',
+    'МАТЧА-ТОНИК': 'boisson/м_т'
   };
   return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
 };
