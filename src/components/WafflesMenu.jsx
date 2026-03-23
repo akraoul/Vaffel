@@ -84,7 +84,7 @@ const WafflesMenu = ({ translations }) => {
           {translations.items[item.name]?.name || item.name}
         </h3>
         <p className="text-xs text-gray-600 mb-3 leading-relaxed" style={{color: 'var(--text-dark)'}}>
-          {translations.items[item.name]?.description || item.description}
+          {translations.items[item.name]?.description || item.description || 'Описание отсутствует'}
         </p>
         <div className="flex justify-between items-center">
           <div className="text-green-800 font-semibold text-sm" style={{color: 'var(--text-dark)'}}>
