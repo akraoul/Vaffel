@@ -11,8 +11,8 @@
   --secondary-color: #D4D4DC;
   --dark-color: #303030;
   --text-light: #D4D4DC;
-  --text-dark: #D4D4DC;
-  --bg-light: #303030;
+  --text-dark: #303030;
+  --bg-light: #D4D4DC;
   --bg-dark: #303030;
 }
 
@@ -23,7 +23,7 @@
   --dark-color: #303030;
   --text-light: #D4D4DC;
   --text-dark: #D4D4DC;
-  --bg-light: #303030;
+  --bg-light: #D4D4DC;
   --bg-dark: #303030;
 }
 
