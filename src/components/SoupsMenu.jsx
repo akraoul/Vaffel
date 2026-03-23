@@ -10,7 +10,7 @@ const SoupsMenu = ({ translations }) => {
     const frenchNames = {
       'КУРИНЫЙ БУЛЬОН': 'bouillon-de-poulet',
       'ТЫКВЕННЫЙ СУП': 'soupe-a-la-citrouille',
-      'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ': 'мп'
+      'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ': 'мп.jpeg'
     };
     return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
   };
@@ -51,7 +51,7 @@ const SoupsMenu = ({ translations }) => {
       <div className="flex-shrink-0">
         <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
           <img 
-            src={`/${getImageName(item.name)}.jpg`}
+            src={`/${getImageName(item.name)}`}
             alt={translations.items[item.name].name}
             className="w-full h-full object-cover"
             onError={(e) => {
