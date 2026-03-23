@@ -32,14 +32,18 @@ const SoupsMenu = ({ translations }) => {
     }
   ];
 
-  const SoupCard = ({ item }) => (
+  const SoupCard = ({ item }) => {
+  // Vérifier si l'item existe dans les traductions
+  const translation = translations.items[item.name];
+  
+  return (
     <div className="menu-card light-contour flex items-center gap-4">
       <div className="flex-1">
         <h3 className="text-2xl font-bold mb-3" style={{color: 'var(--primary-color)'}}>
-          {translations.items[item.name]?.name || item.name}
+          {translation?.name || item.name}
         </h3>
         <p className="text-sm mb-4 leading-relaxed" style={{color: 'var(--text-dark)'}}>
-          {item.description}
+          {translation?.description || item.description}
         </p>
         <div className="flex justify-between items-center">
           <div className="font-semibold" style={{color: 'var(--text-dark)'}}>
@@ -51,7 +55,7 @@ const SoupsMenu = ({ translations }) => {
         <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
           <img 
             src={`/${getImageName(item.name)}.jpg`}
-            alt={translations.items[item.name]?.name || item.name}
+            alt={translation?.name || item.name}
             className="w-full h-full object-cover"
             onError={(e) => {
               e.target.style.display = 'none';
@@ -62,6 +66,7 @@ const SoupsMenu = ({ translations }) => {
       </div>
     </div>
   );
+};
 
   return (
     <div className="space-y-8">
