@@ -8,8 +8,9 @@ const SoupsMenu = ({ translations }) => {
 
   const getImageName = (itemKey) => {
     const frenchNames = {
-      'КУРИНЫЙ БУЛЬОН': 'bouillon-de-poulet',
-      'ТЫКВЕННЫЙ СУП': 'soupe-a-la-citrouille'
+      'ТЫКВЕННЫЙ СУП': 'soupe-a-la-citrouille',
+      'СУП ДНЯ': 'soup-du-jour',
+      'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ': 'meatballs-puree-aeree'
     };
     return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
   };
@@ -18,23 +19,23 @@ const SoupsMenu = ({ translations }) => {
     {
       name: 'ТЫКВЕННЫЙ СУП',
       price: 9.90,
-      description: translations.items['ТЫКВЕННЫЙ СУП'].description
+      description: translations.items['ТЫКВЕННЫЙ СУП']?.description || 'Крем-суп из тыквы со сливками и тыквенными семечками'
     },
     {
       name: 'СУП ДНЯ',
       price: 9.90,
-      description: translations.items['СУП ДНЯ'].description
+      description: translations.items['СУП ДНЯ']?.description || 'уточняйте у администратора'
     },
     {
       name: 'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ',
       price: 15.00,
-      description: translations.items['МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ'].description
+      description: translations.items['МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ']?.description || 'митболы из индейки, воздушный картофельный мусс, грибной соус, маринованный огурчик'
     }
   ];
 
   const SoupCard = ({ item }) => {
-  // Vérifier si l'item existe dans les traductions
-  const translation = translations.items[item.name];
+  // Sécurisation complète des accès aux traductions
+  const translation = translations.items?.[item.name];
   
   return (
     <div className="menu-card light-contour flex items-center gap-4">
