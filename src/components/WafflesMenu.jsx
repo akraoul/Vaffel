@@ -30,53 +30,54 @@ const WafflesMenu = ({ translations }) => {
     [Object.keys(translations.categories)[0]]: [
       {
         name: 'КЛУБНИЧНЫЙ КУЛИ',
-        miniPrice: 10.30,
-        fullPrice: 13.90,
+        miniPrice: 10.50,
+        fullPrice: 14.10,
         description: 'Сладкая вафля, воздушный крем, клубничный кули, сахарная пудра'
       },
       {
         name: 'ШОКОЛАД БАНАН',
-        miniPrice: 10.30,
-        fullPrice: 13.90,
+        miniPrice: 10.50,
+        fullPrice: 14.10,
         description: 'Сладкая вафля, воздушный крем, шоколадная паста, банан, сахарная пудра'
       }
     ],
     [Object.keys(translations.categories)[1]]: [
       {
         name: 'ЦЫПЛЕНОК 2 СЫРА',
-        miniPrice: 12.90,
-        fullPrice: 19.90,
+        miniPrice: 11.90,
+        fullPrice: 16.50,
         description: 'Шпинатная вафля, авторский тар-тар, цыпленок, чеддер, пармезан, айсберг, томат'
       },
       {
         name: 'НОРВЕЖСКАЯ РЫБКА',
-        miniPrice: 11.50,
-        fullPrice: 15.90,
-        description: 'Шпинатная вафля, воздушный чиз, свежий огурчик, лосось сс, рукола'
+        miniPrice: 13.40,
+        fullPrice: 20.50,
+        description: 'Шпинатная вафля, воздушный чиз, свежий огурчик, лосось сс, руккола'
       },
       {
         name: 'ИТАЛЬЯНСКАЯ КЛАССИКА',
-        miniPrice: 10.50,
-        fullPrice: 15.90,
+        miniPrice: 13.40,
+        fullPrice: 18.50,
         description: 'Шпинатная вафля, фисташковая паста, мортаделла, айсберг, воздушный чиз, чимичурри'
       }
     ],
     [Object.keys(translations.categories)[2]]: [
       {
         name: 'ГОВЯДИНА ПО-БУРГУНДСКИ',
-        miniPrice: 12.40,
-        fullPrice: 17.90,
+        miniPrice: 20.50,
+        fullPrice: null,
         description: 'Сырная вафля, говяжья котлета, чеддер, луковый джем, чесночный, томат, айсберг'
       },
       {
         name: 'ГАВАЙИ',
-        miniPrice: 12.40,
-        fullPrice: 16.90,
+        miniPrice: 12.90,
+        fullPrice: 17.50,
         description: 'Сырная вафля, цыпленок, ананас, моцарелла, воздушный чиз, айсберг, сладкий Чили'
       },
       {
         name: 'ЦЫПЛЕНОК МАНГО-КАРРИ',
-        price: 17.90,
+        miniPrice: 12.90,
+        fullPrice: 17.50,
         description: 'Сырная вафля, цыпленок, манго карри, чесночный, томат, айсберг'
       }
     ]
