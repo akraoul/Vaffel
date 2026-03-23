@@ -10,18 +10,18 @@ const WafflesMenu = ({ translations }) => {
     const frenchNames = {
       'КЛУБНИЧНЫЙ КУЛИ': 'vaffel/клуб',
       'ШОКОЛАД БАНАН': 'vaffel/банан',
-      'СНИКЕРС': 'snickers',
       'ЦЫПЛЕНОК 2 СЫРА': 'vaffel/2_сыр',
       'НОРВЕЖСКАЯ РЫБКА': 'vaffel/лег',
       'ИТАЛЬЯНСКАЯ КЛАССИКА': 'vaffel/ит',
       'ГОВЯДИНА ПО-БУРГУНДСКИ': 'vaffel/гавяд',
       'ГАВАЙИ': 'vaffel/гава',
       'ЦЫПЛЕНОК МАНГО-КАРРИ': 'vaffel/манго',
-      'ЦЕЗАРЬ': 'cesar',
-      'ГРИК': 'grec',
       'ДЖОННИ ПЕППЕРОНИ': 'johnny-pepperoni',
       'ВВQ': 'bbq',
-      'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege'
+      'ЛЕГЕНДА НОРВЕГИИ': 'legende-de-norvege',
+      'СНИКЕРС': 'snickers',
+      'ЦЕЗАРЬ': 'cesar',
+      'ГРИК': 'grec'
     };
     return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
   };
@@ -39,12 +39,6 @@ const WafflesMenu = ({ translations }) => {
         miniPrice: 10.30,
         fullPrice: 13.90,
         description: 'Сладкая вафля, воздушный крем, шоколадная паста, банан, сахарная пудра'
-      },
-      {
-        name: 'СНИКЕРС',
-        miniPrice: 10.30,
-        fullPrice: 13.90,
-        description: translations.items['СНИКЕРС'].description
       }
     ],
     [Object.keys(translations.categories)[1]]: [

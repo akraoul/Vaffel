@@ -28,10 +28,6 @@ export const translations = {
           name: 'ШОКОЛАД БАНАН',
           description: 'Сладкая вафля, воздушный крем, шоколадная паста, банан, сахарная пудра'
         },
-        'СНИКЕРС': {
-          name: 'СНИКЕРС',
-          description: 'шоколадно-ореховая паста, зефирный крем, арахис крошка, карамельный соус, рисовые шарики, сахарная пудра'
-        },
         'ЦЫПЛЕНОК 2 СЫРА': {
           name: 'ЦЫПЛЕНОК 2 СЫРА',
           description: 'Шпинатная вафля, авторский тар-тар, цыпленок, чеддер, пармезан, айсберг, томат'
@@ -162,10 +158,6 @@ export const translations = {
         'ШОКОЛАД БАНАН': {
           name: 'CHOCOLAT BANANE',
           description: 'Gaufre sucrée, crème aérée, pâte chocolat, banane, sucre glace'
-        },
-        'СНИКЕРС': {
-          name: 'SNICKERS',
-          description: 'pâte chocolat-noisette, crème guimauve, cacahuète, sauce caramel, riz soufflé, sucre glace'
         },
         'ЦЫПЛЕНОК 2 СЫРА': {
           name: 'POULET 2 FROMAGES',
@@ -298,10 +290,6 @@ export const translations = {
           name: '巧克力香蕉',
           description: '甜华夫饼，轻盈奶油，巧克力酱，香蕉，糖粉'
         },
-        'СНИКЕРС': {
-          name: '士力架',
-          description: '巧克力花生酱，棉花糖奶油，碎花生，焦糖酱，爆米花，糖粉'
-        },
         'ЦЫПЛЕНОК 2 СЫРА': {
           name: '鸡肉双芝士',
           description: '菠菜华夫饼，自制塔塔酱，鸡肉，切达芝士，帕玛森芝士，生菜，番茄'
@@ -432,10 +420,6 @@ export const translations = {
         'ШОКОЛАД БАНАН': {
           name: 'CHOCOLATE BANANA',
           description: 'Sweet waffle, airy cream, chocolate paste, banana, powdered sugar'
-        },
-        'СНИКЕРС': {
-          name: 'SNICKERS',
-          description: 'chocolate-hazelnut spread, marshmallow cream, crushed peanuts, caramel sauce, puffed rice, powdered sugar'
         },
         'ЦЫПЛЕНОК 2 СЫРА': {
           name: 'CHICKEN 2 CHEESES',
