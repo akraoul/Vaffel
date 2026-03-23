@@ -6,24 +6,6 @@ const DrinksMenu = ({ translations }) => {
     return `${price.toFixed(2)} BYN`;
   };
 
-  const handleImageClick = (imageSrc) => {
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4';
-    modal.onclick = (e) => {
-      if (e.target === modal) {
-        document.body.removeChild(modal);
-      }
-    };
-    
-    const img = document.createElement('img');
-    img.src = imageSrc;
-    img.className = 'max-w-full max-h-full rounded-lg shadow-2xl cursor-pointer';
-    img.onclick = () => document.body.removeChild(modal);
-    
-    modal.appendChild(img);
-    document.body.appendChild(modal);
-  };
-
   const getImageName = (itemKey) => {
   const frenchNames = {
     'АМЕРИКАНО': 'americano',
@@ -146,7 +128,7 @@ const DrinkCard = ({ item }) => (
         </div>
       </div>
       <div className="flex-shrink-0">
-        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 shadow-lg menu-image cursor-pointer transition-transform hover:scale-105" style={{borderColor: 'var(--primary-color)'}} onClick={() => handleImageClick(`/${getImageName(item.name)}.jpg`)}>
+        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
           <img 
             src={`/${getImageName(item.name)}.jpg`}
             alt={translations.items[item.name].name}
