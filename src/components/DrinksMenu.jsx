@@ -147,7 +147,7 @@ const DrinkCard = ({ item }) => (
     <div className="space-y-8">
       {Object.entries(drinksData).map(([category, items]) => (
         <div key={category} className="space-y-6">
-          <h2 className="text-3xl font-bold text-center mb-6" style={{color: 'var(--primary-color)'}}>
+          <h2 className="text-3xl font-bold text-center mb-6" style={{color: '#303030'}}>
             {translations.categories[category] || category}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
