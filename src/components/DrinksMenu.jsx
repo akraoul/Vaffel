@@ -100,18 +100,18 @@ const DrinksMenu = ({ translations }) => {
   };
 
 const DrinkCard = ({ item }) => (
-    <div className="menu-card light-contour flex items-center gap-4">
+    <div className="menu-card light-contour flex items-center gap-3">
       <div className="flex-1">
-        <h3 className="text-xl font-bold mb-2" style={{color: 'var(--primary-color)'}}>
+        <h3 className="text-lg font-bold mb-2" style={{color: 'var(--primary-color)'}}>
           {translations.items[item.name]?.name || item.name}
         </h3>
         {item.description && (
-          <p className="text-sm mb-3 leading-relaxed" style={{color: 'var(--text-dark)'}}>
+          <p className="text-xs mb-2 leading-relaxed" style={{color: 'var(--text-dark)'}}>
             {item.description}
           </p>
         )}
         <div className="flex justify-between items-center">
-          <div className="font-semibold" style={{color: 'var(--text-dark)'}}>
+          <div className="font-semibold text-sm" style={{color: 'var(--text-dark)'}}>
             {item.volumes ? (
               <div className="space-y-1">
                 {item.volumes.map((vol, index) => (
@@ -128,7 +128,7 @@ const DrinkCard = ({ item }) => (
         </div>
       </div>
       <div className="flex-shrink-0">
-        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
+        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
           <img 
             src={`/${getImageName(item.name)}`}
             alt={translations.items[item.name]?.name || item.name}
@@ -144,13 +144,13 @@ const DrinkCard = ({ item }) => (
   );
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       {Object.entries(drinksData).map(([category, items]) => (
-        <div key={category} className="space-y-6">
-          <h2 className="text-3xl font-bold text-center mb-6" style={{color: '#303030'}}>
+        <div key={category} className="space-y-3">
+          <h2 className="text-2xl font-bold text-center mb-3" style={{color: '#303030'}}>
             {translations.categories[category] || category}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
             {items.map((item, index) => (
               <DrinkCard key={`${category}-${index}`} item={item} />
             ))}
