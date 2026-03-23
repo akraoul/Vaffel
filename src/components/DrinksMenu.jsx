@@ -8,18 +8,18 @@ const DrinksMenu = ({ translations }) => {
 
   const getImageName = (itemKey) => {
   const frenchNames = {
-    'АМЕРИКАНО': 'americano',
-    'КАПУЧИНО': 'cappuccino',
-    'ЛАТТЕ КЛАССИЧЕСКИЙ': 'latte',
-    'ФЛЭТ УАЙТ': 'boisson/ф_у',
-    'СИРОПЫ': 'sirop',
-    'ЧАЙ': 'the-assorti',
-    'МЯТА | ЕЖЕВИКА': 'boisson/м_е',
-    'ЛАВАНДА | ГРЕЙПФРУТ': 'boisson/л_г',
-    'ЛИЧИ | АНАНАС': 'boisson/л_а',
-    'МИНДАЛЬ | ВИШНЯ': 'boisson/м_в',
-    'ЭСПРЕССО ТОНИК': 'boisson/э_т',
-    'МАТЧА-ТОНИК': 'boisson/м_т'
+    'АМЕРИКАНО': 'americano.jpg',
+    'КАПУЧИНО': 'cappuccino.jpg',
+    'ЛАТТЕ КЛАССИЧЕСКИЙ': 'latte.jpg',
+    'ФЛЭТ УАЙТ': 'boisson/ф_у.jpg',
+    'СИРОПЫ': 'sirop.jpg',
+    'ЧАЙ': 'the-assorti.jpg',
+    'МЯТА | ЕЖЕВИКА': 'boisson/м_е.jpg',
+    'ЛАВАНДА | ГРЕЙПФРУТ': 'boisson/л_г.jpg',
+    'ЛИЧИ | АНАНАС': 'boisson/л_а.jpg',
+    'МИНДАЛЬ | ВИШНЯ': 'boisson/м_в.jpg',
+    'ЭСПРЕССО ТОНИК': 'boisson/э_т.jpg',
+    'МАТЧА-ТОНИК': 'boisson/м_т.jpg'
   };
   return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
 };
