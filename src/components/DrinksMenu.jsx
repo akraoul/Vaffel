@@ -11,15 +11,15 @@ const DrinksMenu = ({ translations }) => {
     'АМЕРИКАНО': 'americano',
     'КАПУЧИНО': 'cappuccino',
     'ЛАТТЕ КЛАССИЧЕСКИЙ': 'latte',
-    'ТЫКВЕННЫЙ ЛАТТЕ': 'latte-citrouille',
-    'ОЛД МАНИ': 'old-man',
-    'СМОРОДИНА ДРАЙВ': 'cassis-drive',
-    'ЧАЙ В АССОРТИМЕНТЕ': 'the-assorti',
-    'ЧАЙ С ЛИМОНОМ И КОРИЦЕЙ': 'the-citron-cannelle',
-    'АБРИКОСОВЫЙ ПОПКОРН': 'pop-corn-abricot',
-    'ГРЕЙП': 'pamplemousse',
-    'ВАНИЛЬНОЕ ЯБЛОКО': 'pomme-vanille',
-    'МЯТНАЯ ЕЖЕВИКА': 'mure-menthe'
+    'ФЛЭТ УАЙТ': 'flat-white',
+    'СИРОПЫ': 'sirop',
+    'ЧАЙ': 'the-assorti',
+    'МЯТА | ЕЖЕВИКА': 'mure-menthe',
+    'ЛАВАНДА | ГРЕЙПФРУТ': 'pamplemousse',
+    'ЛИЧИ | АНАНАС': 'lychee-ananas',
+    'МИНДАЛЬ | ВИШНЯ': 'amande-cerise',
+    'ЭСПРЕССО ТОНИК': 'espresso-tonic',
+    'МАТЧА-ТОНИК': 'matcha-tonic'
   };
   return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
 };
@@ -44,60 +44,57 @@ const DrinksMenu = ({ translations }) => {
         price: 8.00
       },
       {
-        name: 'ТЫКВЕННЫЙ ЛАТТЕ',
+        name: 'ФЛЭТ УАЙТ',
         volume: '0.3 л',
-        price: 8.00
-      }
-    ],
-    [Object.keys(translations.categories)[1]]: [
-      {
-        name: 'ОЛД МАНИ',
-        volume: '0.3 л',
-        price: 6.90,
-        description: translations.items['ОЛД МАНИ'].description
+        price: 6.00
       },
       {
-        name: 'СМОРОДИНА ДРАЙВ',
-        volume: '0.3 л',
-        price: 6.90,
-        description: translations.items['СМОРОДИНА ДРАЙВ'].description
+        name: 'СИРОПЫ',
+        volume: '0.03 л',
+        price: 1.00
       },
       {
-        name: 'ЧАЙ В АССОРТИМЕНТЕ',
-        volume: '0.3 л',
-        price: 5.00,
-        description: translations.items['ЧАЙ В АССОРТИМЕНТЕ'].description
-      },
-      {
-        name: 'ЧАЙ С ЛИМОНОМ И КОРИЦЕЙ',
+        name: 'ЧАЙ',
         volume: '0.3 л',
         price: 5.00
       }
     ],
-    [Object.keys(translations.categories)[2]]: [
+    [Object.keys(translations.categories)[1]]: [
       {
-        name: 'АБРИКОСОВЫЙ ПОПКОРН',
-        volume: '370 мл',
-        price: 6.90,
-        description: translations.items['АБРИКОСОВЫЙ ПОПКОРН'].description
+        name: 'МЯТА | ЕЖЕВИКА',
+        volume: '0.3 л',
+        price: 7.50,
+        description: translations.items['МЯТА | ЕЖЕВИКА'].description
       },
       {
-        name: 'ГРЕЙП',
-        volume: '370 мл',
-        price: 6.90,
-        description: translations.items['ГРЕЙП'].description
+        name: 'ЛАВАНДА | ГРЕЙПФРУТ',
+        volume: '0.3 л',
+        price: 7.50,
+        description: translations.items['ЛАВАНДА | ГРЕЙПФРУТ'].description
       },
       {
-        name: 'ВАНИЛЬНОЕ ЯБЛОКО',
-        volume: '370 мл',
-        price: 6.90,
-        description: translations.items['ВАНИЛЬНОЕ ЯБЛОКО'].description
+        name: 'ЛИЧИ | АНАНАС',
+        volume: '0.3 л',
+        price: 7.50,
+        description: translations.items['ЛИЧИ | АНАНАС'].description
       },
       {
-        name: 'МЯТНАЯ ЕЖЕВИКА',
-        volume: '370 мл',
-        price: 6.90,
-        description: translations.items['МЯТНАЯ ЕЖЕВИКА'].description
+        name: 'МИНДАЛЬ | ВИШНЯ',
+        volume: '0.3 л',
+        price: 7.50,
+        description: translations.items['МИНДАЛЬ | ВИШНЯ'].description
+      },
+      {
+        name: 'ЭСПРЕССО ТОНИК',
+        volume: '0.3 л',
+        price: 8.00,
+        description: translations.items['ЭСПРЕССО ТОНИК'].description
+      },
+      {
+        name: 'МАТЧА-ТОНИК',
+        volume: '0.3 л',
+        price: 8.50,
+        description: translations.items['МАТЧА-ТОНИК'].description
       }
     ]
   };

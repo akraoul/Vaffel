@@ -70,53 +70,57 @@ export const translations = {
     drinks: {
       title: 'НАПИТКИ',
       categories: {
-        'КОФЕ': 'КОФЕ',
-        'ЧАЙ И НЕ ЧАЙ': 'ЧАЙ И НЕ ЧАЙ',
-        'АВТОРСКИЕ НАПИТКИ': 'АВТОРСКИЕ НАПИТКИ'
+        'ГОРЯЧИЕ НАПИТКИ': 'ГОРЯЧИЕ НАПИТКИ',
+        'ХОЛОДНЫЕ НАПИТКИ': 'ХОЛОДНЫЕ НАПИТКИ'
       },
       items: {
         'АМЕРИКАНО': {
-          name: 'АМЕРИКАНО'
+          name: 'АМЕРИКАНО',
+          description: 'Классический эспрессо с горячей водой'
         },
         'КАПУЧИНО': {
-          name: 'КАПУЧИНО'
+          name: 'КАПУЧИНО',
+          description: 'Эспрессо с молочной пеной'
         },
         'ЛАТТЕ КЛАССИЧЕСКИЙ': {
-          name: 'ЛАТТЕ КЛАССИЧЕСКИЙ'
+          name: 'ЛАТТЕ КЛАССИЧЕСКИЙ',
+          description: 'Эспрессо с горячим молоком'
         },
-        'ТЫКВЕННЫЙ ЛАТТЕ': {
-          name: 'ТЫКВЕННЫЙ ЛАТТЕ'
+        'ФЛЭТ УАЙТ': {
+          name: 'ФЛЭТ УАЙТ',
+          description: 'Двойной эспрессо с молочной пеной'
         },
-        'ОЛД МАНИ': {
-          name: 'ОЛД МАНИ',
-          description: 'облепиха, лимон, апельсин, мёд, имбирь'
+        'СИРОПЫ': {
+          name: 'СИРОПЫ',
+          description: 'Различные вкусы сиропов'
         },
-        'СМОРОДИНА ДРАЙВ': {
-          name: 'СМОРОДИНА ДРАЙВ',
-          description: 'черная смородина, розмарин, апельсин, корица'
+        'ЧАЙ': {
+          name: 'ЧАЙ',
+          description: 'Черный или зеленый чай на выбор'
         },
-        'ЧАЙ В АССОРТИМЕНТЕ': {
-          name: 'ЧАЙ В АССОРТИМЕНТЕ',
-          description: '(черный / зеленый / фруктовый)'
+        'МЯТА | ЕЖЕВИКА': {
+          name: 'МЯТА | ЕЖЕВИКА',
+          description: 'кордиал, лед, содовая'
         },
-        'ЧАЙ С ЛИМОНОМ И КОРИЦЕЙ': {
-          name: 'ЧАЙ С ЛИМОНОМ И КОРИЦЕЙ'
+        'ЛАВАНДА | ГРЕЙПФРУТ': {
+          name: 'ЛАВАНДА | ГРЕЙПФРУТ',
+          description: 'кордиал, лед, содовая'
         },
-        'АБРИКОСОВЫЙ ПОПКОРН': {
-          name: 'АБРИКОСОВЫЙ ПОПКОРН',
-          description: 'кордиал абрикосовый попкорн, кола, лед'
+        'ЛИЧИ | АНАНАС': {
+          name: 'ЛИЧИ | АНАНАС',
+          description: 'кордиал, лед, тоник'
         },
-        'ГРЕЙП': {
-          name: 'ГРЕЙП',
-          description: 'кордиал грейпфрут, гибискус, швепс, лед'
+        'МИНДАЛЬ | ВИШНЯ': {
+          name: 'МИНДАЛЬ | ВИШНЯ',
+          description: 'кордиал, лед, кола'
         },
-        'ВАНИЛЬНОЕ ЯБЛОКО': {
-          name: 'ВАНИЛЬНОЕ ЯБЛОКО',
-          description: 'кордиал ваниль, яблоко, виноград, содовая, лед'
+        'ЭСПРЕССО ТОНИК': {
+          name: 'ЭСПРЕССО ТОНИК',
+          description: 'эспрессо, тоник, кордиал'
         },
-        'МЯТНАЯ ЕЖЕВИКА': {
-          name: 'МЯТНАЯ ЕЖЕВИКА',
-          description: 'ежевика, мята, содовая, лед'
+        'МАТЧА-ТОНИК': {
+          name: 'МАТЧА-ТОНИК',
+          description: 'матча, кордиал, тоник'
         }
       }
     },
@@ -201,53 +205,57 @@ export const translations = {
     drinks: {
       title: 'BOISSONS',
       categories: {
-        'КОФЕ': 'CAFÉ',
-        'ЧАЙ И НЕ ЧАЙ': 'THÉ ET NON-THÉ',
-        'АВТОРСКИЕ НАПИТКИ': 'BOISSONS SIGNATURES'
+        'ГОРЯЧИЕ НАПИТКИ': 'BOISSONS CHAUDES',
+        'ХОЛОДНЫЕ НАПИТКИ': 'BOISSONS FROIDES'
       },
       items: {
         'АМЕРИКАНО': {
-          name: 'AMERICANO'
+          name: 'AMERICANO',
+          description: 'Espresso classique avec eau chaude'
         },
         'КАПУЧИНО': {
-          name: 'CAPPUCCINO'
+          name: 'CAPPUCCINO',
+          description: 'Espresso avec mousse de lait'
         },
         'ЛАТТЕ КЛАССИЧЕСКИЙ': {
-          name: 'LATTE CLASSIQUE'
+          name: 'LATTE CLASSIQUE',
+          description: 'Espresso avec lait chaud'
         },
-        'ТЫКВЕННЫЙ ЛАТТЕ': {
-          name: 'LATTE CITROUILLE'
+        'ФЛЭТ УАЙТ': {
+          name: 'FLAT WHITE',
+          description: 'Double espresso avec mousse de lait'
         },
-        'ОЛД МАНИ': {
-          name: 'OLD MAN',
-          description: 'argousier, citron, orange, miel, gingembre'
+        'СИРОПЫ': {
+          name: 'SIROPS',
+          description: 'Différents saveurs de sirops'
         },
-        'СМОРОДИНА ДРАЙВ': {
-          name: 'CASSIS DRIVE',
-          description: 'cassis, romarin, orange, cannelle'
+        'ЧАЙ': {
+          name: 'THÉ',
+          description: 'Thé noir ou vert au choix'
         },
-        'ЧАЙ В АССОРТИМЕНТЕ': {
-          name: 'THÉ ASSORTI',
-          description: '(noir / vert / aux fruits)'
+        'МЯТА | ЕЖЕВИКА': {
+          name: 'MENTHE | MÛRE',
+          description: 'cordial, glace, soda'
         },
-        'ЧАЙ С ЛИМОНОМ И КОРИЦЕЙ': {
-          name: 'THÉ AU CITRON ET CANNELLE'
+        'ЛАВАНДА | ГРЕЙПФРУТ': {
+          name: 'LAVANDE | PAMPLEMOUSSE',
+          description: 'cordial, glace, soda'
         },
-        'АБРИКОСОВЫЙ ПОПКОРН': {
-          name: 'POP-CORN ABRICOT',
-          description: 'sirop pop-corn abricot, cola, glace'
+        'ЛИЧИ | АНАНАС': {
+          name: 'LITCHI | ANANAS',
+          description: 'cordial, glace, tonic'
         },
-        'ГРЕЙП': {
-          name: 'PAMPLEMOUSSE',
-          description: 'sirop pamplemousse, hibiscus, schweppes, glace'
+        'МИНДАЛЬ | ВИШНЯ': {
+          name: 'AMANDE | CERISE',
+          description: 'cordial, glace, cola'
         },
-        'ВАНИЛЬНОЕ ЯБЛОКО': {
-          name: 'POMME VANILLE',
-          description: 'sirop vanille, pomme, raisin, soda, glace'
+        'ЭСПРЕССО ТОНИК': {
+          name: 'ESPRESSO TONIC',
+          description: 'espresso, tonic, cordial'
         },
-        'МЯТНАЯ ЕЖЕВИКА': {
-          name: 'MÛRE MENTHE',
-          description: 'mûre, menthe, soda, glace'
+        'МАТЧА-ТОНИК': {
+          name: 'MATCHA TONIC',
+          description: 'matcha, cordial, tonic'
         }
       }
     },
@@ -332,53 +340,57 @@ export const translations = {
     drinks: {
       title: '饮料',
       categories: {
-        'КОФЕ': '咖啡',
-        'ЧАЙ И НЕ ЧАЙ': '茶和非茶',
-        'АВТОРСКИЕ НАПИТКИ': '特色饮品'
+        'ГОРЯЧИЕ НАПИТКИ': '热饮',
+        'ХОЛОДНЫЕ НАПИТКИ': '冷饮'
       },
       items: {
         'АМЕРИКАНО': {
-          name: '美式咖啡'
+          name: '美式咖啡',
+          description: '经典意式浓缩加热水'
         },
         'КАПУЧИНО': {
-          name: '卡布奇诺'
+          name: '卡布奇诺',
+          description: '意式浓缩加奶泡'
         },
         'ЛАТТЕ КЛАССИЧЕСКИЙ': {
-          name: '经典拿铁'
+          name: '经典拿铁',
+          description: '意式浓缩加热牛奶'
         },
-        'ТЫКВЕННЫЙ ЛАТТЕ': {
-          name: '南瓜拿铁'
+        'ФЛЭТ УАЙТ': {
+          name: '馥芮白',
+          description: '双份意式浓缩加奶泡'
         },
-        'ОЛД МАНИ': {
-          name: '老人',
-          description: '沙棘，柠檬，橙子，蜂蜜，生姜'
+        'СИРОПЫ': {
+          name: '糖浆',
+          description: '各种口味糖浆'
         },
-        'СМОРОДИНА ДРАЙВ': {
-          name: '黑加仑驱动',
-          description: '黑加仑，迷迭香，橙子，肉桂'
+        'ЧАЙ': {
+          name: '茶',
+          description: '红茶或绿茶可选'
         },
-        'ЧАЙ В АССОРТИМЕНТЕ': {
-          name: '混合茶',
-          description: '（红茶/绿茶/果茶）'
+        'МЯТА | ЕЖЕВИКА': {
+          name: '薄荷 | 黑莓',
+          description: '糖浆，冰块，苏打水'
         },
-        'ЧАЙ С ЛИМОНОМ И КОРИЦЕЙ': {
-          name: '柠檬肉桂茶'
+        'ЛАВАНДА | ГРЕЙПФРУТ': {
+          name: '薰衣草 | 葡萄柚',
+          description: '糖浆，冰块，苏打水'
         },
-        'АБРИКОСОВЫЙ ПОПКОРН': {
-          name: '杏子爆米花',
-          description: '杏子爆米花糖浆，可乐，冰块'
+        'ЛИЧИ | АНАНАС': {
+          name: '荔枝 | 菠萝',
+          description: '糖浆，冰块，汤力水'
         },
-        'ГРЕЙП': {
-          name: '西柚',
-          description: '西柚糖浆，芙蓉花，怡泉苏打水，冰块'
+        'МИНДАЛЬ | ВИШНЯ': {
+          name: '杏仁 | 樱桃',
+          description: '糖浆，冰块，可乐'
         },
-        'ВАНИЛЬНОЕ ЯБЛОКО': {
-          name: '香草苹果',
-          description: '香草糖浆，苹果，葡萄，苏打水，冰块'
+        'ЭСПРЕССО ТОНИК': {
+          name: '浓缩咖啡汤力',
+          description: '意式浓缩，汤力水，糖浆'
         },
-        'МЯТНАЯ ЕЖЕВИКА': {
-          name: '薄荷黑莓',
-          description: '黑莓，薄荷，苏打水，冰块'
+        'МАТЧА-ТОНИК': {
+          name: '抹茶汤力',
+          description: '抹茶，糖浆，汤力水'
         }
       }
     },
@@ -463,53 +475,57 @@ export const translations = {
     drinks: {
       title: 'DRINKS',
       categories: {
-        'КОФЕ': 'COFFEE',
-        'ЧАЙ И НЕ ЧАЙ': 'TEA AND NOT-TEA',
-        'АВТОРСКИЕ НАПИТКИ': 'SIGNATURE DRINKS'
+        'ГОРЯЧИЕ НАПИТКИ': 'HOT DRINKS',
+        'ХОЛОДНЫЕ НАПИТКИ': 'COLD DRINKS'
       },
       items: {
         'АМЕРИКАНО': {
-          name: 'AMERICANO'
+          name: 'AMERICANO',
+          description: 'Classic espresso with hot water'
         },
         'КАПУЧИНО': {
-          name: 'CAPPUCCINO'
+          name: 'CAPPUCCINO',
+          description: 'Espresso with milk foam'
         },
         'ЛАТТЕ КЛАССИЧЕСКИЙ': {
-          name: 'CLASSIC LATTE'
+          name: 'CLASSIC LATTE',
+          description: 'Espresso with hot milk'
         },
-        'ТЫКВЕННЫЙ ЛАТТЕ': {
-          name: 'PUMPKIN LATTE'
+        'ФЛЭТ УАЙТ': {
+          name: 'FLAT WHITE',
+          description: 'Double espresso with milk foam'
         },
-        'ОЛД МАНИ': {
-          name: 'OLD MAN',
-          description: 'sea buckthorn, lemon, orange, honey, ginger'
+        'СИРОПЫ': {
+          name: 'SYRUPS',
+          description: 'Different syrup flavors'
         },
-        'СМОРОДИНА ДРАЙВ': {
-          name: 'CURRANT DRIVE',
-          description: 'black currant, rosemary, orange, cinnamon'
+        'ЧАЙ': {
+          name: 'TEA',
+          description: 'Black or green tea of choice'
         },
-        'ЧАЙ В АССОРТИМЕНТЕ': {
-          name: 'ASSORTED TEA',
-          description: '(black / green / fruit)'
+        'МЯТА | ЕЖЕВИКА': {
+          name: 'MINT | BLACKBERRY',
+          description: 'cordial, ice, soda'
         },
-        'ЧАЙ С ЛИМОНОМ И КОРИЦЕЙ': {
-          name: 'TEA WITH LEMON AND CINNAMON'
+        'ЛАВАНДА | ГРЕЙПФРУТ': {
+          name: 'LAVENDER | GRAPEFRUIT',
+          description: 'cordial, ice, soda'
         },
-        'АБРИКОСОВЫЙ ПОПКОРН': {
-          name: 'APRICOT POPCORN',
-          description: 'apricot popcorn cordial, cola, ice'
+        'ЛИЧИ | АНАНАС': {
+          name: 'LYCHEE | PINEAPPLE',
+          description: 'cordial, ice, tonic'
         },
-        'ГРЕЙП': {
-          name: 'GRAPEFRUIT',
-          description: 'grapefruit cordial, hibiscus, schweppes, ice'
+        'МИНДАЛЬ | ВИШНЯ': {
+          name: 'ALMOND | CHERRY',
+          description: 'cordial, ice, cola'
         },
-        'ВАНИЛЬНОЕ ЯБЛОКО': {
-          name: 'VANILLA APPLE',
-          description: 'vanilla cordial, apple, grapes, soda, ice'
+        'ЭСПРЕССО ТОНИК': {
+          name: 'ESPRESSO TONIC',
+          description: 'espresso, tonic, cordial'
         },
-        'МЯТНАЯ ЕЖЕВИКА': {
-          name: 'MINT BLACKBERRY',
-          description: 'blackberry, mint, soda, ice'
+        'МАТЧА-ТОНИК': {
+          name: 'MATCHA TONIC',
+          description: 'matcha, cordial, tonic'
         }
       }
     },
