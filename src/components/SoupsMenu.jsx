@@ -8,8 +8,8 @@ const SoupsMenu = ({ translations }) => {
 
   const getImageName = (itemKey) => {
     const frenchNames = {
-      'КУРИНЫЙ БУЛЬОН': 'bouillon-de-poulet',
-      'ТЫКВЕННЫЙ СУП': 'soupe-a-la-citrouille',
+      'КУРИНЫЙ БУЛЬОН': 'bouillon-de-poulet.jpg',
+      'ТЫКВЕННЫЙ СУП': 'soupe-a-la-citrouille.jpg',
       'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ': 'мп.jpeg'
     };
     return frenchNames[itemKey] || itemKey.toLowerCase().replace(/[^a-z0-9]/g, '-');
