@@ -65,10 +65,28 @@ const SoupsMenu = ({ translations }) => {
 
   return (
     <div className="space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        {soupsData.map((item, index) => (
-          <SoupCard key={`soup-${index}`} item={item} />
-        ))}
+      {/* Section des soupes */}
+      <div className="mb-8">
+        <h3 className="text-2xl font-bold border-b-2 pb-2 mb-4" style={{color: 'var(--text-dark)', borderColor: 'var(--primary-color)'}}>
+          {translations.soups.title}
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {soupsData.filter(item => item.name === 'ТЫКВЕННЫЙ СУП' || item.name === 'СУП ДНЯ').map((item, index) => (
+            <SoupCard key={`soup-${index}`} item={item} />
+          ))}
+        </div>
+      </div>
+
+      {/* Section des plats chauds */}
+      <div>
+        <h3 className="text-2xl font-bold border-b-2 pb-2 mb-4" style={{color: 'var(--text-dark)', borderColor: 'var(--primary-color)'}}>
+          Горячее блюдо
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {soupsData.filter(item => item.name === 'МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ').map((item, index) => (
+            <SoupCard key={`hot-${index}`} item={item} />
+          ))}
+        </div>
       </div>
     </div>
   );
