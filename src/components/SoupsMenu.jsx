@@ -47,6 +47,19 @@ const SoupsMenu = ({ translations }) => {
           </div>
         </div>
       </div>
+      <div className="flex-shrink-0">
+        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
+          <img 
+            src={`/${getImageName(item.name)}.jpg`}
+            alt={translations.items[item.name].name}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-xs text-center">No Image</div>';
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 
