@@ -89,6 +89,9 @@ const WafflesMenu = ({ translations }) => {
   }
   
   try {
+    // Validation des prix pour éviter les erreurs
+    const hasValidPricing = (item.miniPrice && item.fullPrice) || item.price;
+    
     return (
       <div className="menu-card light-contour flex items-center gap-3">
         <div className="flex-1">
@@ -100,19 +103,23 @@ const WafflesMenu = ({ translations }) => {
           </p>
           <div className="flex justify-between items-center">
             <div className="text-green-800 font-semibold text-sm" style={{color: 'var(--text-dark)'}}>
-              {item.miniPrice && item.fullPrice ? (
-                <div className="space-y-1">
-                  <div className="flex justify-between">
-                    <span>Мини:</span>
-                    <span className="ml-4">{convertPrice(item.miniPrice)}</span>
+              {hasValidPricing ? (
+                item.miniPrice && item.fullPrice ? (
+                  <div className="space-y-1">
+                    <div className="flex justify-between">
+                      <span>Мини:</span>
+                      <span className="ml-4">{convertPrice(item.miniPrice)}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Фул:</span>
+                      <span className="ml-4">{convertPrice(item.fullPrice)}</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Фул:</span>
-                    <span className="ml-4">{convertPrice(item.fullPrice)}</span>
-                  </div>
-                </div>
+                ) : (
+                  <span>{convertPrice(item.price)}</span>
+                )
               ) : (
-                <span>{convertPrice(item.price)}</span>
+                <span>Prix non disponible</span>
               )}
             </div>
           </div>
@@ -133,7 +140,7 @@ const WafflesMenu = ({ translations }) => {
       </div>
     );
   } catch (error) {
-    console.error('Error in WaffleCard:', error);
+    console.error('Error in WaffleCard:', error, 'Item data:', item);
     return <div className="menu-card light-contour p-4 text-center">Erreur d'affichage</div>;
   }
 };
