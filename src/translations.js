@@ -135,7 +135,7 @@ export const translations = {
       addressText: 'Минск, ТЦ GALLERIA',
       contact: 'Контакты',
       phone: '+375 29 798 45 02',
-      rights: 'Все права защищены. © 2024 Кафе VAFFEL'
+      rights: 'Все права защищены. © 2026 Кафе VAFFEL'
     }
   },
   FR: {
