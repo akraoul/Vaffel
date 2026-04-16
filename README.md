@@ -1,48 +1,72 @@
 # VAFFEL Café - Interactive Menu
 
-A modern, responsive web application for the VAFFEL café menu, built with React and Tailwind CSS.
+A modern, responsive web application for the VAFFEL café menu, built with React and Tailwind CSS with a professional architecture.
 
 ## Features
 
 - **Interactive Navigation**: Sticky tabs for filtering menu categories (ВАФЛИ, СУПЫ, НАПИТКИ)
-- **Multi-language Support**: Russian, French, and English language options
+- **Multi-language Support**: Russian, Chinese, French, and English language options
 - **Currency Conversion**: Support for BYN, RUB, and USD currencies
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Modern UI**: Clean, warm design with custom color palette and typography
+- **Comment System**: Customer reviews with admin reply functionality
+- **Dark Mode**: Theme switching capability
 - **SEO Optimized**: Semantic HTML structure with proper meta tags
 
-## Menu Structure
+## Architecture
 
-### ВАФЛИ (Waffles)
+This project follows modern React best practices with a scalable folder structure:
+
+```
+src/
+├── components/
+│   ├── layout/          # Layout components (Header, Footer)
+│   ├── features/        # Feature-specific components
+│   └── common/          # Reusable common components
+├── hooks/               # Custom React hooks
+├── services/            # API service layer
+├── context/             # React Context providers
+├── utils/               # Utility functions
+├── constants/           # Configuration constants
+├── styles/              # Global styles
+├── App.jsx              # Main application component
+└── main.jsx             # Application entry point
+```
+
+## Key Features
+
+### Menu Structure
+
+#### ВАФЛИ (Waffles)
 - **КЛАССИЧЕСКОЕ ТЕСТО** (Classic Dough)
-  - ДЖОКЕР, ШТРУДЕЛЬ, СНИКЕРС
+  - КЛУБНИЧНЫЙ КУЛИ, ШОКОЛАД БАНАН
 - **ШПИНАТНОЕ ТЕСТО** (Spinach Dough)
-  - ЛЕГЕНДА НОРВЕГИИ, ЦЕЗАРЬ, ГРИК
+  - ЦЫПЛЕНОК 2 СЫРА, НОРВЕЖСКАЯ РЫБКА, ИТАЛЬЯНСКАЯ КЛАССИКА
 - **СЫРНОЕ ТЕСТО** (Cheese Dough)
-  - ДЖОННИ ПЕППЕРОНИ, ЧИКЕН ЧИЗ, ГАВАЙСКАЯ
-- **ТОМАТНОЕ ТЕСТО** (Tomato Dough)
-  - ЧИКЕН ПРАЙМ, МОЛЧАЛИВЫЙ БИФ, ВВQ
+  - ГОВЯДИНА ПО-БУРГУНДСКИ, ГАВАЙИ, ЦЫПЛЕНОК МАНГО-КАРРИ
 
-### СУПЫ (Soups)
-- КУРИНЫЙ БУЛЬОН
+#### СУПЫ (Soups)
 - ТЫКВЕННЫЙ СУП
+- СУП ДНЯ
+- МИТБОЛЫ С ВОЗДУШНЫМ КАРТОФЕЛЬНЫМ МУССОМ
 
-### НАПИТКИ (Drinks)
-- **КОФЕ** (Coffee)
-  - АМЕРИКАНО, КАПУЧИНО, ЛАТТЕ КЛАССИЧЕСКИЙ, ТЫКВЕННЫЙ ЛАТТЕ
-- **ЧАЙ И НЕ ЧАЙ** (Tea and Not Tea)
-  - ОЛД МАНИ, СМОРОДИНА ДРАЙВ, ЧАЙ В АССОРТИМЕНТЕ, ЧАЙ С ЛИМОНОМ И КОРИЦЕЙ
-- **АВТОРСКИЕ НАПИТКИ** (Author's Drinks)
-  - АБРИКОСОВЫЙ ПОПКОРН, ГРЕЙП, ВАНИЛЬНОЕ ЯБЛОКО, МЯТНАЯ ЕЖЕВИКА
+#### НАПИТКИ (Drinks)
+- **Hot Drinks**: АМЕРИКАНО, КАПУЧИНО, ЛАТТЕ КЛАССИЧЕСКИЙ, ФЛЭТ УАЙТ, СИРОПЫ, ЧАЙ
+- **Cold Drinks**: МЯТА | ЕЖЕВИКА, ЛАВАНДА | ГРЕЙПФРУТ, ЛИЧИ | АНАНАС, МИНДАЛЬ | ВИШНЯ, ЭСПРЕССО ТОНИК, МАТЧА-ТОНИК
+
+### Comment System
+- Customer reviews with ratings (1-5 stars)
+- Admin panel for managing comments
+- Admin replies to customer reviews
+- Accessible via `/admin` route
 
 ## Design System
 
 ### Color Palette
-- **Brun profond** (#2C1A0D): Main text color
-- **Beige crème** (#F8F0E3): Background color
-- **Terracotta doux** (#C97C5D): Titles and accents
-- **Vert sauge** (#A7C4A0): Subcategories and prices
-- **Gris clair** (#F0F0F0): Card hover background
+- **Orange** (#FF9400): Primary accent color, buttons, highlights
+- **Light Gray** (#D4D4DC): Secondary color, backgrounds in light mode
+- **Dark Gray** (#303030): Main text color, backgrounds in dark mode
+- **White** (#FFFFFF): Card backgrounds, clean surfaces
 
 ### Typography
 - **Playfair Display**: Elegant serif font for titles
@@ -74,6 +98,18 @@ npm run dev
 
 4. Open your browser and navigate to `http://localhost:5173`
 
+### Backend Setup
+
+The project includes a backend server for comment management:
+
+```bash
+cd server
+npm install
+npm start
+```
+
+The backend runs on `http://localhost:3001`
+
 ### Build for Production
 
 ```bash
@@ -84,27 +120,43 @@ The build files will be in the `dist` directory.
 
 ## Technologies Used
 
+### Frontend
 - **React 18**: Modern JavaScript library for building user interfaces
 - **Vite**: Fast build tool and development server
 - **Tailwind CSS**: Utility-first CSS framework
+- **React Hooks**: Custom hooks for state management
+- **Context API**: Global state management
+
+### Backend
+- **Express**: Node.js web framework
+- **SQLite**: Lightweight database for comment storage
+- **CORS**: Cross-origin resource sharing
+
+### Development Tools
 - **PostCSS**: CSS transformation tool
 - **Autoprefixer**: CSS vendor prefixing
+- **ESLint**: Code linting
 
 ## Project Structure
 
 ```
 vaffel-menu/
-├── public/
+├── public/                  # Static assets
 ├── src/
 │   ├── components/
-│   │   ├── Header.jsx
-│   │   ├── WafflesMenu.jsx
-│   │   ├── SoupsMenu.jsx
-│   │   ├── DrinksMenu.jsx
-│   │   └── Footer.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
+│   │   ├── layout/         # Header, Footer
+│   │   └── features/       # Menu components, Comments, AdminPanel
+│   ├── hooks/              # Custom hooks (useComments, useDarkMode)
+│   ├── services/           # API service layer
+│   ├── context/            # React Context providers
+│   ├── constants/          # Configuration constants
+│   ├── styles/             # Global CSS
+│   ├── App.jsx             # Main application
+│   └── main.jsx            # Entry point
+├── server/                 # Backend server
+│   ├── server.js           # Express server
+│   ├── database.js         # SQLite database setup
+│   └── package.json
 ├── index.html
 ├── package.json
 ├── tailwind.config.js
@@ -112,12 +164,19 @@ vaffel-menu/
 └── README.md
 ```
 
+## Admin Access
+
+To access the admin panel:
+1. Navigate to `http://localhost:5173/admin`
+2. Enter admin name and password
+3. Default password: `vaffel2026` (configurable in `src/constants/config.js`)
+
 ## Contact Information
 
 **VAFFEL Café**
 - Address: Минск, ТЦ GALLERIA
-- Phone: +375 29 000 00 00
-- Hours: Открыты каждый день с 9:00 до 22:00
+- Phone: +375 29 798 45 02
+- Hours: Ежедневно (Every day)
 
 ## License
 

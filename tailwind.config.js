@@ -7,15 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        'orange': '#ff4800',
-        'gray-bg': '#939393',
-        'dark-brown': '#230900',
-        'green-dark': '#125400',
-        'gray-light': '#F0F0F0',
+        'primary': '#FF9400',
+        'secondary': '#D4D4DC',
+        'dark': '#303030',
+        'white': '#FFFFFF',
       },
       fontFamily: {
         'playfair': ['Playfair Display', 'serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
+        'custom': ['TT Firs Neue', 'sans-serif'],
       },
       animation: {
         'glow': 'glow 2s ease-in-out infinite alternate',
@@ -24,8 +24,8 @@ export default {
       },
       keyframes: {
         glow: {
-          '0%': { boxShadow: '0 0 5px #230900, 0 0 10px #230900, 0 0 15px #230900' },
-          '100%': { boxShadow: '0 0 10px #230900, 0 0 20px #230900, 0 0 30px #230900' },
+          '0%': { boxShadow: '0 0 5px #FF9400, 0 0 10px #FF9400, 0 0 15px #FF9400' },
+          '100%': { boxShadow: '0 0 10px #FF9400, 0 0 20px #FF9400, 0 0 30px #FF9400' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
