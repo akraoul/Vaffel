@@ -18,6 +18,7 @@
   --card-bg: #FFFFFF;
   --header-bg: #FFFFFF;
   --footer-bg: #FFFFFF;
+  --border-color: #303030;
 }
 
 /* Dark mode variables */
@@ -33,6 +34,7 @@
   --card-bg: #4A4A4A;
   --header-bg: #303030;
   --footer-bg: #303030;
+  --border-color: #ffffff;
 }
 
 @layer base {
@@ -65,16 +67,16 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0.75rem;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--border-color);
     transform: translateY(0);
     position: relative;
     overflow: hidden;
     animation: slide-in 0.5s ease-out;
   }
-  
+
   body.dark .menu-card {
     background-color: var(--card-bg);
-    border-color: var(--primary-color);
+    border-color: var(--border-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
   
@@ -127,7 +129,7 @@
     background-color: var(--card-bg);
     backdrop-filter: blur(8px);
     color: var(--text-dark);
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--border-color);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -136,7 +138,7 @@
   body.dark .tab-inactive {
     background-color: var(--card-bg);
     color: var(--text-light);
-    border-color: var(--primary-color);
+    border-color: var(--border-color);
   }
 
   .tab-inactive::before {
@@ -336,13 +338,13 @@
 
   .animate-typewriter {
     overflow: hidden;
-    border-right: 2px solid var(--primary-color);
+    border-right: 2px solid var(--border-color);
     white-space: nowrap;
     animation: typewriter 3s steps(40, end), blink 0.75s step-end infinite;
   }
 
   body.dark .animate-typewriter {
-    border-right-color: var(--primary-color);
+    border-right-color: var(--border-color);
   }
 
   .animate-spin-slow {
