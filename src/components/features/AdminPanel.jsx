@@ -137,21 +137,21 @@ export const AdminPanel = ({ translations }) => {
 
   return (
     <div className="max-w-4xl mx-auto px-3">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold" style={{ color: 'var(--primary-color)', fontFamily: 'TT Firs Neue, sans-serif' }}>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3">
+        <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--primary-color)', fontFamily: 'TT Firs Neue, sans-serif' }}>
           {translations.adminPanel}
         </h2>
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full sm:w-auto">
           <button
             onClick={() => window.location.href = '/'}
-            className="px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:scale-105"
+            className="flex-1 sm:flex-none px-3 py-2 rounded-xl font-medium transition-all duration-300 hover:scale-105 text-sm sm:text-base"
             style={{ backgroundColor: 'var(--secondary-color)', color: '#303030' }}
           >
             {translations.backToSite}
           </button>
           <button
             onClick={() => setIsAuthenticated(false)}
-            className="px-4 py-2 rounded-xl font-medium text-white transition-all duration-300 hover:scale-105"
+            className="flex-1 sm:flex-none px-3 py-2 rounded-xl font-medium text-white transition-all duration-300 hover:scale-105 text-sm sm:text-base"
             style={{ backgroundColor: '#FF6B6B' }}
           >
             {translations.logout}
@@ -166,16 +166,16 @@ export const AdminPanel = ({ translations }) => {
           </div>
         ) : (
           comments.map((comment) => (
-            <div key={comment.id} className="rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02]" style={{ backgroundColor: 'var(--card-bg)', border: '2px solid var(--secondary-color)', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
-              <div className="flex justify-between items-start mb-3">
+            <div key={comment.id} className="rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-[1.02]" style={{ backgroundColor: 'var(--card-bg)', border: '2px solid var(--secondary-color)', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold" style={{ backgroundColor: 'var(--primary-color)', color: 'white' }}>
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-base sm:text-lg font-bold" style={{ backgroundColor: 'var(--primary-color)', color: 'white' }}>
                       {comment.name.charAt(0).toUpperCase()}
                     </div>
                     <div>
-                      <h4 className="font-bold text-base" style={{ color: 'var(--text-dark)' }}>{comment.name}</h4>
-                      <div className="text-xl" style={{ color: 'var(--primary-color)' }}>{renderStars(comment.rating)}</div>
+                      <h4 className="font-bold text-sm sm:text-base" style={{ color: 'var(--text-dark)' }}>{comment.name}</h4>
+                      <div className="text-lg sm:text-xl" style={{ color: 'var(--primary-color)' }}>{renderStars(comment.rating)}</div>
                     </div>
                   </div>
                   <span className="text-xs" style={{ color: 'var(--text-dark)', opacity: 0.6 }}>
@@ -184,7 +184,7 @@ export const AdminPanel = ({ translations }) => {
                 </div>
                 <button
                   onClick={() => handleDelete(comment.id)}
-                  className="px-3 py-1 rounded-lg font-medium text-sm transition-all duration-300 hover:scale-105"
+                  className="px-3 py-1 rounded-lg font-medium text-xs sm:text-sm transition-all duration-300 hover:scale-105"
                   style={{ backgroundColor: '#FF6B6B', color: 'white' }}
                 >
                   Delete
@@ -224,10 +224,10 @@ export const AdminPanel = ({ translations }) => {
                         }}
                         placeholder={translations.replyPlaceholder}
                       />
-                      <div className="flex gap-2">
+                      <div className="flex flex-col sm:flex-row gap-2">
                         <button
                           onClick={() => handleReply(comment.id)}
-                          className="px-4 py-2 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105"
+                          className="px-4 py-2 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105 text-sm sm:text-base"
                           style={{ backgroundColor: 'var(--primary-color)' }}
                         >
                           {translations.sendReply}
@@ -237,7 +237,7 @@ export const AdminPanel = ({ translations }) => {
                             setSelectedComment(null);
                             setReplyText({ ...replyText, [comment.id]: '' });
                           }}
-                          className="px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:scale-105"
+                          className="px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:scale-105 text-sm sm:text-base"
                           style={{ backgroundColor: 'var(--secondary-color)', color: 'var(--text-dark)' }}
                         >
                           {translations.cancel}
@@ -247,7 +247,7 @@ export const AdminPanel = ({ translations }) => {
                   ) : (
                     <button
                       onClick={() => setSelectedComment(comment.id)}
-                      className="px-4 py-2 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105"
+                      className="w-full sm:w-auto px-4 py-2 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105 text-sm sm:text-base"
                       style={{ backgroundColor: 'var(--primary-color)' }}
                     >
                       {translations.replyButton}
