@@ -68,11 +68,7 @@ export const Header = ({ activeTab, setActiveTab, language, setLanguage, transla
                 <button
                   key={lang}
                   onClick={() => setLanguage(lang)}
-                  className={`px-2 py-1 rounded text-xs font-medium transition-all duration-300 switcher-button ${
-                    language === lang 
-                      ? 'glow-effect' 
-                      : ''
-                  }`}
+                  className="px-2 py-1 rounded text-xs font-medium transition-all duration-300 switcher-button"
                   style={{
                     backgroundColor: language === lang ? 'var(--primary-color)' : 'var(--secondary-color)',
                     color: language === lang ? 'white' : 'var(--text-dark)'

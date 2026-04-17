@@ -268,9 +268,6 @@
     transform: scale(1.05);
   }
 
-  .switcher-button.active {
-    animation: pulse-glow 1.5s ease-in-out infinite;
-  }
 
   .footer-link {
     transition: all 0.3s ease;
@@ -366,18 +363,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 
-  .hover-glow {
-    transition: all 0.3s ease;
-  }
-
-  .hover-glow:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  body.dark .hover-glow:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
   .hover-scale {
     transition: all 0.3s ease;
   }
@@ -415,11 +400,6 @@
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
 }
 
 @keyframes slide-in {
