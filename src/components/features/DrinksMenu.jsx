@@ -179,6 +179,7 @@ const DrinkCard = ({ item }) => {
               src={`/${getImageName(item.name)}`}
               alt={translations.items[item.name]?.name || item.name || 'Image non disponible'}
               className="w-full h-full object-cover"
+              loading="lazy"
               onError={(e) => {
                 e.target.style.display = 'none';
                 e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-xs text-center">No Image</div>';

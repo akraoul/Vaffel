@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Header } from './components/layout/Header';
-import { WafflesMenu } from './components/features/WafflesMenu';
-import { SoupsMenu } from './components/features/SoupsMenu';
-import { DrinksMenu } from './components/features/DrinksMenu';
-import { Comments } from './components/features/Comments';
-import { AdminPanel } from './components/features/AdminPanel';
 import { Footer } from './components/layout/Footer';
 import { translations } from './constants/translations';
+
+// Lazy load components for better performance
+const WafflesMenu = lazy(() => import('./components/features/WafflesMenu'));
+const SoupsMenu = lazy(() => import('./components/features/SoupsMenu'));
+const DrinksMenu = lazy(() => import('./components/features/DrinksMenu'));
+const Comments = lazy(() => import('./components/features/Comments'));
+const AdminPanel = lazy(() => import('./components/features/AdminPanel'));
 
 function App() {
   const [activeTab, setActiveTab] = useState('waffles');
@@ -27,27 +29,45 @@ function App() {
   const renderContent = () => {
     switch (activeTab) {
       case 'waffles':
-        return <WafflesMenu translations={currentTranslation.waffles} />;
+        return (
+          <Suspense fallback={<div className="text-center py-8">Chargement...</div>}>
+            <WafflesMenu translations={currentTranslation.waffles} />
+          </Suspense>
+        );
       case 'soups':
-        return <SoupsMenu translations={currentTranslation.soups} />;
+        return (
+          <Suspense fallback={<div className="text-center py-8">Chargement...</div>}>
+            <SoupsMenu translations={currentTranslation.soups} />
+          </Suspense>
+        );
       case 'drinks':
-        return <DrinksMenu translations={currentTranslation.drinks} />;
+        return (
+          <Suspense fallback={<div className="text-center py-8">Chargement...</div>}>
+            <DrinksMenu translations={currentTranslation.drinks} />
+          </Suspense>
+        );
       case 'comments':
-        return <Comments translations={currentTranslation.comments} />;
+        return (
+          <Suspense fallback={<div className="text-center py-8">Chargement...</div>}>
+            <Comments translations={currentTranslation.comments} />
+          </Suspense>
+        );
       default:
-        return <WafflesMenu translations={currentTranslation.waffles} />;
+        return (
+          <Suspense fallback={<div className="text-center py-8">Chargement...</div>}>
+            <WafflesMenu translations={currentTranslation.waffles} />
+          </Suspense>
+        );
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col relative">
-      {/* Background patterns */}
-      <div className="fixed inset-0 dots-pattern pointer-events-none"></div>
-      <div className="fixed inset-0 triangle-pattern pointer-events-none"></div>
-      
       {isAdminView ? (
         <main className="flex-grow container mx-auto px-4 py-8 relative z-10">
-          <AdminPanel translations={currentTranslation.comments} />
+          <Suspense fallback={<div className="text-center py-8">Chargement...</div>}>
+            <AdminPanel translations={currentTranslation.comments} />
+          </Suspense>
         </main>
       ) : (
         <>
