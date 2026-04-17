@@ -1,4 +1,4 @@
-const { initDatabase } = require('../../lib/db.js');
+const { initDatabase } = require('../db.js');
 
 module.exports = async function handler(req, res) {
   // Initialize database
