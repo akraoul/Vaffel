@@ -20,13 +20,10 @@ export const AdminPanel = ({ translations }) => {
 
   const fetchComments = async () => {
     try {
-      console.log('Fetching comments...');
       const data = await api.getComments();
-      console.log('Fetched comments:', data);
       setComments(data);
     } catch (error) {
       console.error('Error fetching comments:', error);
-      setError(error.message || 'Failed to fetch comments');
     }
   };
 
@@ -45,13 +42,11 @@ export const AdminPanel = ({ translations }) => {
     if (!reply) return;
 
     try {
-      console.log('Sending reply to comment:', commentId, { reply, admin_name: adminName });
-      const result = await api.replyToComment(commentId, {
+      await api.replyToComment(commentId, {
         reply,
         admin_name: adminName,
         admin_password: password
       });
-      console.log('Reply successful:', result);
       setReplyText({ ...replyText, [commentId]: '' });
       setSelectedComment(null);
       fetchComments();
@@ -69,9 +64,7 @@ export const AdminPanel = ({ translations }) => {
     if (!deleteConfirmation) return;
 
     try {
-      console.log('Deleting comment:', deleteConfirmation);
-      const result = await api.deleteComment(deleteConfirmation);
-      console.log('Delete successful:', result);
+      await api.deleteComment(deleteConfirmation);
       setDeleteConfirmation(null);
       fetchComments();
     } catch (error) {
