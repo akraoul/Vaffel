@@ -1,4 +1,4 @@
-import { initDatabase, deleteComment } from '../../lib/db.js';
+const { initDatabase, deleteComment } = require('../../lib/db.js');
 
 export default async function handler(req, res) {
   // Initialize database
