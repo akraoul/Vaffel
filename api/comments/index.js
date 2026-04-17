@@ -1,4 +1,4 @@
-const { initDatabase, getComments, createComment, deleteComment, replyToComment } = require('../db.js');
+const { initDatabase, getComments, createComment, deleteComment, replyToComment } = require('../_lib/db.js');
 
 module.exports = async function handler(req, res) {
   // Initialize database
