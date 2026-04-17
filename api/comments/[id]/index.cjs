@@ -1,4 +1,4 @@
-const { getComments, deleteComment } = require('../../_lib/db.js');
+const { getComments, deleteComment } = require('../../_lib/db.cjs');
 
 module.exports = async function handler(req, res) {
   const { id } = req.query;
