@@ -1,5 +1,7 @@
 const { sql } = require('@vercel/postgres');
 
+let initialized = false;
+
 // Initialize database schema
 async function initDatabase() {
   try {
@@ -22,8 +24,17 @@ async function initDatabase() {
   }
 }
 
+// Ensure database is initialized (call this before any DB operation)
+async function ensureInit() {
+  if (!initialized) {
+    await initDatabase();
+    initialized = true;
+  }
+}
+
 // Get all comments
 async function getComments() {
+  await ensureInit();
   try {
     const { rows } = await sql`
       SELECT * FROM comments ORDER BY created_at DESC
@@ -37,6 +48,7 @@ async function getComments() {
 
 // Create a new comment
 async function createComment(name, comment, rating) {
+  await ensureInit();
   try {
     const { rows } = await sql`
       INSERT INTO comments (name, comment, rating)
@@ -52,6 +64,7 @@ async function createComment(name, comment, rating) {
 
 // Delete a comment
 async function deleteComment(id) {
+  await ensureInit();
   try {
     await sql`
       DELETE FROM comments WHERE id = ${id}
@@ -65,6 +78,7 @@ async function deleteComment(id) {
 
 // Reply to a comment
 async function replyToComment(id, reply, adminName) {
+  await ensureInit();
   try {
     const { rows } = await sql`
       UPDATE comments 
@@ -83,6 +97,7 @@ async function replyToComment(id, reply, adminName) {
 
 module.exports = {
   initDatabase,
+  ensureInit,
   getComments,
   createComment,
   deleteComment,
