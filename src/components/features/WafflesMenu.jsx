@@ -6,10 +6,14 @@ export const WafflesMenu = ({ translations }) => {
 
   useEffect(() => {
     // Load likes from localStorage
-    const savedLikes = localStorage.getItem('waffleLikes');
-    const savedUserLikes = localStorage.getItem('userWaffleLikes');
-    if (savedLikes) setLikes(JSON.parse(savedLikes));
-    if (savedUserLikes) setUserLikes(JSON.parse(savedUserLikes));
+    try {
+      const savedLikes = localStorage.getItem('waffleLikes');
+      const savedUserLikes = localStorage.getItem('userWaffleLikes');
+      if (savedLikes) setLikes(JSON.parse(savedLikes));
+      if (savedUserLikes) setUserLikes(JSON.parse(savedUserLikes));
+    } catch (error) {
+      console.error('Error loading likes from localStorage:', error);
+    }
   }, []);
 
   const handleLike = (itemName) => {
@@ -17,8 +21,12 @@ export const WafflesMenu = ({ translations }) => {
     const newUserLikes = { ...userLikes, [itemName]: true };
     setLikes(newLikes);
     setUserLikes(newUserLikes);
-    localStorage.setItem('waffleLikes', JSON.stringify(newLikes));
-    localStorage.setItem('userWaffleLikes', JSON.stringify(newUserLikes));
+    try {
+      localStorage.setItem('waffleLikes', JSON.stringify(newLikes));
+      localStorage.setItem('userWaffleLikes', JSON.stringify(newUserLikes));
+    } catch (error) {
+      console.error('Error saving likes to localStorage:', error);
+    }
   };
 
   const handleUnlike = (itemName) => {
@@ -26,8 +34,12 @@ export const WafflesMenu = ({ translations }) => {
     const newUserLikes = { ...userLikes, [itemName]: false };
     setLikes(newLikes);
     setUserLikes(newUserLikes);
-    localStorage.setItem('waffleLikes', JSON.stringify(newLikes));
-    localStorage.setItem('userWaffleLikes', JSON.stringify(newUserLikes));
+    try {
+      localStorage.setItem('waffleLikes', JSON.stringify(newLikes));
+      localStorage.setItem('userWaffleLikes', JSON.stringify(newUserLikes));
+    } catch (error) {
+      console.error('Error saving likes to localStorage:', error);
+    }
   };
   const convertPrice = (price) => {
     return `${price.toFixed(2)} BYN`;

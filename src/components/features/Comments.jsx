@@ -12,10 +12,14 @@ export const Comments = ({ translations }) => {
 
   useEffect(() => {
     fetchComments();
-    const savedLikedComments = localStorage.getItem('likedComments');
-    const savedCommentLikes = localStorage.getItem('commentLikes');
-    if (savedLikedComments) setLikedComments(JSON.parse(savedLikedComments));
-    if (savedCommentLikes) setCommentLikes(JSON.parse(savedCommentLikes));
+    try {
+      const savedLikedComments = localStorage.getItem('likedComments');
+      const savedCommentLikes = localStorage.getItem('commentLikes');
+      if (savedLikedComments) setLikedComments(JSON.parse(savedLikedComments));
+      if (savedCommentLikes) setCommentLikes(JSON.parse(savedCommentLikes));
+    } catch (error) {
+      console.error('Error loading likes from localStorage:', error);
+    }
   }, []);
 
   const fetchComments = async () => {
@@ -54,8 +58,12 @@ export const Comments = ({ translations }) => {
     const newCommentLikes = { ...commentLikes, [commentId]: (commentLikes[commentId] || 0) + 1 };
     setLikedComments(newLikedComments);
     setCommentLikes(newCommentLikes);
-    localStorage.setItem('likedComments', JSON.stringify(newLikedComments));
-    localStorage.setItem('commentLikes', JSON.stringify(newCommentLikes));
+    try {
+      localStorage.setItem('likedComments', JSON.stringify(newLikedComments));
+      localStorage.setItem('commentLikes', JSON.stringify(newCommentLikes));
+    } catch (error) {
+      console.error('Error saving likes to localStorage:', error);
+    }
   };
 
   const handleUnlike = (commentId) => {
@@ -63,8 +71,12 @@ export const Comments = ({ translations }) => {
     const newCommentLikes = { ...commentLikes, [commentId]: Math.max(0, (commentLikes[commentId] || 0) - 1) };
     setLikedComments(newLikedComments);
     setCommentLikes(newCommentLikes);
-    localStorage.setItem('likedComments', JSON.stringify(newLikedComments));
-    localStorage.setItem('commentLikes', JSON.stringify(newCommentLikes));
+    try {
+      localStorage.setItem('likedComments', JSON.stringify(newLikedComments));
+      localStorage.setItem('commentLikes', JSON.stringify(newCommentLikes));
+    } catch (error) {
+      console.error('Error saving likes to localStorage:', error);
+    }
   };
 
   return (
