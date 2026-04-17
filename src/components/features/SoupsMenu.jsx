@@ -98,11 +98,11 @@ export const SoupsMenu = ({ translations }) => {
             </div>
             <button
               onClick={() => userLikes[item.name] ? handleUnlike(item.name) : handleLike(item.name)}
-              className="flex items-center gap-1 px-2 py-1 rounded-lg transition-all duration-300 hover:scale-105"
+              className="flex items-center gap-1 px-3 py-1 rounded-lg transition-all duration-300 hover:scale-105"
               style={{ backgroundColor: userLikes[item.name] ? 'var(--primary-color)' : 'var(--secondary-color)', color: userLikes[item.name] ? 'white' : '#303030' }}
             >
               <span>{userLikes[item.name] ? '❤️' : '🤍'}</span>
-              <span className="text-xs font-medium">{likes[item.name] || 0}</span>
+              <span className="text-sm font-bold">{likes[item.name] || 0}</span>
             </button>
           </div>
         </div>
