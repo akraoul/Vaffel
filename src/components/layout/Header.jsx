@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDarkMode } from '../../hooks/useDarkMode';
 
 export const Header = ({ activeTab, setActiveTab, language, setLanguage, translations }) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
 
   const tabs = [
     { id: 'waffles', label: translations.navigation.waffles },
@@ -62,27 +63,50 @@ export const Header = ({ activeTab, setActiveTab, language, setLanguage, transla
         {/* Switchers */}
         <div className="flex justify-between items-center pb-1">
           {/* Language Switcher */}
-          <div className="flex items-center space-x-1">
-            <div className="flex space-x-1">
-              {languages.map(lang => (
-                <button
-                  key={lang}
-                  onClick={() => setLanguage(lang)}
-                  className="px-2 py-1 rounded text-xs font-medium transition-all duration-300 switcher-button"
-                  style={{
-                    backgroundColor: language === lang ? 'var(--primary-color)' : 'var(--secondary-color)',
-                    color: language === lang ? 'white' : 'var(--text-dark)'
-                  }}
-                >
-                  <span className="flex items-center gap-1">
-                    {lang === 'RU' && <span className="text-sm">🇷🇺</span>}
-                    {lang === 'ZH' && <span className="text-sm">🇨🇳</span>}
-                    {lang === 'EN' && <span className="text-sm">🇺🇸</span>}
-                    {lang}
-                  </span>
-                </button>
-              ))}
-            </div>
+          <div className="relative">
+            <button
+              onClick={() => setLanguageDropdownOpen(!languageDropdownOpen)}
+              className="px-2 py-1 rounded text-xs font-medium transition-all duration-300 switcher-button hover-scale"
+              style={{
+                backgroundColor: 'var(--secondary-color)',
+                color: 'var(--text-dark)'
+              }}
+              aria-label="Select language"
+            >
+              <span className="flex items-center gap-1">
+                {language === 'RU' && <span className="text-sm">🇷🇺</span>}
+                {language === 'ZH' && <span className="text-sm">🇨🇳</span>}
+                {language === 'EN' && <span className="text-sm">🇺🇸</span>}
+                {language}
+                <span className="text-xs">▼</span>
+              </span>
+            </button>
+            
+            {languageDropdownOpen && (
+              <div className="absolute top-full left-0 mt-1 rounded-lg shadow-lg z-50" style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--secondary-color)' }}>
+                {languages.map(lang => (
+                  <button
+                    key={lang}
+                    onClick={() => {
+                      setLanguage(lang);
+                      setLanguageDropdownOpen(false);
+                    }}
+                    className="block w-full px-3 py-2 text-left text-xs font-medium transition-all duration-200 hover:bg-opacity-80"
+                    style={{
+                      backgroundColor: language === lang ? 'var(--primary-color)' : 'transparent',
+                      color: language === lang ? 'white' : 'var(--text-dark)'
+                    }}
+                  >
+                    <span className="flex items-center gap-1">
+                      {lang === 'RU' && <span className="text-sm">🇷🇺</span>}
+                      {lang === 'ZH' && <span className="text-sm">🇨🇳</span>}
+                      {lang === 'EN' && <span className="text-sm">🇺🇸</span>}
+                      {lang}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Dark Mode Toggle */}
