@@ -1,4 +1,4 @@
-const { getComments, createComment, initDatabase } = require('../_lib/db.js');
+const { getComments, createComment } = require('../_lib/db.js');
 
 module.exports = async function handler(req, res) {
   console.log('API Comments Handler - Method:', req.method);
@@ -6,8 +6,6 @@ module.exports = async function handler(req, res) {
 
   if (req.method === 'GET') {
     try {
-      console.log('GET: Initializing database...');
-      await initDatabase();
       console.log('GET: Fetching comments...');
       const comments = await getComments();
       console.log('GET: Comments fetched successfully');
@@ -20,8 +18,6 @@ module.exports = async function handler(req, res) {
 
   if (req.method === 'POST') {
     try {
-      console.log('POST: Initializing database...');
-      await initDatabase();
       console.log('POST: Creating comment with data:', req.body);
       const { name, comment, rating } = req.body;
 

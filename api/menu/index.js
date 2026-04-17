@@ -1,9 +1,4 @@
-const { initDatabase } = require('../_lib/db.js');
-
 module.exports = async function handler(req, res) {
-  // Initialize database
-  await initDatabase();
-
   if (req.method === 'POST') {
     try {
       const { item_name, item_type } = req.body;
