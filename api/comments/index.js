@@ -1,8 +1,9 @@
-const { getComments, createComment } = require('../_lib/db.js');
+const { getComments, createComment, initDatabase } = require('../_lib/db.js');
 
 module.exports = async function handler(req, res) {
   if (req.method === 'GET') {
     try {
+      await initDatabase();
       const comments = await getComments();
       return res.status(200).json(comments);
     } catch (error) {
@@ -12,6 +13,7 @@ module.exports = async function handler(req, res) {
 
   if (req.method === 'POST') {
     try {
+      await initDatabase();
       const { name, comment, rating } = req.body;
 
       if (!name || !comment) {
