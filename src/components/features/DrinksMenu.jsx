@@ -1,43 +1,72 @@
 import React, { useState, useEffect } from 'react';
+import { api } from '../../services/api';
 
 export const DrinksMenu = ({ translations }) => {
   const [likes, setLikes] = useState({});
   const [userLikes, setUserLikes] = useState({});
+  const [userId, setUserId] = useState('');
 
   useEffect(() => {
-    try {
-      const savedLikes = localStorage.getItem('drinkLikes');
-      const savedUserLikes = localStorage.getItem('userDrinkLikes');
-      if (savedLikes) setLikes(JSON.parse(savedLikes));
-      if (savedUserLikes) setUserLikes(JSON.parse(savedUserLikes));
-    } catch (error) {
-      console.error('Error loading likes from localStorage:', error);
+    // Generate or get user ID
+    let savedUserId = localStorage.getItem('vaffel_user_id');
+    if (!savedUserId) {
+      savedUserId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      localStorage.setItem('vaffel_user_id', savedUserId);
     }
+    setUserId(savedUserId);
   }, []);
 
-  const handleLike = (itemName) => {
-    const newLikes = { ...likes, [itemName]: (likes[itemName] || 0) + 1 };
-    const newUserLikes = { ...userLikes, [itemName]: true };
-    setLikes(newLikes);
-    setUserLikes(newUserLikes);
+  useEffect(() => {
+    if (userId) {
+      fetchLikes();
+    }
+  }, [userId]);
+
+  const fetchLikes = async () => {
     try {
-      localStorage.setItem('drinkLikes', JSON.stringify(newLikes));
-      localStorage.setItem('userDrinkLikes', JSON.stringify(newUserLikes));
+      const data = await api.getAllMenuLikes();
+      const likesMap = {};
+      data.likes.forEach(like => {
+        if (like.item_type === 'drink') {
+          likesMap[like.item_name] = like.count;
+        }
+      });
+      setLikes(likesMap);
+
+      // Fetch user's like status for all items at once
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || '/api'}/menu/like?user_id=${userId}`);
+      if (response.ok) {
+        const userData = await response.json();
+        const userLikeStatus = {};
+        userData.user_likes.forEach(like => {
+          if (like.item_type === 'drink') {
+            userLikeStatus[like.item_name] = true;
+          }
+        });
+        setUserLikes(userLikeStatus);
+      }
     } catch (error) {
-      console.error('Error saving likes to localStorage:', error);
+      console.error('Error fetching likes:', error);
     }
   };
 
-  const handleUnlike = (itemName) => {
-    const newLikes = { ...likes, [itemName]: Math.max(0, (likes[itemName] || 0) - 1) };
-    const newUserLikes = { ...userLikes, [itemName]: false };
-    setLikes(newLikes);
-    setUserLikes(newUserLikes);
+  const handleLike = async (itemName) => {
     try {
-      localStorage.setItem('drinkLikes', JSON.stringify(newLikes));
-      localStorage.setItem('userDrinkLikes', JSON.stringify(newUserLikes));
+      const data = await api.likeMenuItem(itemName, 'drink', userId);
+      setLikes(prev => ({ ...prev, [itemName]: data.likes }));
+      setUserLikes(prev => ({ ...prev, [itemName]: true }));
     } catch (error) {
-      console.error('Error saving likes to localStorage:', error);
+      console.error('Error liking item:', error);
+    }
+  };
+
+  const handleUnlike = async (itemName) => {
+    try {
+      const data = await api.unlikeMenuItem(itemName, 'drink', userId);
+      setLikes(prev => ({ ...prev, [itemName]: data.likes }));
+      setUserLikes(prev => ({ ...prev, [itemName]: false }));
+    } catch (error) {
+      console.error('Error unliking item:', error);
     }
   };
   const convertPrice = (price) => {

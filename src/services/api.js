@@ -60,25 +60,25 @@ export const api = {
   },
 
   // Menu Items API
-  async likeMenuItem(itemName, itemType) {
+  async likeMenuItem(itemName, itemType, userId) {
     const response = await fetch(`${CONFIG.API_BASE_URL}/menu/like`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ item_name: itemName, item_type: itemType }),
+      body: JSON.stringify({ item_name: itemName, item_type: itemType, user_id: userId }),
     });
     if (!response.ok) throw new Error('Failed to like menu item');
     return response.json();
   },
 
-  async unlikeMenuItem(itemName, itemType) {
+  async unlikeMenuItem(itemName, itemType, userId) {
     const response = await fetch(`${CONFIG.API_BASE_URL}/menu/like`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ item_name: itemName, item_type: itemType }),
+      body: JSON.stringify({ item_name: itemName, item_type: itemType, user_id: userId }),
     });
     if (!response.ok) throw new Error('Failed to unlike menu item');
     return response.json();
@@ -87,6 +87,12 @@ export const api = {
   async getMenuItemLikes(itemName, itemType) {
     const response = await fetch(`${CONFIG.API_BASE_URL}/menu/like?item_name=${itemName}&item_type=${itemType}`);
     if (!response.ok) throw new Error('Failed to get menu item likes');
+    return response.json();
+  },
+
+  async getAllMenuLikes() {
+    const response = await fetch(`${CONFIG.API_BASE_URL}/menu/like`);
+    if (!response.ok) throw new Error('Failed to get all menu likes');
     return response.json();
   },
 };
