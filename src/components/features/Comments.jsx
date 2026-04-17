@@ -213,7 +213,7 @@ export const Comments = ({ translations }) => {
                         {new Date(comment.replied_at).toLocaleDateString()}
                       </span>
                     </div>
-                    <p className="italic text-sm" style={{ color: '#e5e7eb' }}>{comment.reply}</p>
+                    <p className="italic text-sm" style={{ color: '#303030' }}>{comment.reply}</p>
                   </div>
                 )}
               </div>
