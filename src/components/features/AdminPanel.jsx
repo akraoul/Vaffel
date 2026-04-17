@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import { CONFIG } from '../../constants/config';
+import { useDarkMode } from '../../hooks/useDarkMode';
 
 export const AdminPanel = ({ translations }) => {
+  const { isDarkMode } = useDarkMode();
   const [comments, setComments] = useState([]);
   const [password, setPassword] = useState('');
   const [adminName, setAdminName] = useState('');
@@ -84,7 +86,7 @@ export const AdminPanel = ({ translations }) => {
   if (!isAuthenticated) {
     return (
       <div className="max-w-md mx-auto mt-8 px-3">
-        <div className="rounded-2xl p-6" style={{ backgroundColor: 'var(--card-bg)', border: '2px solid var(--primary-color)', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}>
+        <div className="rounded-2xl p-6" style={{ backgroundColor: 'var(--card-bg)', border: `2px solid ${isDarkMode ? '#ffffff' : '#303030'}`, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}>
           <h2 className="text-3xl font-bold mb-6 text-center" style={{ color: 'var(--primary-color)', fontFamily: 'TT Firs Neue, sans-serif' }}>
             {translations.adminLogin}
           </h2>
@@ -98,7 +100,7 @@ export const AdminPanel = ({ translations }) => {
                 className="w-full px-4 py-2 rounded-xl border-2 focus:outline-none focus:ring-2 transition-all duration-300"
                 style={{ 
                   backgroundColor: 'var(--bg-light)',
-                  borderColor: 'var(--secondary-color)',
+                  borderColor: isDarkMode ? '#ffffff' : '#303030',
                   color: 'var(--text-dark)'
                 }}
                 required
@@ -113,7 +115,7 @@ export const AdminPanel = ({ translations }) => {
                 className="w-full px-4 py-2 rounded-xl border-2 focus:outline-none focus:ring-2 transition-all duration-300"
                 style={{ 
                   backgroundColor: 'var(--bg-light)',
-                  borderColor: 'var(--secondary-color)',
+                  borderColor: isDarkMode ? '#ffffff' : '#303030',
                   color: 'var(--text-dark)'
                 }}
                 required
@@ -161,12 +163,12 @@ export const AdminPanel = ({ translations }) => {
 
       <div className="space-y-4">
         {comments.length === 0 ? (
-          <div className="text-center py-12 rounded-2xl" style={{ backgroundColor: 'var(--card-bg)', border: '2px solid var(--secondary-color)' }}>
+          <div className="text-center py-12 rounded-2xl" style={{ backgroundColor: 'var(--card-bg)', border: `2px solid ${isDarkMode ? '#ffffff' : '#303030'}` }}>
             <p className="text-lg" style={{ color: 'var(--text-dark)' }}>{translations.noComments}</p>
           </div>
         ) : (
           comments.map((comment) => (
-            <div key={comment.id} className="rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02]" style={{ backgroundColor: 'var(--card-bg)', border: '2px solid var(--secondary-color)', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
+            <div key={comment.id} className="rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02]" style={{ backgroundColor: 'var(--card-bg)', border: `2px solid ${isDarkMode ? '#ffffff' : '#303030'}`, boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
               <div className="flex justify-between items-start mb-3">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
@@ -193,7 +195,7 @@ export const AdminPanel = ({ translations }) => {
               <p className="text-base mb-3" style={{ color: 'var(--text-dark)' }}>{comment.comment}</p>
 
               {comment.reply ? (
-                <div className="mt-3 p-2 rounded-xl" style={{ backgroundColor: 'var(--secondary-color)', borderLeft: '4px solid var(--primary-color)' }}>
+                <div className="mt-3 p-2 rounded-xl" style={{ backgroundColor: 'var(--secondary-color)', borderLeft: `4px solid ${isDarkMode ? '#ffffff' : '#303030'}` }}>
                   <div className="flex items-center gap-2 mb-1">
                     <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: 'var(--primary-color)', color: 'white' }}>
                       {comment.admin_name.charAt(0).toUpperCase()}
@@ -218,7 +220,7 @@ export const AdminPanel = ({ translations }) => {
                         className="w-full px-4 py-2 rounded-xl border-2 focus:outline-none focus:ring-2 transition-all duration-300 resize-none mb-2"
                         style={{ 
                           backgroundColor: 'var(--bg-light)',
-                          borderColor: 'var(--secondary-color)',
+                          borderColor: isDarkMode ? '#ffffff' : '#303030',
                           color: 'var(--text-dark)',
                           minHeight: '80px'
                         }}
@@ -263,7 +265,7 @@ export const AdminPanel = ({ translations }) => {
       {/* Custom Confirmation Modal */}
       {deleteConfirmation && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="rounded-2xl p-6 max-w-md w-full mx-4" style={{ backgroundColor: 'var(--card-bg)', border: '2px solid var(--primary-color)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+          <div className="rounded-2xl p-6 max-w-md w-full mx-4" style={{ backgroundColor: 'var(--card-bg)', border: `2px solid ${isDarkMode ? '#ffffff' : '#303030'}`, boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
             <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--text-dark)' }}>
               Confirm Deletion
             </h3>

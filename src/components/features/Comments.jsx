@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '../../services/api';
+import { useDarkMode } from '../../hooks/useDarkMode';
 
 export const Comments = ({ translations }) => {
+  const { isDarkMode } = useDarkMode();
   const [comments, setComments] = useState([]);
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
@@ -87,7 +89,7 @@ export const Comments = ({ translations }) => {
 
       {/* Comment Form */}
       <div className="max-w-2xl mx-auto mb-8">
-        <div className="rounded-2xl p-6" style={{ backgroundColor: 'var(--card-bg)', border: '2px solid var(--primary-color)', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}>
+        <div className="rounded-2xl p-6" style={{ backgroundColor: 'var(--card-bg)', border: `2px solid ${isDarkMode ? '#ffffff' : '#303030'}`, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block mb-2 font-medium" style={{ color: 'var(--text-dark)' }}>{translations.nameLabel}</label>
@@ -98,7 +100,7 @@ export const Comments = ({ translations }) => {
                 className="w-full px-4 py-2 rounded-xl border-2 focus:outline-none focus:ring-2 transition-all duration-300"
                 style={{ 
                   backgroundColor: 'var(--bg-light)',
-                  borderColor: 'var(--secondary-color)',
+                  borderColor: isDarkMode ? '#ffffff' : '#303030',
                   color: 'var(--text-dark)',
                   focusBorderColor: 'var(--primary-color)'
                 }}
@@ -109,7 +111,7 @@ export const Comments = ({ translations }) => {
 
             <div className="mb-4">
               <label className="block mb-2 font-medium" style={{ color: 'var(--text-dark)' }}>{translations.ratingLabel}</label>
-              <div className="px-4 py-2 rounded-xl transition-all duration-300 flex gap-1" style={{ backgroundColor: 'var(--secondary-color)', border: '2px solid var(--primary-color)', minWidth: '200px' }}>
+              <div className="px-4 py-2 rounded-xl transition-all duration-300 flex gap-1" style={{ backgroundColor: 'var(--secondary-color)', border: `2px solid ${isDarkMode ? '#ffffff' : '#303030'}`, minWidth: '200px' }}>
                 {[1, 2, 3, 4, 5].map((starIndex) => (
                   <button
                     key={starIndex}
@@ -137,7 +139,7 @@ export const Comments = ({ translations }) => {
                 className="w-full px-4 py-2 rounded-xl border-2 focus:outline-none focus:ring-2 transition-all duration-300 resize-none"
                 style={{ 
                   backgroundColor: 'var(--bg-light)',
-                  borderColor: 'var(--secondary-color)',
+                  borderColor: isDarkMode ? '#ffffff' : '#303030',
                   color: 'var(--text-dark)',
                   focusBorderColor: 'var(--primary-color)',
                   minHeight: '100px'
@@ -166,13 +168,13 @@ export const Comments = ({ translations }) => {
         </h3>
         
         {comments.length === 0 ? (
-          <div className="text-center py-8 rounded-2xl" style={{ backgroundColor: 'var(--card-bg)', border: '2px solid var(--secondary-color)' }}>
+          <div className="text-center py-8 rounded-2xl" style={{ backgroundColor: 'var(--card-bg)', border: `2px solid ${isDarkMode ? '#ffffff' : '#303030'}` }}>
             <p className="text-lg" style={{ color: 'var(--text-dark)' }}>{translations.noComments}</p>
           </div>
         ) : (
           <div className="space-y-4">
             {comments.map((comment) => (
-              <div key={comment.id} className="rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02]" style={{ backgroundColor: 'var(--card-bg)', border: '2px solid var(--secondary-color)', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
+              <div key={comment.id} className="rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02]" style={{ backgroundColor: 'var(--card-bg)', border: `2px solid ${isDarkMode ? '#ffffff' : '#303030'}`, boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
                 <div className="flex justify-between items-start mb-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
@@ -200,7 +202,7 @@ export const Comments = ({ translations }) => {
                 <p className="text-base mb-3" style={{ color: 'var(--text-dark)' }}>{comment.comment}</p>
                 
                 {comment.reply && (
-                  <div className="mt-3 p-2 rounded-xl" style={{ backgroundColor: 'var(--secondary-color)', borderLeft: '4px solid var(--primary-color)' }}>
+                  <div className="mt-3 p-2 rounded-xl" style={{ backgroundColor: 'var(--secondary-color)', borderLeft: `4px solid ${isDarkMode ? '#ffffff' : '#303030'}` }}>
                     <div className="flex items-center gap-2 mb-1">
                       <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: 'var(--primary-color)', color: 'white' }}>
                         {comment.admin_name.charAt(0).toUpperCase()}

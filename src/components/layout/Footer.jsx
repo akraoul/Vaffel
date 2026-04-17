@@ -1,6 +1,8 @@
 import React from 'react';
+import { useDarkMode } from '../../hooks/useDarkMode';
 
 export const Footer = ({ translations }) => {
+  const { isDarkMode } = useDarkMode();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -66,7 +68,7 @@ export const Footer = ({ translations }) => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t mt-3 md:mt-4 pt-2 md:pt-3 text-center" style={{borderColor: 'var(--secondary-color)'}}>
+        <div className="border-t mt-3 md:mt-4 pt-2 md:pt-3 text-center" style={{borderColor: isDarkMode ? '#ffffff' : '#303030'}}>
           <p className="text-xs" style={{color: 'var(--text-light)'}}>
             {translations.rights}
           </p>

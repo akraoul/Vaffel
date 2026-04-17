@@ -83,7 +83,7 @@ export const Header = ({ activeTab, setActiveTab, language, setLanguage, transla
             </button>
             
             {languageDropdownOpen && (
-              <div className="absolute top-full left-0 mt-1 rounded-lg shadow-lg z-50" style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--secondary-color)' }}>
+              <div className="absolute top-full left-0 mt-1 rounded-lg shadow-lg z-50" style={{ backgroundColor: 'var(--card-bg)', border: `1px solid ${isDarkMode ? '#ffffff' : '#303030'}` }}>
                 {languages.map(lang => (
                   <button
                     key={lang}

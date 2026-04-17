@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useDarkMode } from '../../hooks/useDarkMode';
 
 export const SoupsMenu = ({ translations }) => {
+  const { isDarkMode } = useDarkMode();
   const [likes, setLikes] = useState({});
   const [userLikes, setUserLikes] = useState({});
 
@@ -107,7 +109,7 @@ export const SoupsMenu = ({ translations }) => {
           </div>
         </div>
         <div className="flex-shrink-0">
-          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: 'var(--primary-color)'}}>
+          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 shadow-lg menu-image" style={{borderColor: isDarkMode ? '#ffffff' : '#303030'}}>
             <img 
               src={`/${getImageName(item.name)}`}
               alt={translations.items[item.name]?.name || item.name || 'Image non disponible'}
