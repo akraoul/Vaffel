@@ -1,4 +1,4 @@
-const { replyToComment } = require('../../_lib/db.cjs');
+const { replyToComment } = require('../../_lib/db.js');
 
 module.exports = async function handler(req, res) {
   const { id } = req.query;

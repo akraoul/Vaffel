@@ -1,4 +1,4 @@
-const { getComments, createComment, initDatabase } = require('../_lib/db.cjs');
+const { getComments, createComment, initDatabase } = require('../_lib/db.js');
 
 module.exports = async function handler(req, res) {
   console.log('API Comments Handler - Method:', req.method);
