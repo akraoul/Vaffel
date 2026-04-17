@@ -5,6 +5,8 @@ let initialized = false;
 // Initialize database schema
 async function initDatabase() {
   try {
+    console.log('Initializing database schema...');
+    console.log('POSTGRES_URL environment variable:', process.env.POSTGRES_URL ? 'SET' : 'NOT SET');
     await sql`
       CREATE TABLE IF NOT EXISTS comments (
         id SERIAL PRIMARY KEY,
@@ -17,9 +19,10 @@ async function initDatabase() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `;
-    console.log('Database initialized');
+    console.log('Database initialized successfully');
   } catch (error) {
     console.error('Error initializing database:', error);
+    console.error('Error details:', error.toString());
     throw error;
   }
 }
