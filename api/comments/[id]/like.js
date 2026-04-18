@@ -24,12 +24,23 @@ module.exports = async function handler(req, res) {
       if (!user_id) {
         return res.status(400).json({ error: 'Missing user_id' });
       }
+      // Check if user already liked this comment
+      const hasLiked = await getUserCommentLikeStatus(commentId, user_id);
+      if (hasLiked) {
+        const count = await getCommentLikeCount(commentId);
+        return res.json({ message: 'Already liked', id, likes: count, already_liked: true });
+      }
       await addCommentLike(commentId, user_id);
       const count = await getCommentLikeCount(commentId);
       res.json({ message: 'Liked', id, likes: count });
     } catch (error) {
       console.error('Error liking comment:', error);
       console.error('Error details:', error.toString());
+      // Handle duplicate key error gracefully
+      if (error.message.includes('duplicate key') || error.message.includes('unique constraint')) {
+        const count = await getCommentLikeCount(commentId);
+        return res.json({ message: 'Already liked', id, likes: count, already_liked: true });
+      }
       res.status(500).json({ error: error.message, details: error.toString() });
     }
   }
