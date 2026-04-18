@@ -2,10 +2,12 @@ const { addCommentLike, removeCommentLike, getCommentLikeCount, getUserCommentLi
 
 module.exports = async function handler(req, res) {
   const { id } = req.query;
+  console.log('Comment Likes API - Method:', req.method, 'ID:', id);
 
   if (req.method === 'POST') {
     try {
       const { user_id } = req.body;
+      console.log('POST - user_id:', user_id);
       if (!user_id) {
         return res.status(400).json({ error: 'Missing user_id' });
       }
@@ -14,13 +16,15 @@ module.exports = async function handler(req, res) {
       res.json({ message: 'Liked', id, likes: count });
     } catch (error) {
       console.error('Error liking comment:', error);
-      res.status(500).json({ error: error.message });
+      console.error('Error details:', error.toString());
+      res.status(500).json({ error: error.message, details: error.toString() });
     }
   }
 
   if (req.method === 'DELETE') {
     try {
       const { user_id } = req.body;
+      console.log('DELETE - user_id:', user_id);
       if (!user_id) {
         return res.status(400).json({ error: 'Missing user_id' });
       }
@@ -29,13 +33,15 @@ module.exports = async function handler(req, res) {
       res.json({ message: 'Unliked', id, likes: count });
     } catch (error) {
       console.error('Error unliking comment:', error);
-      res.status(500).json({ error: error.message });
+      console.error('Error details:', error.toString());
+      res.status(500).json({ error: error.message, details: error.toString() });
     }
   }
 
   if (req.method === 'GET') {
     try {
       const { user_id } = req.query;
+      console.log('GET - user_id:', user_id);
       if (user_id) {
         const count = await getCommentLikeCount(id);
         const hasLiked = await getUserCommentLikeStatus(id, user_id);
@@ -46,7 +52,8 @@ module.exports = async function handler(req, res) {
       }
     } catch (error) {
       console.error('Error getting comment likes:', error);
-      res.status(500).json({ error: error.message });
+      console.error('Error details:', error.toString());
+      res.status(500).json({ error: error.message, details: error.toString() });
     }
   }
 
