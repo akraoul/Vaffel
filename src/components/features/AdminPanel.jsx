@@ -179,7 +179,7 @@ export const AdminPanel = ({ translations }) => {
                     </div>
                   </div>
                   <span className="text-xs" style={{ color: 'var(--text-dark)', opacity: 0.6 }}>
-                    {new Date(comment.created_at).toLocaleDateString()}
+                    {new Date(comment.created_at).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}
                   </span>
                 </div>
                 <button
@@ -203,7 +203,7 @@ export const AdminPanel = ({ translations }) => {
                       {translations.adminBadge}
                     </span>
                     <span className="text-xs" style={{ color: 'var(--text-dark)', opacity: 0.6 }}>
-                      {new Date(comment.replied_at).toLocaleDateString()}
+                      {new Date(comment.replied_at).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}
                     </span>
                   </div>
                   <p className="italic text-sm" style={{ color: 'var(--text-dark)' }}>{comment.reply}</p>
