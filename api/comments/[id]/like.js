@@ -1,8 +1,21 @@
-const { addCommentLike, removeCommentLike, getCommentLikeCount, getUserCommentLikeStatus, getUserCommentLikes, getAllCommentLikes } = require('../../_lib/db.js');
+const { addCommentLike, removeCommentLike, getCommentLikeCount, getUserCommentLikeStatus, getUserCommentLikes, getAllCommentLikes, ensureCommentLikesTable } = require('../../_lib/db.js');
 
 module.exports = async function handler(req, res) {
   const { id } = req.query;
-  console.log('Comment Likes API - Method:', req.method, 'ID:', id);
+  const commentId = parseInt(id);
+
+  console.log('Comment Likes API - Method:', req.method, 'ID:', id, 'Parsed ID:', commentId);
+
+  if (isNaN(commentId)) {
+    return res.status(400).json({ error: 'Invalid comment ID' });
+  }
+
+  // Ensure the comment_likes table exists
+  try {
+    await ensureCommentLikesTable();
+  } catch (error) {
+    console.error('Error ensuring comment_likes table:', error);
+  }
 
   if (req.method === 'POST') {
     try {
@@ -11,8 +24,8 @@ module.exports = async function handler(req, res) {
       if (!user_id) {
         return res.status(400).json({ error: 'Missing user_id' });
       }
-      await addCommentLike(id, user_id);
-      const count = await getCommentLikeCount(id);
+      await addCommentLike(commentId, user_id);
+      const count = await getCommentLikeCount(commentId);
       res.json({ message: 'Liked', id, likes: count });
     } catch (error) {
       console.error('Error liking comment:', error);
@@ -28,8 +41,8 @@ module.exports = async function handler(req, res) {
       if (!user_id) {
         return res.status(400).json({ error: 'Missing user_id' });
       }
-      await removeCommentLike(id, user_id);
-      const count = await getCommentLikeCount(id);
+      await removeCommentLike(commentId, user_id);
+      const count = await getCommentLikeCount(commentId);
       res.json({ message: 'Unliked', id, likes: count });
     } catch (error) {
       console.error('Error unliking comment:', error);
@@ -43,11 +56,11 @@ module.exports = async function handler(req, res) {
       const { user_id } = req.query;
       console.log('GET - user_id:', user_id);
       if (user_id) {
-        const count = await getCommentLikeCount(id);
-        const hasLiked = await getUserCommentLikeStatus(id, user_id);
+        const count = await getCommentLikeCount(commentId);
+        const hasLiked = await getUserCommentLikeStatus(commentId, user_id);
         res.json({ likes: count, id, has_liked: hasLiked });
       } else {
-        const count = await getCommentLikeCount(id);
+        const count = await getCommentLikeCount(commentId);
         res.json({ likes: count, id });
       }
     } catch (error) {
