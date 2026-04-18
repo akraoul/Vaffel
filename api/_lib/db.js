@@ -54,7 +54,7 @@ async function ensureInit() {
   }
 }
 
-// Ensure comment_likes table exists (call this before comment like operations)
+// Ensure comment_likes table exists (for migrations)
 async function ensureCommentLikesTable() {
   try {
     await sql`
@@ -66,8 +66,9 @@ async function ensureCommentLikesTable() {
         UNIQUE(comment_id, user_id)
       )
     `;
+    console.log('Comment likes table ensured');
   } catch (error) {
-    console.error('Error creating comment_likes table:', error);
+    console.error('Error ensuring comment_likes table:', error);
     throw error;
   }
 }
@@ -233,7 +234,7 @@ async function getCommentLikeCount(commentId) {
   try {
     const { rows } = await sql`
       SELECT COUNT(*) as count FROM comment_likes
-      WHERE comment_id = ${parseInt(commentId)}
+      WHERE comment_id = ${commentId}
     `;
     return parseInt(rows[0].count);
   } catch (error) {
@@ -249,7 +250,7 @@ async function getUserCommentLikeStatus(commentId, userId) {
   try {
     const { rows } = await sql`
       SELECT * FROM comment_likes
-      WHERE comment_id = ${parseInt(commentId)} AND user_id = ${userId}
+      WHERE comment_id = ${commentId} AND user_id = ${userId}
     `;
     return rows.length > 0;
   } catch (error) {
@@ -265,7 +266,7 @@ async function addCommentLike(commentId, userId) {
   try {
     const { rows } = await sql`
       INSERT INTO comment_likes (comment_id, user_id)
-      VALUES (${parseInt(commentId)}, ${userId})
+      VALUES (${commentId}, ${userId})
       RETURNING *
     `;
     return rows[0];
@@ -282,7 +283,7 @@ async function removeCommentLike(commentId, userId) {
   try {
     await sql`
       DELETE FROM comment_likes
-      WHERE comment_id = ${parseInt(commentId)} AND user_id = ${userId}
+      WHERE comment_id = ${commentId} AND user_id = ${userId}
     `;
     return { message: 'Comment like removed' };
   } catch (error) {
