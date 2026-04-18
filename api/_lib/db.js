@@ -29,6 +29,16 @@ async function initDatabase() {
         UNIQUE(item_name, item_type, user_id)
       )
     `;
+    await sql`
+      CREATE TABLE IF NOT EXISTS comment_likes (
+        id SERIAL PRIMARY KEY,
+        comment_id INTEGER NOT NULL,
+        user_id TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        UNIQUE(comment_id, user_id),
+        FOREIGN KEY (comment_id) REFERENCES comments(id) ON DELETE CASCADE
+      )
+    `;
     console.log('Database initialized successfully');
   } catch (error) {
     console.error('Error initializing database:', error);
@@ -199,6 +209,97 @@ async function getUserLikes(userId) {
   }
 }
 
+// Get like count for a comment
+async function getCommentLikeCount(commentId) {
+  await ensureInit();
+  try {
+    const { rows } = await sql`
+      SELECT COUNT(*) as count FROM comment_likes
+      WHERE comment_id = ${commentId}
+    `;
+    return parseInt(rows[0].count);
+  } catch (error) {
+    console.error('Error getting comment like count:', error);
+    throw error;
+  }
+}
+
+// Check if a user has liked a comment
+async function getUserCommentLikeStatus(commentId, userId) {
+  await ensureInit();
+  try {
+    const { rows } = await sql`
+      SELECT * FROM comment_likes
+      WHERE comment_id = ${commentId} AND user_id = ${userId}
+    `;
+    return rows.length > 0;
+  } catch (error) {
+    console.error('Error getting user comment like status:', error);
+    throw error;
+  }
+}
+
+// Add a comment like
+async function addCommentLike(commentId, userId) {
+  await ensureInit();
+  try {
+    const { rows } = await sql`
+      INSERT INTO comment_likes (comment_id, user_id)
+      VALUES (${commentId}, ${userId})
+      RETURNING *
+    `;
+    return rows[0];
+  } catch (error) {
+    console.error('Error adding comment like:', error);
+    throw error;
+  }
+}
+
+// Remove a comment like
+async function removeCommentLike(commentId, userId) {
+  await ensureInit();
+  try {
+    await sql`
+      DELETE FROM comment_likes
+      WHERE comment_id = ${commentId} AND user_id = ${userId}
+    `;
+    return { message: 'Comment like removed' };
+  } catch (error) {
+    console.error('Error removing comment like:', error);
+    throw error;
+  }
+}
+
+// Get all comment likes for a user
+async function getUserCommentLikes(userId) {
+  await ensureInit();
+  try {
+    const { rows } = await sql`
+      SELECT comment_id FROM comment_likes
+      WHERE user_id = ${userId}
+    `;
+    return rows;
+  } catch (error) {
+    console.error('Error getting user comment likes:', error);
+    throw error;
+  }
+}
+
+// Get all comment likes with counts
+async function getAllCommentLikes() {
+  await ensureInit();
+  try {
+    const { rows } = await sql`
+      SELECT comment_id, COUNT(*) as count FROM comment_likes
+      GROUP BY comment_id
+    `;
+    return rows;
+  } catch (error) {
+    console.error('Error getting all comment likes:', error);
+    throw error;
+  }
+}
+
 module.exports = {
   initDatabase,
   ensureInit,
@@ -211,5 +312,11 @@ module.exports = {
   addLike,
   removeLike,
   getAllLikes,
-  getUserLikes
+  getUserLikes,
+  getCommentLikeCount,
+  getUserCommentLikeStatus,
+  addCommentLike,
+  removeCommentLike,
+  getUserCommentLikes,
+  getAllCommentLikes
 };

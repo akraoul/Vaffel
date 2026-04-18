@@ -1,12 +1,53 @@
+const { addCommentLike, removeCommentLike, getCommentLikeCount, getUserCommentLikeStatus, getUserCommentLikes, getAllCommentLikes } = require('../../_lib/db.js');
+
 module.exports = async function handler(req, res) {
   const { id } = req.query;
 
   if (req.method === 'POST') {
-    return res.json({ message: 'Liked', id });
+    try {
+      const { user_id } = req.body;
+      if (!user_id) {
+        return res.status(400).json({ error: 'Missing user_id' });
+      }
+      await addCommentLike(id, user_id);
+      const count = await getCommentLikeCount(id);
+      res.json({ message: 'Liked', id, likes: count });
+    } catch (error) {
+      console.error('Error liking comment:', error);
+      res.status(500).json({ error: error.message });
+    }
   }
 
   if (req.method === 'DELETE') {
-    return res.json({ message: 'Unliked', id });
+    try {
+      const { user_id } = req.body;
+      if (!user_id) {
+        return res.status(400).json({ error: 'Missing user_id' });
+      }
+      await removeCommentLike(id, user_id);
+      const count = await getCommentLikeCount(id);
+      res.json({ message: 'Unliked', id, likes: count });
+    } catch (error) {
+      console.error('Error unliking comment:', error);
+      res.status(500).json({ error: error.message });
+    }
+  }
+
+  if (req.method === 'GET') {
+    try {
+      const { user_id } = req.query;
+      if (user_id) {
+        const count = await getCommentLikeCount(id);
+        const hasLiked = await getUserCommentLikeStatus(id, user_id);
+        res.json({ likes: count, id, has_liked: hasLiked });
+      } else {
+        const count = await getCommentLikeCount(id);
+        res.json({ likes: count, id });
+      }
+    } catch (error) {
+      console.error('Error getting comment likes:', error);
+      res.status(500).json({ error: error.message });
+    }
   }
 
   res.status(405).end();

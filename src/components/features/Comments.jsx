@@ -9,18 +9,24 @@ export const Comments = ({ translations }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [likedComments, setLikedComments] = useState({});
   const [commentLikes, setCommentLikes] = useState({});
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    // Generate or get user ID
+    let savedUserId = localStorage.getItem('vaffel_user_id');
+    if (!savedUserId) {
+      savedUserId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      localStorage.setItem('vaffel_user_id', savedUserId);
+    }
+    setUserId(savedUserId);
+  }, []);
 
   useEffect(() => {
     fetchComments();
-    try {
-      const savedLikedComments = localStorage.getItem('likedComments');
-      const savedCommentLikes = localStorage.getItem('commentLikes');
-      if (savedLikedComments) setLikedComments(JSON.parse(savedLikedComments));
-      if (savedCommentLikes) setCommentLikes(JSON.parse(savedCommentLikes));
-    } catch (error) {
-      console.error('Error loading likes from localStorage:', error);
+    if (userId) {
+      fetchCommentLikes();
     }
-  }, []);
+  }, [userId]);
 
   const fetchComments = async () => {
     try {
@@ -28,6 +34,25 @@ export const Comments = ({ translations }) => {
       setComments(data);
     } catch (error) {
       console.error('Error fetching comments:', error);
+    }
+  };
+
+  const fetchCommentLikes = async () => {
+    try {
+      const userLikeStatus = {};
+      const likesMap = {};
+      
+      // Fetch likes for each comment
+      for (const comment of comments) {
+        const data = await api.getCommentLikes(comment.id, userId);
+        likesMap[comment.id] = data.likes;
+        userLikeStatus[comment.id] = data.has_liked || false;
+      }
+      
+      setCommentLikes(likesMap);
+      setLikedComments(userLikeStatus);
+    } catch (error) {
+      console.error('Error fetching comment likes:', error);
     }
   };
 
@@ -42,6 +67,7 @@ export const Comments = ({ translations }) => {
       setComment('');
       setRating(5);
       fetchComments();
+      fetchCommentLikes();
     } catch (error) {
       console.error('Error submitting comment:', error);
     } finally {
@@ -53,29 +79,23 @@ export const Comments = ({ translations }) => {
     return '★'.repeat(rating) + '☆'.repeat(5 - rating);
   };
 
-  const handleLike = (commentId) => {
-    const newLikedComments = { ...likedComments, [commentId]: true };
-    const newCommentLikes = { ...commentLikes, [commentId]: (commentLikes[commentId] || 0) + 1 };
-    setLikedComments(newLikedComments);
-    setCommentLikes(newCommentLikes);
+  const handleLike = async (commentId) => {
     try {
-      localStorage.setItem('likedComments', JSON.stringify(newLikedComments));
-      localStorage.setItem('commentLikes', JSON.stringify(newCommentLikes));
+      const data = await api.likeComment(commentId, userId);
+      setCommentLikes(prev => ({ ...prev, [commentId]: data.likes }));
+      setLikedComments(prev => ({ ...prev, [commentId]: true }));
     } catch (error) {
-      console.error('Error saving likes to localStorage:', error);
+      console.error('Error liking comment:', error);
     }
   };
 
-  const handleUnlike = (commentId) => {
-    const newLikedComments = { ...likedComments, [commentId]: false };
-    const newCommentLikes = { ...commentLikes, [commentId]: Math.max(0, (commentLikes[commentId] || 0) - 1) };
-    setLikedComments(newLikedComments);
-    setCommentLikes(newCommentLikes);
+  const handleUnlike = async (commentId) => {
     try {
-      localStorage.setItem('likedComments', JSON.stringify(newLikedComments));
-      localStorage.setItem('commentLikes', JSON.stringify(newCommentLikes));
+      const data = await api.unlikeComment(commentId, userId);
+      setCommentLikes(prev => ({ ...prev, [commentId]: data.likes }));
+      setLikedComments(prev => ({ ...prev, [commentId]: false }));
     } catch (error) {
-      console.error('Error saving likes to localStorage:', error);
+      console.error('Error unliking comment:', error);
     }
   };
 

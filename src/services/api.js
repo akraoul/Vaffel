@@ -40,22 +40,33 @@ export const api = {
     return response.json();
   },
 
-  async likeComment(id) {
+  async likeComment(id, userId) {
     const response = await fetch(`${CONFIG.API_BASE_URL}/comments/${id}/like`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify({ user_id: userId }),
     });
     if (!response.ok) throw new Error('Failed to like comment');
     return response.json();
   },
 
-  async unlikeComment(id) {
+  async unlikeComment(id, userId) {
     const response = await fetch(`${CONFIG.API_BASE_URL}/comments/${id}/like`, {
       method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user_id: userId }),
     });
     if (!response.ok) throw new Error('Failed to unlike comment');
+    return response.json();
+  },
+
+  async getCommentLikes(id, userId) {
+    const response = await fetch(`${CONFIG.API_BASE_URL}/comments/${id}/like?user_id=${userId}`);
+    if (!response.ok) throw new Error('Failed to get comment likes');
     return response.json();
   },
 
